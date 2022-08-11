@@ -1,0 +1,258 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {}
+
+// ===============================color start Here=============================
+
+$primary-color: rgba($color: #999, $alpha: 0.6);
+$hover-color: #f05532ea;
+$text-color: #7393B3;
+$icon-color: rgb(85, 53, 228);
+// $text-color:#818589;
+// $text-color:  	#B6D0E2;
+// ===============================color ends Here=============================
+
+
+// ===============================Navbar start Here=============================
+
+.nav-title {
+	font-weight: bold;
+	color: $hover-color ;
+}
+
+.navbar-modify {
+	border-bottom: 1px solid $primary-color;
+
+}
+
+.middle-section {
+	width: 500px;
+	display: flex;
+
+	.search-box {
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		input {
+			width: 100%;
+			height: 38px;
+			border: 1px solid $hover-color;
+			outline: none;
+			border-radius: 6px;
+			padding: 0px 15px;
+			position: relative;
+			&::placeholder {
+				color: $text-color;
+				text-align: center;
+			}
+
+			&:focus {
+				border: 1px solid $hover-color;
+				
+			}
+			
+		}
+		
+		.line{
+			width: 100%;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+			left: -100%;
+			background-color: $hover-color;
+			transition: all 300ms linear;
+		}
+		button {
+			height: 38px;
+			line-height: 38px;
+			width: 40px;
+			text-align: center;
+			font-size: 24px;
+			position: absolute;
+			right: 0;
+			background-color: transparent;
+			border: none;
+			outline: none;
+			color: $hover-color;
+
+		}
+	}
+}
+
+
+.navbar-right-section {
+	display: flex;
+
+	.chat {
+		height: 48px;
+		line-height: 48px;
+
+		a {
+			font-size: 20px;
+			padding: 0px 10px;
+			position: relative;
+			color: $text-color;
+
+			.chat-badge {
+				position: absolute;
+				color: #fff;
+				background-color: red;
+				font-size: 10px;
+				padding: 2px 4px;
+				top: 0;
+				right: 0;
+				transform: translate(0%, -50%);
+				animation: opacityiconanimation 1s linear infinite;
+			}
+		}
+
+	}
+
+	.admin {
+		height: 50px;
+		width: 50px;
+		border-radius: 100px;
+		overflow: hidden;
+
+		.admin-img {
+			height: 100%;
+			width: 100%;
+		}
+
+	}
+
+}
+
+@keyframes opacityiconanimation {
+	0% {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 1;
+		background-color: red;
+
+	}
+
+	70% {
+		opacity: 1;
+		background-color: $icon-color;
+
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+// ===============================Navbar ends Here=============================
+
+
+// ===============================side start Here=============================
+
+// side bar desing start from her 
+
+.sidebar {
+	border-right: 1px solid $primary-color;
+	height: 100vh;
+
+	.sidebar-only-button {
+		display: flex;
+
+		.sidebar-button {
+			width: 100%;
+			text-align: left;
+			padding: 10px 0px 10px 30px;
+			background-color: transparent;
+			outline: none;
+			text-decoration: none;
+			position: relative;
+
+			&:hover {
+				color: $hover-color;
+				.sidebar-button-left-icon{
+					color: $hover-color;
+				}
+			}
+		}
+
+		.sidebar-button-left-icon {
+			font-size: 20px;
+			color: $icon-color;
+			margin-right: 15px;
+
+		}
+	}
+
+	.sidebar-list-container {
+
+		width: 100%;
+
+		.sidebar-button {
+			width: 100%;
+			text-align: left;
+			padding: 10px 0px 10px 30px;
+			background-color: transparent;
+			outline: none;
+			border: none;
+			position: relative;
+			color: #0d6efd;
+
+			.sidebar-button-left-icon {
+				font-size: 20px;
+				color: $icon-color;
+				margin-right: 20px;
+			}
+
+			.sidebar-button-icon {
+				font-size: 20px;
+				position: absolute;
+				right: 10%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			&:not(.collapsed) {
+				.sidebar-button-icon {
+					transform: translate(-50%, -50%) rotate(180deg);
+				}
+			}
+
+			&:hover {
+				color: $hover-color;
+				.sidebar-button-left-icon{
+					color: $hover-color;
+				}
+			}
+		}
+
+		.sidebar-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			.sidebar-list-item {
+				padding: 10px 0px 10px 45px;
+
+				a {
+					text-decoration: none;
+					display: block;
+
+					.list-item-icon {
+						font-size: 15px;
+						margin-right: 10px;
+					}
+
+					&:hover {
+						color: $hover-color;
+					}
+				}
+			}
+		}
+	}
+}
+// ===============================side ends Here=============================
