@@ -52,78 +52,89 @@
 	<div class="row">
 		<!-- =================sidebar====================== -->
 
-		<div class="col-md-2 ">
+		<div class="col-md-1 " id="sidebar-left-section">
+
 			<div class="sidebar">
+				<a href="#" id="sidebar-toggler-btn"><i class="fa-solid fa-circle-chevron-right"></i></a>
+				<div class="sidebar-main" id="sidebar">
+					<!-- single sidebar button  -->
+					<div class="sidebar-only-button">
+						<a href="#" class="sidebar-button active"><i
+								class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+							DashBoard</a>
+					</div>
 
-				<!-- single sidebar button  -->
-				<div class="sidebar-only-button">
-					<a href="#" class="sidebar-button"><i
-							class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
-						DashBoard</a>
-				</div>
+					<div class="sidebar-only-button">
+						<a href="#" class="sidebar-button"><i
+								class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+							Category</a>
+					</div>
+					<!-- sidebar button containing list  -->
+					<div class="sidebar-list-container">
+						<button class=" sidebar-button collapsed" data-bs-target="#usersection"
+							data-bs-toggle="collapse" aria-controls="usersection"
+							aria-expanded="true">
+							<i class="fa-solid fa-user sidebar-button-left-icon"></i> User<i
+								class="fa-solid fa-circle-chevron-down sidebar-button-icon "></i>
+						</button>
+						<ul class="sidebar-list collapse " id="usersection">
 
-				<div class="sidebar-only-button">
-					<a href="#" class="sidebar-button"><i
-							class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
-						Category</a>
-				</div>
-				<!-- sidebar button containing list  -->
-				<div class="sidebar-list-container">
-					<button class=" sidebar-button collapsed" data-bs-target="#usersection"
-						data-bs-toggle="collapse" aria-controls="usersection"
-						aria-expanded="true">
-						<i class="fa-solid fa-user sidebar-button-left-icon"></i> User <i
-							class="fa-solid fa-arrow-down sidebar-button-icon"></i>
-					</button>
-					<ul class="sidebar-list collapse " id="usersection">
+							<li class="sidebar-list-item">
+								<a href="index.html">
+									<i
+										class="list-item-icon fa-solid fa-user-plus"></i>
+									<span>Add User</span>
+								</a>
+							</li>
+							<li class="sidebar-list-item">
+								<a href="index.html">
+									<i
+										class="list-item-icon fa-solid fa-user-edit"></i>
+									<span>Edit User</span>
+								</a>
+							</li>
+							<li class="sidebar-list-item">
+								<a href="index.html">
+									<i
+										class=" list-item-icon fa-solid fa-user-times"></i>
+									<span>Delete User</span>
+								</a>
+							</li>
+					</div>
+					<!-- sidebar button containing list  -->
+					<div class="sidebar-list-container">
+						<button class=" sidebar-button collapsed" data-bs-target="#usersection2"
+							data-bs-toggle="collapse" aria-controls="usersection2"
+							aria-expanded="true">
+							<i class="fa-solid fa-user sidebar-button-left-icon "></i>
+							Categories
+							<i
+								class="fa-solid fa-circle-chevron-down sidebar-button-icon"></i>
+						</button>
+						<ul class="sidebar-list collapse " id="usersection2">
 
-						<li class="sidebar-list-item">
-							<a href="index.html">
-								<i class="list-item-icon fa-solid fa-user-plus"></i>
-								<span>Add User</span>
-							</a>
-						</li>
-						<li class="sidebar-list-item">
-							<a href="index.html">
-								<i class="list-item-icon fa-solid fa-user-edit"></i>
-								<span>Edit User</span>
-							</a>
-						</li>
-						<li class="sidebar-list-item">
-							<a href="index.html">
-								<i class=" list-item-icon fa-solid fa-user-times"></i>
-								<span>Delete User</span>
-							</a>
-						</li>
-				</div>
-				<!-- sidebar button containing list  -->
-				<div class="sidebar-list-container">
-					<button class=" sidebar-button collapsed" data-bs-target="#usersection2"
-						data-bs-toggle="collapse" aria-controls="usersection2"
-						aria-expanded="true">
-						<i class="fa-solid fa-user sidebar-button-left-icon "></i> User <i
-							class="fa-solid fa-arrow-down sidebar-button-icon"></i>
-					</button>
-					<ul class="sidebar-list collapse " id="usersection2">
-
-						<li class="sidebar-list-item">
-							<a href="index.html">
-								<i class="list-item-icon fa-solid fa-user-plus"></i>
-								<span>Add User</span>
-							</a>
-						</li>
-						<li class="sidebar-list-item">
-							<a href="index.html">
-								<i class="list-item-icon fa-solid fa-user-edit"></i>
-								<span>Edit User</span>
-							</a>
-						</li>
-						<li class="sidebar-list-item">
-							<a href="index.html">
-								<i class=" list-item-icon fa-solid fa-user-times "></i>
-								<span>Delete User</span>
-							</a>
-						</li>
+							<li class="sidebar-list-item">
+								<a href="index.html">
+									<i
+										class="list-item-icon fa-solid fa-user-plus"></i>
+									<span>Add User</span>
+								</a>
+							</li>
+							<li class="sidebar-list-item">
+								<a href="index.html">
+									<i
+										class="list-item-icon fa-solid fa-user-edit"></i>
+									<span>Edit User</span>
+								</a>
+							</li>
+							<li class="sidebar-list-item">
+								<a href="index.html">
+									<i
+										class=" list-item-icon fa-solid fa-user-times "></i>
+									<span>Delete User</span>
+								</a>
+							</li>
+					</div>
 				</div>
 
 			</div>
@@ -133,24 +144,60 @@
 
 		<!-- =================Main Body====================== -->
 
-		<div class="col-md-10">
-
+		<div class="col-md-11" id="sidebar-right-section">
+			<div>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati dolorem architecto harum possimus corporis magnam vel expedita natus necessitatibus libero. Accusantium esse odio quam voluptates ipsam aliquid eaque quaerat nihil?
+				Quidem unde aliquam, inventore distinctio libero sit omnis! Aliquam odit iste impedit quo! Aliquam nostrum doloremque, in mollitia ab porro ratione illum ipsum neque libero, culpa repellendus atque, odit inventore?
+				At aliquam quis animi saepe eos maiores! Consectetur mollitia magni cum blanditiis impedit, id nesciunt laboriosam! Adipisci nihil voluptatem iusto id, dicta autem, consequatur officiis vero nostrum nemo fugiat delectus?
+				Eius nihil tenetur pariatur harum placeat veniam voluptatum sed numquam fuga amet velit obcaecati aut ab, dignissimos quas autem, fugiat doloremque quam esse et sit! Ad vitae delectus quam voluptatibus?
+				Similique incidunt error voluptatum sit eaque nostrum nihil impedit hic eum, magni placeat saepe laboriosam molestiae minima suscipit reiciendis. At possimus velit earum esse minus praesentium magnam quo ipsa? Nostrum.
+				Ea ducimus repellat labore nobis nisi aliquam blanditiis, consectetur eligendi facilis explicabo unde suscipit quaerat eaque ullam est. Expedita dignissimos labore maiores autem assumenda, quo voluptatibus? Numquam, laboriosam? Aliquam, maxime.
+				Fugit dolore aliquam quasi repudiandae, cupiditate quibusdam perferendis qui. Nam quibusdam iste ipsum at quidem maxime incidunt, aperiam consequatur omnis explicabo fugit nesciunt ipsa eaque! Tenetur maiores optio dolorum odit.
+				Assumenda culpa maiores vero? Corporis similique impedit, corrupti cupiditate illo iusto necessitatibus blanditiis dolorum, voluptatum temporibus ipsam sunt hic nam. Expedita ipsum incidunt non! Enim saepe optio perspiciatis impedit assumenda.
+				Ipsa magnam doloribus dolores enim eveniet. Autem magni vitae harum, laboriosam voluptas repellat atque at laudantium ipsam quidem explicabo quae aperiam corrupti accusamus vero repudiandae consectetur, repellendus eaque vel doloremque?
+				Corporis assumenda soluta a nam provident temporibus saepe consectetur eius. Debitis culpa nihil quaerat corporis voluptatibus. Nobis ullam perferendis incidunt quis modi voluptatibus dolorum qui, quos accusantium sint, placeat earum!
+			</div>
 
 
 
 		</div>
 	</div>
+	
 
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="js/jquery/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function () {
+			// search box 
 			let node = $('#input-search-box');
 			$(node).on('focus', function () {
 				$(node).next('.line').css('left', 0);
 			}).on('focusout', function () {
 				$(node).next('.line').css('left', '-100%');
 
+			});
+			// sidebar toggle
+			$("#sidebar-toggler-btn").on('click', function () {
+				if ($("#sidebar").css("left") == "0px") {
+					$("#sidebar").css("left", "-100%");
+					$('#sidebar-toggler-btn').css("left", "10px");
+					$('#sidebar-toggler-btn i').css("transform", "rotate(0deg)");
+					$('#sidebar-right-section').removeClass('col-md-10');
+					$('#sidebar-right-section').addClass('col-md-11');
+					$('#sidebar-left-section').removeClass('col-md-2');
+					$('#sidebar-left-section').addClass('col-md-1');
+				} else {
+					$("#sidebar").css("left", "0");
+					$('#sidebar-toggler-btn').css("left", "100%");
+					$('#sidebar-toggler-btn i').css("transform", "rotate(180deg)");
+					
+					$('#sidebar-right-section').removeClass('col-md-11');
+					$('#sidebar-right-section').addClass('col-md-10');
+					$('#sidebar-left-section').removeClass('col-md-1');
+					$('#sidebar-left-section').addClass('col-md-2');
+
+
+				}
 			});
 
 

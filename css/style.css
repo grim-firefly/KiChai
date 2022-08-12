@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
+
+body {
+  font-family: 'Josefin Sans', sans-serif; }
 
 .nav-title {
   font-weight: bold;
@@ -91,67 +95,106 @@
     background-color: #5535e4; }
   100% {
     opacity: 0; } }
+.active {
+  color: #f05532ea !important; }
+
 .sidebar {
-  border-right: 1px solid rgba(153, 153, 153, 0.6);
+  position: relative;
   height: 100vh; }
-  .sidebar .sidebar-only-button {
-    display: flex; }
-    .sidebar .sidebar-only-button .sidebar-button {
-      width: 100%;
-      text-align: left;
-      padding: 10px 0px 10px 30px;
-      background-color: transparent;
-      outline: none;
-      text-decoration: none;
-      position: relative; }
-      .sidebar .sidebar-only-button .sidebar-button:hover {
-        color: #f05532ea; }
-        .sidebar .sidebar-only-button .sidebar-button:hover .sidebar-button-left-icon {
+  .sidebar #sidebar-toggler-btn {
+    position: absolute;
+    left: 10px;
+    top: 450px;
+    text-decoration: none;
+    border: 1px solid #f05532ea;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: all 400ms linear;
+    background-color: #f05532ea;
+    z-index: 1;
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    border-radius: 40px; }
+    .sidebar #sidebar-toggler-btn i {
+      font-size: 30px;
+      margin-top: 2px;
+      color: #fff; }
+  .sidebar .sidebar-main {
+    left: -100%;
+    position: absolute;
+    width: 100%;
+    border-right: 1px solid rgba(153, 153, 153, 0.6);
+    height: 100vh;
+    transition: all 400ms linear; }
+    .sidebar .sidebar-main .sidebar-only-button {
+      display: flex; }
+      .sidebar .sidebar-main .sidebar-only-button .sidebar-button {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0px 10px 30px;
+        background-color: transparent;
+        outline: none;
+        text-decoration: none;
+        position: relative;
+        color: #0d6efd;
+        letter-spacing: 1px; }
+        .sidebar .sidebar-main .sidebar-only-button .sidebar-button:hover {
           color: #f05532ea; }
-    .sidebar .sidebar-only-button .sidebar-button-left-icon {
-      font-size: 20px;
-      color: #5535e4;
-      margin-right: 15px; }
-  .sidebar .sidebar-list-container {
-    width: 100%; }
-    .sidebar .sidebar-list-container .sidebar-button {
-      width: 100%;
-      text-align: left;
-      padding: 10px 0px 10px 30px;
-      background-color: transparent;
-      outline: none;
-      border: none;
-      position: relative;
-      color: #0d6efd; }
-      .sidebar .sidebar-list-container .sidebar-button .sidebar-button-left-icon {
-        font-size: 20px;
-        color: #5535e4;
-        margin-right: 20px; }
-      .sidebar .sidebar-list-container .sidebar-button .sidebar-button-icon {
-        font-size: 20px;
-        position: absolute;
-        right: 10%;
-        top: 50%;
-        transform: translate(-50%, -50%); }
-      .sidebar .sidebar-list-container .sidebar-button:not(.collapsed) .sidebar-button-icon {
-        transform: translate(-50%, -50%) rotate(180deg); }
-      .sidebar .sidebar-list-container .sidebar-button:hover {
-        color: #f05532ea; }
-        .sidebar .sidebar-list-container .sidebar-button:hover .sidebar-button-left-icon {
-          color: #f05532ea; }
-    .sidebar .sidebar-list-container .sidebar-list {
-      list-style: none;
-      padding: 0;
-      margin: 0; }
-      .sidebar .sidebar-list-container .sidebar-list .sidebar-list-item {
-        padding: 10px 0px 10px 45px; }
-        .sidebar .sidebar-list-container .sidebar-list .sidebar-list-item a {
-          text-decoration: none;
-          display: block; }
-          .sidebar .sidebar-list-container .sidebar-list .sidebar-list-item a .list-item-icon {
-            font-size: 15px;
-            margin-right: 10px; }
-          .sidebar .sidebar-list-container .sidebar-list .sidebar-list-item a:hover {
+          .sidebar .sidebar-main .sidebar-only-button .sidebar-button:hover .sidebar-button-left-icon {
             color: #f05532ea; }
+      .sidebar .sidebar-main .sidebar-only-button .sidebar-button-left-icon {
+        font-size: 20px;
+        margin-right: 15px; }
+    .sidebar .sidebar-main .sidebar-list-container {
+      width: 100%; }
+      .sidebar .sidebar-main .sidebar-list-container .sidebar-button {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0px 10px 30px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        position: relative;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #0d6efd; }
+        .sidebar .sidebar-main .sidebar-list-container .sidebar-button .sidebar-button-left-icon {
+          font-size: 20px;
+          margin-right: 20px; }
+        .sidebar .sidebar-main .sidebar-list-container .sidebar-button .sidebar-button-icon {
+          font-size: 20px;
+          position: absolute;
+          right: 10%;
+          top: 50%;
+          transition: all 300ms linear;
+          transform: translate(-50%, -50%); }
+        .sidebar .sidebar-main .sidebar-list-container .sidebar-button:not(.collapsed) .sidebar-button-icon {
+          transform: translate(-50%, -50%) rotate(180deg); }
+        .sidebar .sidebar-main .sidebar-list-container .sidebar-button:hover {
+          color: #f05532ea; }
+          .sidebar .sidebar-main .sidebar-list-container .sidebar-button:hover .sidebar-button-left-icon {
+            color: #f05532ea; }
+      .sidebar .sidebar-main .sidebar-list-container .sidebar-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        transition: all 500ms linear; }
+        .sidebar .sidebar-main .sidebar-list-container .sidebar-list .sidebar-list-item {
+          padding: 10px 0px 10px 45px; }
+          .sidebar .sidebar-main .sidebar-list-container .sidebar-list .sidebar-list-item a {
+            text-decoration: none;
+            display: block; }
+            .sidebar .sidebar-main .sidebar-list-container .sidebar-list .sidebar-list-item a .list-item-icon {
+              font-size: 15px;
+              margin-right: 10px; }
+            .sidebar .sidebar-main .sidebar-list-container .sidebar-list .sidebar-list-item a:hover {
+              color: #f05532ea; }
+
+#sidebar-right-section {
+  transition: all 300ms linear; }
+
+#sidebar-left-section {
+  transition: all 300ms linear; }
 
 /*# sourceMappingURL=style.css.map */
