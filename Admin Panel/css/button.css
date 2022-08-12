@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.animate-button {
+  width: 120px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  background: transparent; }
+  .animate-button::before {
+    content: "";
+    height: 110%;
+    width: 110%;
+    top: -130%;
+    left: -5%;
+    position: absolute;
+    background-color: #f05532ea;
+    transition: all 300ms linear; }
+  .animate-button .btn-animate-top {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 0;
+    left: -100%;
+    background-color: #f05532ea;
+    animation: lefttoRight 1s linear infinite; }
+  .animate-button .btn-animate-right {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #f05532ea;
+    animation: toptoBottom 1s linear infinite;
+    animation-delay: 0.25s; }
+  .animate-button .btn-animate-bottom {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    right: -100%;
+    background-color: #f05532ea;
+    animation: righttoleft 1s linear infinite;
+    animation-delay: 0.50s; }
+  .animate-button .btn-animate-left {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+    background-color: #f05532ea;
+    animation: bottomtotop 1s linear infinite;
+    animation-delay: 0.75s; }
+  .animate-button .btn-text {
+    color: #f05532ea;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    white-space: nowrap; }
+  .animate-button:hover::before {
+    top: -5%; }
+  .animate-button:hover .btn-text {
+    color: #fff; }
+  .animate-button:hover .btn-animate-left,
+  .animate-button:hover .btn-animate-bottom,
+  .animate-button:hover .btn-animate-right,
+  .animate-button:hover .btn-animate-top {
+    animation-play-state: paused; }
+
+@keyframes lefttoRight {
+  0% {
+    left: -100%; }
+  50%,
+	100% {
+    left: 100%; } }
+@keyframes toptoBottom {
+  0% {
+    top: -100%; }
+  50%,
+	100% {
+    top: 100%; } }
+@keyframes righttoleft {
+  0% {
+    right: -100%; }
+  50%,
+	100% {
+    right: 100%; } }
+@keyframes bottomtotop {
+  0% {
+    bottom: -100%; }
+  50%,
+	100% {
+    bottom: 100%; } }
+
+/*# sourceMappingURL=button.css.map */

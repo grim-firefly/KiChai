@@ -1,0 +1,42 @@
+/* Footer Section */
+
+footer {
+    background-color: aliceblue;
+    padding: 80px;
+}
+
+.first-row-section {
+    width: 500px;
+
+}
+
+
+
+.paragraph {
+    width: 500px;
+}
+
+.categori1 {
+    margin-top: 20px;
+}
+
+.categori2 {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.categori1 a {
+    margin-top: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.categori2 a {
+    text-decoration: none;
+    color: black;
+}
+
+.fourth-row-section img {
+    width: 330px;
+    margin-bottom: 40px;
+}
