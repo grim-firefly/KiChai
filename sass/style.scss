@@ -313,7 +313,10 @@ $btn-color: #0d6efd;
 	}
 }
 
-
+.page-title {
+	display: flex;
+	justify-content: center;
+}
 
 #sidebar-right-section{
 	transition: all 300ms linear;

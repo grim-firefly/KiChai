@@ -191,6 +191,10 @@ body {
             .sidebar .sidebar-main .sidebar-list-container .sidebar-list .sidebar-list-item a:hover {
               color: #f05532ea; }
 
+.page-title {
+  display: flex;
+  justify-content: center; }
+
 #sidebar-right-section {
   transition: all 300ms linear; }
 
