@@ -38,7 +38,7 @@
     position: relative; }
     .modal .input-box input::placeholder {
       color: #7393B3;
-      text-align: center; }
+      text-align: left; }
     .modal .input-box input:focus {
       border: 1px solid #f05532ea; }
   .modal .input-box .line {
