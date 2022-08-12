@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/dashboard.css">
 	<link rel="stylesheet" href="css/button.css">
 	<link rel="stylesheet" href="css/category.css">
+	<link rel="stylesheet" href="css/product.css">
 	<script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
 </head>
 
@@ -75,12 +76,12 @@
 								class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							Category</a>
 					</div>
-					
+
 					<!-- sidebar button containing list  -->
 					<div class="sidebar-list-container">
-						<button class="active sidebar-button collapsed"
-							data-bs-target="#usersection" data-bs-toggle="collapse"
-							aria-controls="usersection" aria-expanded="true">
+						<button class=" sidebar-button collapsed" data-bs-target="#usersection"
+							data-bs-toggle="collapse" aria-controls="usersection"
+							aria-expanded="true">
 							<i class="fa-solid fa-user sidebar-button-left-icon"></i>
 							Users<i
 								class="fa-solid fa-circle-chevron-down sidebar-button-icon "></i>
@@ -89,7 +90,7 @@
 
 
 							<li class="sidebar-list-item">
-								<a href="user.html" class="active">
+								<a href="user.html">
 									<i
 										class="list-item-icon fa-solid fa-user-edit"></i>
 									<span> User</span>
@@ -103,9 +104,9 @@
 								</a>
 							</li>
 					</div>
-
 					<div class="sidebar-only-button">
-						<a href="product.html" class="sidebar-button "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+						<a href="product.html" class="sidebar-button active "><i
+								class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 							Products</a>
 					</div>
 
@@ -124,7 +125,7 @@
 
 				</div>
 				<div class="page-title col-3">
-					<h1>Users</h1>
+					<h1>Products</h1>
 				</div>
 				<div class="col-5">
 
@@ -142,7 +143,7 @@
 						<div class="count">
 							<h1>9999</h1>
 						</div>
-						<div class="title">Total Users</div>
+						<div class="title">Total Products</div>
 
 					</div>
 				</div>
@@ -157,11 +158,11 @@
 			<div class="container mt-5">
 
 				<!-- ================add modal starts===================== -->
-				<div class="modal fade" id="add-user" tabindex="-1" aria-hidden="true">
+				<div class="modal fade" id="add-product" tabindex="-1" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Add User</h5>
+								<h5 class="modal-title">Add Product</h5>
 								<button type="button" class="btn-close modal-close"
 									data-bs-dismiss="modal"
 									aria-label="Close"></button>
@@ -169,26 +170,42 @@
 							<div class="modal-body">
 								<form action="">
 									<div class="input-box">
-										<input placeholder="username"
-											type="text" name="search"
+										<input placeholder="title" type="text"
 											class="input-box-input"
-											name="username" />
+											name="Product-title" />
 										<span class="line"></span>
 
 
 									</div>
 									<div class="input-box mt-3">
-										<input placeholder="email" type="text"
-											name="search"
-											class="input-box-input"
-											name="password" />
+										<input placeholder="price" type="text"
+											name="price"
+											class="input-box-input" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
-										<input placeholder="passoword"
-											type="text" name="search"
-											class="input-box-input"
-											name="email" />
+										<input placeholder="quantity"
+											type="text" name="qty"
+											class="input-box-input" />
+										<span class="line"></span>
+									</div>
+									<div class="input-box mt-3">
+										<input placeholder="product image"
+
+											type="file"
+											class="input-box-input "
+											name="pimg" />
+										<span class="line"></span>
+									</div>
+									<div class="input-box mt-3">
+										<textarea
+											type="file"
+											class="input-box-description"
+											name="product-description"
+											
+											>
+											product description
+											</textarea>
 										<span class="line"></span>
 									</div>
 								</form>
@@ -200,8 +217,7 @@
 									changes</button> -->
 								<button class="animate-button" data-bs-toggle="modal"
 									data-bs-target="#add-category"
-									data-bs-dismiss="modal"
-									>
+									data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
 									<span class="btn-animate-right"></span>
@@ -217,11 +233,11 @@
 
 
 				<!-- ================Edit modal starts===================== -->
-				<div class="modal fade" id="edit-user" tabindex="-1" aria-hidden="true">
+				<div class="modal fade" id="edit-product" tabindex="-1" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Edit User</h5>
+								<h5 class="modal-title">Edit Product</h5>
 								<button type="button" class="btn-close modal-close"
 									data-bs-dismiss="modal"
 									aria-label="Close"></button>
@@ -229,29 +245,51 @@
 							<div class="modal-body">
 								<form action="">
 									<div class="input-box">
-										<label for="username">Username</label>
-										<input placeholder="username"
-											type="text" name="search"
+										<label for="Product-title">Title</label>
+										<input placeholder="title" type="text"
 											class="input-box-input"
-											name="username" />
+											name="Product-title" />
 										<span class="line"></span>
 
 
 									</div>
-									<div class="input-box  mt-1">
-										<label for="password">Email</label>
-										<input placeholder="email" type="text"
-											name="search"
-											class="input-box-input"
-											name="password" />
+									<div class="input-box mt-3">
+										<label for="price">Price</label>
+
+										<input placeholder="price" type="text"
+											name="price"
+											class="input-box-input" />
 										<span class="line"></span>
 									</div>
-									<div class="input-box  mt-1">
-										<label for="email">Password</label>
-										<input placeholder="passoword"
-											type="text" name="search"
-											class="input-box-input"
-											name="email" />
+									<div class="input-box mt-3">
+										<label for="qty">Quantity</label>
+
+										<input placeholder="quantity"
+											type="text" name="qty"
+											class="input-box-input" />
+										<span class="line"></span>
+									</div>
+									<div class="input-box mt-3">
+										<label for="pimg">Product Image</label>
+
+										<input placeholder="product image"
+
+											type="file"
+											class="input-box-input "
+											name="pimg" />
+										<span class="line"></span>
+									</div>
+									<div class="input-box mt-3">
+										<label for="input-box-description">Description</label>
+
+										<textarea
+											type="file"
+											class="input-box-description"
+											name="product-description"
+											
+											>
+											product description
+											</textarea>
 										<span class="line"></span>
 									</div>
 								</form>
@@ -262,8 +300,8 @@
 								<!-- <button type="button" class="btn btn-success">Save
 									changes</button> -->
 								<button class="animate-button" data-bs-toggle="modal"
-									data-bs-dismiss="modal"
-									>
+									data-bs-target="#add-category"
+									data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
 									<span class="btn-animate-right"></span>
@@ -280,7 +318,7 @@
 
 				<div class="add-new-category mb-1">
 					<button class="animate-button" data-bs-toggle="modal"
-						data-bs-target="#add-user">
+						data-bs-target="#add-product">
 						<i class="fa-solid fa-plus"></i>
 						<span class="btn-animate-top"></span>
 						<span class="btn-animate-right"></span>
@@ -290,114 +328,165 @@
 					</button>
 				</div>
 				<div class="row">
-					<table class="table border table-hover" id="user-table">
+					<table class="table border table-hover" id="product-table">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">username</th>
-								<th scope="col">email</th>
+								<th scope="col">Image</th>
+								<th scope="col">Name</th>
+								<th scope="col">Price</th>
+								<th scope="col">Stock</th>
 								<th scope="col">Created at</th>
 								<th scope="col">Options</th>
 							</tr>
 						</thead>
 						<tbody>
-							
+
 
 							<tr>
 								<th scope="row">1</th>
+								<td> <img class style="width: 50px; height:50px;"
+										src="asset/images/Products/mouse.jpg"
+										alt="product image" srcset=""> </td>
 								<td>illus1on</td>
-								<td>illus1on@gmail.com</td>
+								<td>39,910</td>
+								<td>407</td>
 								<td>13 Aug, 2222</td>
 								<td>
-									
+
 									<button class="btn btn-primary btn-sm"
 										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
+										data-bs-target="#edit-product">
 										<i class="fa-solid fa-edit"></i>
 									</button>
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
 									</button>
-									<button
-										class="btn btn-warning btn-sm ban-btn">
-										<i class="fa-solid fa-ban"></i>
-									</button>
+									<a href="product-view.html"
+										class="btn btn-info btn-sm view-btn">
+										<i
+											class="fa-solid fa-eye text-white"></i>
+									</a>
+
 								</td>
 							</tr>
-							
 
 							<tr>
 								<th scope="row">1</th>
+								<td> <img class style="width: 50px; height:50px;"
+										src="asset/images/Products/mouse.jpg"
+										alt="product image" srcset=""> </td>
 								<td>illus1on</td>
-								<td>illus1on@gmail.com</td>
+								<td>39,910</td>
+								<td>407</td>
 								<td>13 Aug, 2222</td>
 								<td>
-									
+
 									<button class="btn btn-primary btn-sm"
 										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
+										data-bs-target="#edit-product">
 										<i class="fa-solid fa-edit"></i>
 									</button>
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
 									</button>
-									<button
-										class="btn btn-warning btn-sm ban-btn">
-										<i class="fa-solid fa-ban"></i>
-									</button>
+									<a href="product-view.html"
+										class="btn btn-info btn-sm view-btn">
+										<i
+											class="fa-solid fa-eye text-white"></i>
+									</a>
+
 								</td>
 							</tr>
-							
 
 							<tr>
 								<th scope="row">1</th>
+								<td> <img class style="width: 50px; height:50px;"
+										src="asset/images/Products/mouse.jpg"
+										alt="product image" srcset=""> </td>
 								<td>illus1on</td>
-								<td>illus1on@gmail.com</td>
+								<td>39,910</td>
+								<td>407</td>
 								<td>13 Aug, 2222</td>
 								<td>
-									
+
 									<button class="btn btn-primary btn-sm"
 										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
+										data-bs-target="#edit-product">
 										<i class="fa-solid fa-edit"></i>
 									</button>
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
 									</button>
-									<button
-										class="btn btn-warning btn-sm ban-btn">
-										<i class="fa-solid fa-ban"></i>
-									</button>
+									<a href="product-view.html"
+										class="btn btn-info btn-sm view-btn">
+										<i
+											class="fa-solid fa-eye text-white"></i>
+									</a>
+
 								</td>
 							</tr>
-							
 
 							<tr>
 								<th scope="row">1</th>
+								<td> <img class style="width: 50px; height:50px;"
+										src="asset/images/Products/mouse.jpg"
+										alt="product image" srcset=""> </td>
 								<td>illus1on</td>
-								<td>illus1on@gmail.com</td>
+								<td>39,910</td>
+								<td>407</td>
 								<td>13 Aug, 2222</td>
 								<td>
-									
+
 									<button class="btn btn-primary btn-sm"
 										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
+										data-bs-target="#edit-product">
 										<i class="fa-solid fa-edit"></i>
 									</button>
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
 									</button>
-									<button
-										class="btn btn-warning btn-sm ban-btn">
-										<i class="fa-solid fa-ban"></i>
-									</button>
+									<a href="product-view.html"
+										class="btn btn-info btn-sm view-btn">
+										<i
+											class="fa-solid fa-eye text-white"></i>
+									</a>
+
 								</td>
 							</tr>
-							
+
+							<tr>
+								<th scope="row">1</th>
+								<td> <img class style="width: 50px; height:50px;"
+										src="asset/images/Products/mouse.jpg"
+										alt="product image" srcset=""> </td>
+								<td>illus1on</td>
+								<td>39,910</td>
+								<td>407</td>
+								<td>13 Aug, 2222</td>
+								<td>
+
+									<button class="btn btn-primary btn-sm"
+										data-bs-toggle="modal"
+										data-bs-target="#edit-product">
+										<i class="fa-solid fa-edit"></i>
+									</button>
+									<button
+										class="btn btn-danger btn-sm delete-btn">
+										<i class="fa-solid fa-trash"></i>
+									</button>
+									<a href="product-view.html"
+										class="btn btn-info btn-sm view-btn">
+										<i
+											class="fa-solid fa-eye text-white"></i>
+									</a>
+
+								</td>
+							</tr>
 
 
 						</tbody>
@@ -456,6 +545,19 @@
 				$(this).next('.line').css('left', '-100%');
 
 			});
+
+
+
+			$('.input-box-description').on('focus', function () {
+				$(this).next('.line').css('left', 0);
+			}).on('focusout', function () {
+				$(this).next('.line').css('left', '-100%');
+
+			});
+
+
+
+
 			$('.delete-btn').on('click', function () {
 				Swal.fire({
 					title: 'Are you sure?',
@@ -475,25 +577,7 @@
 					}
 				});
 			});
-			$('.ban-btn').on('click', function () {
-				Swal.fire({
-					title: 'Are you sure?',
-					text: "Though , You can revert this later",
-					icon: 'warning',
-					showCancelButton: true,
-					confirmButtonColor: '#3085d6',
-					cancelButtonColor: '#d33',
-					confirmButtonText: 'Yes, ban this user!'
-				}).then((result) => {
-					if (result.isConfirmed) {
-						Swal.fire(
-							'banned!',
-							'this user has been banned.',
-							'success'
-						)
-					}
-				});
-			});
+
 
 		});
 

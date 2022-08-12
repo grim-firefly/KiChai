@@ -120,6 +120,9 @@ body {
       font-size: 30px;
       margin-top: 2px;
       color: #fff; }
+    .sidebar #sidebar-toggler-btn:hover {
+      background-color: #0d6efd;
+      color: #FFF; }
   .sidebar .sidebar-main {
     left: -100%;
     position: absolute;
