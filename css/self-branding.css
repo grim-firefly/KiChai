@@ -111,6 +111,40 @@
     margin-right: 10px;
 }
 
+.text-field {
+    padding-top: 40px;
+    padding-left: 60px;
+}
+
+.text-field h1 {
+    margin-bottom: 20px;
+}
+
+.text-field p {
+    padding-bottom: 40px;
+}
+
+.text-field a {
+    background-color: #CE2F3D;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+
+}
+
+.text-field h1 {
+    color: white;
+    text-shadow: #373E4F;
+}
+
+.text-field p {
+    color: white;
+    text-shadow: #373E4F;
+}
+
+
 .popular {
     background-image: url('../image/bagus-hernawan-A6JxK37IlPo-unsplash.jpg');
     background-repeat: no-repeat;
@@ -118,4 +152,20 @@
     height: 400px;
     border-radius: 20px;
     margin-left: 10px;
+}
+
+.text-sections h2 {
+    text-align: center;
+}
+
+.text-sections p {
+    text-align: center;
+}
+
+.offer-cards {
+    padding: 100px;
+}
+
+.align {
+    justify-content: center;
 }
