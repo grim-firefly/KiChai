@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="contactUs.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body class="container">
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 col1Style">
+        <div class="rowcontainposition">
+          <div>
+            <img
+              class="card-img-top email-logo"
+              src="image/mail-logo.svg"
+              alt="Send mail"
+            />
+          </div>
+
+          <div class="card-body">
+            <p class="card-text">
+              If you have questions or just want to get in touch, use the form
+              below. We look forward to hearing form you!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+        <div>
+          <h1>Contact Us</h1>
+          <div class="textstyle">
+            <form action="action_page.php">
+              <label for="name"></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+              />
+
+              <label for="username"></label>
+              <input
+                type="text"
+                id="useremail"
+                name="useremail"
+                placeholder="User Email"
+              />
+
+              <label for="message"></label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                style="height: 200px"
+              ></textarea>
+              <div class="btnstyle">
+                <input type="submit" value="Send" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
