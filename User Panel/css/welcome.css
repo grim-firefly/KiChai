@@ -3,3 +3,175 @@
 }
 
 /* Self Branding */
+
+.self-branding {
+    padding: 40px 100px;
+    background-color: #373E4F;
+}
+
+.large-branding {
+    background-image: url('../image/dell-Gi3iUJ1FwxI-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.sub-branding {
+    background-image: url('../image/watch.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.elements-container {
+    margin: 100px 60px;
+    /* background-color: red; */
+}
+
+.hot-deal-text {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.special-offer {
+    font-weight: bold;
+    font-size: 40px;
+    color: #CE2F3D;
+    margin: 10px 0px;
+}
+
+.normal-text {
+    margin: 20px 0px;
+    width: 500px;
+    color: rgb(30, 29, 29);
+}
+
+.get-the-deal {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #CE2F3D;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.see-other-promos {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 10px;
+
+}
+
+.sub-branding .best-seller {
+    color: #CE2F3D;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sub-branding p {
+    text-align: center;
+    margin-top: 350px;
+}
+
+.sub-branding a {
+    background-color: #CE2F3D;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.card1 {
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.card1 .text-container {
+    padding-left: 10px;
+}
+
+.card1 .text-container h3 {
+    color: #CE2F3D;
+    font-size: 23px;
+}
+
+.card1 .text-container p {
+    color: #373E4F;
+}
+
+.rocommend {
+    background-image: url('../image/dell-Gi3iUJ1FwxI-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.text-field {
+    padding-top: 40px;
+    padding-left: 60px;
+}
+
+.text-field h1 {
+    margin-bottom: 20px;
+}
+
+.text-field p {
+    padding-bottom: 40px;
+}
+
+.text-field a {
+    background-color: #CE2F3D;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+
+}
+
+.text-field h1 {
+    color: white;
+    text-shadow: #373E4F;
+}
+
+.text-field p {
+    color: white;
+    text-shadow: #373E4F;
+}
+
+
+.popular {
+    background-image: url('../image/bagus-hernawan-A6JxK37IlPo-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.text-sections h2 {
+    text-align: center;
+}
+
+.text-sections p {
+    text-align: center;
+}
+
+.offer-cards {
+    padding: 100px;
+}
+
+.align {
+    justify-content: center;
+}
