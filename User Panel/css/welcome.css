@@ -2,6 +2,10 @@
     width: 200px;
 }
 
+.nav-container {
+    margin: 0px 80px;
+}
+
 /* Self Branding */
 
 .self-branding {
