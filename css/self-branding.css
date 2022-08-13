@@ -49,6 +49,7 @@
     padding: 10px 20px;
     background-color: #CE2F3D;
     border-radius: 10px;
+    margin-right: 10px;
 }
 
 .see-other-promos {
@@ -59,4 +60,62 @@
     background-color: black;
     border-radius: 10px;
 
+}
+
+.sub-branding .best-seller {
+    color: #CE2F3D;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sub-branding p {
+    text-align: center;
+    margin-top: 350px;
+}
+
+.sub-branding a {
+    background-color: #CE2F3D;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.card1 {
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.card1 .text-container {
+    padding-left: 10px;
+}
+
+.card1 .text-container h3 {
+    color: #CE2F3D;
+    font-size: 23px;
+}
+
+.card1 .text-container p {
+    color: #373E4F;
+}
+
+.rocommend {
+    background-image: url('../image/dell-Gi3iUJ1FwxI-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.popular {
+    background-image: url('../image/bagus-hernawan-A6JxK37IlPo-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    border-radius: 20px;
+    margin-left: 10px;
 }
