@@ -1,11 +1,62 @@
 .self-branding {
+    padding: 40px 100px;
     background-color: #373E4F;
 }
 
-.col-8 {
-    background-color: red;
+.large-branding {
+    background-image: url('../image/drone.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    border-radius: 20px;
 }
 
-.col-4 {
-    background-color: blue;
+.sub-branding {
+    background-image: url('../image/watch.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.elements-container {
+    margin: 100px 60px;
+    /* background-color: red; */
+}
+
+.hot-deal-text {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.special-offer {
+    font-weight: bold;
+    font-size: 40px;
+    color: #CE2F3D;
+    margin: 10px 0px;
+}
+
+.normal-text {
+    margin: 20px 0px;
+    width: 500px;
+    color: rgb(30, 29, 29);
+}
+
+.get-the-deal {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #CE2F3D;
+    border-radius: 10px;
+}
+
+.see-other-promos {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 10px;
+
 }
