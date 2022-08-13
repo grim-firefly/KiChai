@@ -78,7 +78,7 @@ h2, h1{
 .shopping-cart .summary{
 
     background-color: #f7fbff;
-    height: 50%;
+    height: 30%;
     padding: 30px;
     border:1px solid blue
 }
@@ -107,6 +107,6 @@ h2, h1{
 	float: right;
 }
 
-.shopping-cart .summary button{
+.shopping-cart .summary .btnstyle{
 	margin-top: 20px;
 }
