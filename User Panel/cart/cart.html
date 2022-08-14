@@ -4,12 +4,92 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
+    <title>Your cart | KiChai?</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="cart.css" />
     <script src="js/bootstrap.min.js"></script>
   </head>
+
   <body>
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="left-side d-flex">
+        <a class="navbar-brand" href="../home.html"
+          ><img src="image/logo.svg" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Our Products
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="product-list.html"
+                  >All Products</a
+                >
+                <a class="dropdown-item" href="product-list.html">Drone</a>
+                <a class="dropdown-item" href="product-list.html">Laptop</a>
+                <a class="dropdown-item" href="product-list.html">SmartPhone</a>
+                <a class="dropdown-item" href="product-list.html"
+                  >Play Station</a
+                >
+                <a class="dropdown-item" href="product-list.html">Camera</a>
+                <a class="dropdown-item" href="product-list.html">Headphons</a>
+                <a class="dropdown-item" href="product-list.html">Keyboards</a>
+                <a class="dropdown-item" href="product-list.html">Mouse</a>
+                <a class="dropdown-item" href="product-list.html">Other</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link ml-4 mr-4" href="../about-us/aboutUs.html"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact-us/contactUs.html"
+                >Contact us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link button-cart" href="#">Your Cart</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link button-profile ml-5" href="../user-profile.html"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <main class="page">
       <section class="shopping-cart">
         <div>
@@ -243,12 +323,14 @@
                     <span class="text">Total</span
                     ><span class="price">300000</span>
                   </div>
-                  <button
-                    type="button"
-                    class="btn btn-primary btn-lg btn-block"
-                  >
-                    Checkout
-                  </button>
+                  <a href="../checkout/paymentmethod.html">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-lg btn-block"
+                    >
+                      Checkout
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>

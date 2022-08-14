@@ -29,17 +29,13 @@
     margin-left: 40px;
 }
 
-.specifications .buttons {
-    margin: 40px;
+.price {
+    font-weight: bold;
 }
 
-.specifications .buttons a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: aliceblue;
-    background-color: black;
-    padding: 20px 40px;
-    border-radius: 10px;
+.specifications .buttons {
+    margin: 40px;
+    margin-left: 60px;
 }
 
 /* Footer Section */
