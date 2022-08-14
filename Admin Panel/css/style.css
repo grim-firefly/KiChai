@@ -124,9 +124,9 @@ body {
       background-color: #0d6efd;
       color: #FFF; }
   .sidebar .sidebar-main {
-    left: -100%;
+    left: -120%;
     position: absolute;
-    width: 100%;
+    width: 90%;
     border-right: 1px solid rgba(153, 153, 153, 0.6);
     height: 100vh;
     transition: all 400ms linear; }

@@ -8,7 +8,7 @@ body {
   font-family: 'Josefin Sans', sans-serif; }
 
 .dashboard-card {
-  max-width: 390px;
+  max-width: 300px;
   border-radius: 10px;
   background-color: #f05532ea;
   color: white;
