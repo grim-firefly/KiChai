@@ -93,6 +93,9 @@ body {
     color: #0d6efd; }
     .navbar-right-section .admin-menu .nav-dropdown-menu li a:hover {
       color: #f05532ea; }
+    .navbar-right-section .admin-menu .nav-dropdown-menu li a:active {
+      color: #f05532ea;
+      background-color: #FFF; }
 
 @keyframes opacityiconanimation {
   0% {

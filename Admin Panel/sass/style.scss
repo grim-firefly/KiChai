@@ -149,6 +149,10 @@ $btn-color: #0d6efd;
 					&:hover{
 						color:$hover-color;
 					}
+					&:active{
+						color:$hover-color;
+						background-color: #FFF;
+					}
 				}
 			}
 		}
