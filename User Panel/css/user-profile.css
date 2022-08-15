@@ -1,0 +1,86 @@
+.navbar {
+    padding: 10px 100px;
+    justify-content: space-between;
+}
+
+.navbar img {
+    width: 150px;
+}
+
+.button-cart {
+    color: white !important;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.button-profile {
+    color: white !important;
+    background-color: black;
+    border-radius: 10px;
+}
+
+/* Profile section */
+
+.profile-section {
+    margin: 50px 100px;
+}
+
+.dp img {
+    width: 300px;
+    border-radius: 50%;
+}
+
+.text h2 {
+    margin-bottom: 20px;
+}
+
+.text p {
+    font-size: 25px;
+}
+
+.profile {
+    justify-content: center;
+}
+
+/* Footer Section */
+
+footer {
+    background-color: aliceblue;
+    padding: 80px;
+}
+
+.first-row-section {
+    width: 500px;
+
+}
+
+
+
+.paragraph {
+    width: 500px;
+}
+
+.categori1 {
+    margin-top: 20px;
+}
+
+.categori2 {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.categori1 a {
+    margin-top: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.categori2 a {
+    text-decoration: none;
+    color: black;
+}
+
+.fourth-row-section img {
+    width: 330px;
+    margin-bottom: 40px;
+}
