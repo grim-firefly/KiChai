@@ -205,12 +205,12 @@ $btn-color: #0d6efd;
 
 
 	.sidebar-main {
-		left: -100%;
 		position: absolute;
-		width: 100%;
+		width: 230px;
 		border-right: 1px solid $primary-color;
 		height: 100vh;
 		transition: all 400ms linear;
+		left: -230px;
 
 		.sidebar-only-button {
 			display: flex;
@@ -319,6 +319,7 @@ $btn-color: #0d6efd;
 .page-title {
 	display: flex;
 	justify-content: center;
+	color: $hover-color;
 }
 
 #sidebar-right-section{

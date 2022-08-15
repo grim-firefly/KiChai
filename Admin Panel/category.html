@@ -129,31 +129,9 @@
 
 				</div>
 			</div>
-			<div class="row mt-5">
-				<div class="col-4">
+			
 
-				</div>
-				<div class="dashboard-card col-3  ">
-					<div class="card-left-section">
-						<i class="fa-solid fa-rectangle-list"></i>
-					</div>
-					<div class="card-right-section">
-						<div class="count">
-							<h1>9999</h1>
-						</div>
-						<div class="title">Total Categories</div>
-
-					</div>
-				</div>
-				<div class="col-5">
-
-				</div>
-
-
-
-			</div>
-
-			<div class="container mt-5">
+			<div class="container-fluid mt-1">
 
 				<!-- ================add modal starts===================== -->
 				<div class="modal fade" id="add-category" tabindex="-1" aria-hidden="true">
@@ -361,7 +339,7 @@
 			// sidebar toggle
 			$("#sidebar-toggler-btn").on('click', function () {
 				if ($("#sidebar").css("left") == "0px") {
-					$("#sidebar").css("left", "-120%");
+					$("#sidebar").css("left", "-230px");
 					$('#sidebar-toggler-btn').css("left", "10px");
 					$('#sidebar-toggler-btn i').css("transform", "rotate(0deg)");
 					$('#sidebar-right-section').removeClass('col-md-10');
@@ -370,7 +348,7 @@
 					$('#sidebar-left-section').addClass('col-md-1');
 				} else {
 					$("#sidebar").css("left", "0");
-					$('#sidebar-toggler-btn').css("left", "88%");
+					$('#sidebar-toggler-btn').css("left", "230px");
 					$('#sidebar-toggler-btn i').css("transform", "rotate(180deg)");
 
 					$('#sidebar-right-section').removeClass('col-md-11');
