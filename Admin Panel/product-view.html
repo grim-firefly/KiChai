@@ -42,12 +42,18 @@
 							class="badge chat-badge">99</span> </a>
 				</div>
 
-
-				<div class="admin">
-					<a href="#">
+			
+				<div class="admin-menu dropdown">
+					<a href="#" class="btn admin btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
 						<img class="admin-img" src="asset/images/navbar/user.jpg" alt="user"
 							srcset="" />
 					</a>
+
+					<ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">
+						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+						<li><a class="dropdown-item" href="#">Log Out</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -131,9 +137,9 @@
 
 				</div>
 			</div>
-			
 
-			
+
+
 		</div>
 	</div>
 
@@ -156,7 +162,7 @@
 			// sidebar toggle
 			$("#sidebar-toggler-btn").on('click', function () {
 				if ($("#sidebar").css("left") == "0px") {
-					$("#sidebar").css("left", "-120%");
+					$("#sidebar").css("left", "-230px");
 					$('#sidebar-toggler-btn').css("left", "10px");
 					$('#sidebar-toggler-btn i').css("transform", "rotate(0deg)");
 					$('#sidebar-right-section').removeClass('col-md-10');
@@ -165,7 +171,7 @@
 					$('#sidebar-left-section').addClass('col-md-1');
 				} else {
 					$("#sidebar").css("left", "0");
-					$('#sidebar-toggler-btn').css("left", "88%");
+					$('#sidebar-toggler-btn').css("left", "230px");
 					$('#sidebar-toggler-btn i').css("transform", "rotate(180deg)");
 
 					$('#sidebar-right-section').removeClass('col-md-11');
@@ -177,11 +183,10 @@
 				}
 			});
 
-			
+
 
 
 		});
-
 
 
 

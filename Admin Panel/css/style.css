@@ -75,14 +75,24 @@ body {
         right: 0;
         transform: translate(0%, -50%);
         animation: opacityiconanimation 1s linear infinite; }
-  .navbar-right-section .admin {
+  .navbar-right-section .admin-menu .admin {
     height: 50px;
     width: 50px;
     border-radius: 100px;
-    overflow: hidden; }
-    .navbar-right-section .admin .admin-img {
-      height: 100%;
-      width: 100%; }
+    overflow: hidden;
+    position: relative; }
+    .navbar-right-section .admin-menu .admin .admin-img {
+      height: 50px;
+      width: 50px;
+      border-radius: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+  .navbar-right-section .admin-menu .nav-dropdown-menu li a {
+    color: #0d6efd; }
+    .navbar-right-section .admin-menu .nav-dropdown-menu li a:hover {
+      color: #f05532ea; }
 
 @keyframes opacityiconanimation {
   0% {

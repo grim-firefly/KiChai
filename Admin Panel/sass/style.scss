@@ -123,19 +123,37 @@ $btn-color: #0d6efd;
 
 	}
 
-	.admin {
-		height: 50px;
-		width: 50px;
-		border-radius: 100px;
-		overflow: hidden;
+	.admin-menu {
+		.admin {
+			height: 50px;
+			width: 50px;
+			border-radius: 100px;
+			overflow: hidden;
+			position: relative;
+			.admin-img {
+				height: 50px;
+				width: 50px;
+				border-radius: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
 
-		.admin-img {
-			height: 100%;
-			width: 100%;
 		}
 
+		.nav-dropdown-menu{
+			li {
+				a{
+					color:$btn-color;
+					&:hover{
+						color:$hover-color;
+					}
+				}
+			}
+		}
+		
 	}
-
 }
 
 @keyframes opacityiconanimation {
@@ -175,6 +193,7 @@ $btn-color: #0d6efd;
 .sidebar {
 	position: relative;
 	height: 100vh;
+
 	#sidebar-toggler-btn {
 		position: absolute;
 		left: 10px;
@@ -190,13 +209,14 @@ $btn-color: #0d6efd;
 		width: 36px;
 		line-height: 36px;
 		border-radius: 40px;
-		i{
+
+		i {
 			font-size: 30px;
 			margin-top: 2px;
 			color: #fff;
 		}
 
-		&:hover{
+		&:hover {
 			background-color: #0d6efd;
 			color: #FFF;
 		}
@@ -296,6 +316,7 @@ $btn-color: #0d6efd;
 				.sidebar-list-item {
 
 					padding: 10px 0px 10px 45px;
+
 					a {
 
 						text-decoration: none;
@@ -322,10 +343,12 @@ $btn-color: #0d6efd;
 	color: $hover-color;
 }
 
-#sidebar-right-section{
+#sidebar-right-section {
 	transition: all 300ms linear;
 }
-#sidebar-left-section{
+
+#sidebar-left-section {
 	transition: all 300ms linear;
 }
+
 // ===============================side ends Here=============================
