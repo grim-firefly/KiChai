@@ -19,6 +19,14 @@
     border-radius: 10px;
 }
 
+.carousel-control-next {
+    margin-top: 80px;
+}
+
+.carousel-control-prev {
+    margin-top: 80px;
+}
+
 .carousel-caption {
     margin-bottom: 200px;
 }

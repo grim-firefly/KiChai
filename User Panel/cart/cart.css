@@ -1,0 +1,138 @@
+.navbar {
+	padding: 10px 100px;
+	justify-content: space-between;
+}
+
+.navbar img {
+	width: 150px;
+}
+
+.button-cart {
+	color: white !important;
+	background-color: black;
+	border-radius: 10px;
+}
+
+.button-profile {
+	color: white !important;
+	background-color: black;
+	border-radius: 10px;
+}
+
+
+
+.shopping-cart {
+	padding-bottom: 50px;
+
+}
+
+.shopping-cart {
+	background-color: #f6f6f6;
+}
+
+
+
+h2,
+h1 {
+	padding-top: 50px;
+
+	text-align: center;
+	margin-bottom: 1.2rem;
+	color: #3b99e0;
+}
+
+
+
+.shopping-cart .items {
+	margin: 20px;
+}
+
+.shopping-cart .items .product {
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.shopping-cart .items .product .info {
+	padding-top: 0px;
+	text-align: center;
+}
+
+.shopping-cart .items .product .info .product-name {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: left;
+}
+
+.shopping-cart .items .product .info .product-name .product-info {
+	font-size: 15px;
+	margin-top: 15px;
+}
+
+.shopping-cart .items .product .info .product-name .product-info .value {
+	font-weight: 400;
+}
+
+.shopping-cart .items .product .info .quantity .quantity-input {
+	margin: auto;
+	width: 80px;
+}
+
+.shopping-cart .items .product .info .quantity {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.shopping-cart .items .product .info .price {
+	margin-top: 0px;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.shopping-cart .items .product .info .price .product-price {
+	padding-top: 0%;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+
+
+
+
+.shopping-cart .summary {
+
+	background-color: #f7fbff;
+	height: 50%;
+	padding: 30px;
+	border: 1px solid blue
+}
+
+.shopping-cart .summary h3 {
+	text-align: center;
+
+	font-weight: 600;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.shopping-cart .summary .summary-item:not(:last-of-type) {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shopping-cart .summary .text {
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.shopping-cart .summary .price {
+	font-size: 1em;
+	float: right;
+}
+
+.shopping-cart .summary button {
+	margin-top: 20px;
+}
