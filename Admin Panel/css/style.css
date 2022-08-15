@@ -75,14 +75,24 @@ body {
         right: 0;
         transform: translate(0%, -50%);
         animation: opacityiconanimation 1s linear infinite; }
-  .navbar-right-section .admin {
+  .navbar-right-section .admin-menu .admin {
     height: 50px;
     width: 50px;
     border-radius: 100px;
-    overflow: hidden; }
-    .navbar-right-section .admin .admin-img {
-      height: 100%;
-      width: 100%; }
+    overflow: hidden;
+    position: relative; }
+    .navbar-right-section .admin-menu .admin .admin-img {
+      height: 50px;
+      width: 50px;
+      border-radius: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+  .navbar-right-section .admin-menu .nav-dropdown-menu li a {
+    color: #0d6efd; }
+    .navbar-right-section .admin-menu .nav-dropdown-menu li a:hover {
+      color: #f05532ea; }
 
 @keyframes opacityiconanimation {
   0% {
@@ -124,12 +134,12 @@ body {
       background-color: #0d6efd;
       color: #FFF; }
   .sidebar .sidebar-main {
-    left: -100%;
     position: absolute;
-    width: 100%;
+    width: 230px;
     border-right: 1px solid rgba(153, 153, 153, 0.6);
     height: 100vh;
-    transition: all 400ms linear; }
+    transition: all 400ms linear;
+    left: -230px; }
     .sidebar .sidebar-main .sidebar-only-button {
       display: flex; }
       .sidebar .sidebar-main .sidebar-only-button .sidebar-button {
@@ -196,7 +206,8 @@ body {
 
 .page-title {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  color: #f05532ea; }
 
 #sidebar-right-section {
   transition: all 300ms linear; }

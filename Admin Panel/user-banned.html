@@ -42,11 +42,17 @@
 				</div>
 
 
-				<div class="admin">
-					<a href="#">
+				<div class="admin-menu dropdown">
+					<a href="#" class="btn admin btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
 						<img class="admin-img" src="asset/images/navbar/user.jpg" alt="user"
 							srcset="" />
 					</a>
+
+					<ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">
+						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+						<li><a class="dropdown-item" href="#">Log Out</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -129,93 +135,15 @@
 
 				</div>
 			</div>
-			<div class="row mt-5">
-				<div class="col-4">
+			
 
-				</div>
-				<div class="dashboard-card col-3 ">
-					<div class="card-left-section">
-						<i class="fa-solid fa-users"></i>
-					</div>
-					<div class="card-right-section">
-						<div class="count">
-							<h1>9999</h1>
-						</div>
-						<div class="title">Total Users</div>
-
-					</div>
-				</div>
-				<div class="col-5">
-
-				</div>
-
-
-
-			</div>
-
-			<div class="container mt-5">
+			<div class="container-fluid mt-1">
 
 
 
 
 				<!-- ================Edit modal starts===================== -->
-				<div class="modal fade" id="edit-user" tabindex="-1" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Edit User</h5>
-								<button type="button" class="btn-close modal-close"
-									data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<form action="">
-									<div class="input-box">
-										<label for="username">Username</label>
-										<input placeholder="username"
-											type="text" name="search"
-											class="input-box-input"
-											name="username" />
-										<span class="line"></span>
-
-
-									</div>
-									<div class="input-box  mt-1">
-										<label for="password">Email</label>
-										<input placeholder="email" type="text"
-											name="search"
-											class="input-box-input"
-											name="password" />
-										<span class="line"></span>
-									</div>
-									<div class="input-box  mt-1">
-										<label for="email">Password</label>
-										<input placeholder="passoword"
-											type="text" name="search"
-											class="input-box-input"
-											name="email" />
-										<span class="line"></span>
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-danger"
-									data-bs-dismiss="modal">Close</button>
-								<!-- <button type="button" class="btn btn-success">Save
-									changes</button> -->
-								<button class="animate-button" data-bs-toggle="modal"
-									data-bs-dismiss="modal">
-									<i class="fa-solid fa-floppy-disk"></i>
-									<span class="btn-animate-top"></span>
-									<span class="btn-animate-right"></span>
-									<span class="btn-animate-bottom"></span>
-									<span class="btn-animate-left"></span>
-									<div class="btn-text"> Save</div>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
+			
 				<!-- ================Edit modal ends===================== -->
 
 
@@ -241,11 +169,7 @@
 								<td>13 Aug, 2222</td>
 								<td>
 
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
-										<i class="fa-solid fa-edit"></i>
-									</button>
+									
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
@@ -255,8 +179,6 @@
 									</button>
 								</td>
 							</tr>
-
-
 							<tr>
 								<th scope="row">1</th>
 								<td>illus1on</td>
@@ -264,11 +186,7 @@
 								<td>13 Aug, 2222</td>
 								<td>
 
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
-										<i class="fa-solid fa-edit"></i>
-									</button>
+									
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
@@ -278,8 +196,6 @@
 									</button>
 								</td>
 							</tr>
-
-
 							<tr>
 								<th scope="row">1</th>
 								<td>illus1on</td>
@@ -287,11 +203,7 @@
 								<td>13 Aug, 2222</td>
 								<td>
 
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
-										<i class="fa-solid fa-edit"></i>
-									</button>
+									
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
@@ -301,8 +213,6 @@
 									</button>
 								</td>
 							</tr>
-
-
 							<tr>
 								<th scope="row">1</th>
 								<td>illus1on</td>
@@ -310,11 +220,7 @@
 								<td>13 Aug, 2222</td>
 								<td>
 
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-user">
-										<i class="fa-solid fa-edit"></i>
-									</button>
+									
 									<button
 										class="btn btn-danger btn-sm delete-btn">
 										<i class="fa-solid fa-trash"></i>
@@ -324,6 +230,7 @@
 									</button>
 								</td>
 							</tr>
+
 
 
 
@@ -355,7 +262,7 @@
 			// sidebar toggle
 			$("#sidebar-toggler-btn").on('click', function () {
 				if ($("#sidebar").css("left") == "0px") {
-					$("#sidebar").css("left", "-100%");
+					$("#sidebar").css("left", "-230px");
 					$('#sidebar-toggler-btn').css("left", "10px");
 					$('#sidebar-toggler-btn i').css("transform", "rotate(0deg)");
 					$('#sidebar-right-section').removeClass('col-md-10');
@@ -364,7 +271,7 @@
 					$('#sidebar-left-section').addClass('col-md-1');
 				} else {
 					$("#sidebar").css("left", "0");
-					$('#sidebar-toggler-btn').css("left", "100%");
+					$('#sidebar-toggler-btn').css("left", "230px");
 					$('#sidebar-toggler-btn i').css("transform", "rotate(180deg)");
 
 					$('#sidebar-right-section').removeClass('col-md-11');
