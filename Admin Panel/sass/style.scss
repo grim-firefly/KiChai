@@ -33,6 +33,9 @@ $btn-color: #0d6efd;
 
 .navbar-modify {
 	border-bottom: 1px solid $primary-color;
+	position: sticky;
+	top: 0;
+	z-index: 1;
 
 }
 

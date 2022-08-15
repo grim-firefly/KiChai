@@ -12,7 +12,10 @@ body {
   color: #f05532ea; }
 
 .navbar-modify {
-  border-bottom: 1px solid rgba(153, 153, 153, 0.6); }
+  border-bottom: 1px solid rgba(153, 153, 153, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1; }
 
 .middle-section {
   width: 500px;
