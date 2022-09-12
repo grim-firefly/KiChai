@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Josefin Sans', sans-serif; }
+
+.dashboard-card {
+  max-width: 300px;
+  border-radius: 10px;
+  background-color: #f05532ea;
+  color: white;
+  display: flex; }
+  .dashboard-card .card-left-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px; }
+  .dashboard-card .card-right-section {
+    margin: 0 auto; }
+    .dashboard-card .card-right-section .count {
+      margin-top: 10px; }
+    .dashboard-card .card-right-section .title {
+      margin-bottom: 10px; }
+
+/*# sourceMappingURL=dashboard.css.map */

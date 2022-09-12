@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+$hover-color: #f05532ea;
+$text-color: #7393B3;
+
+.input-box-description {
+	width: 100%;
+	height: 250px;
+	border: 1px solid $hover-color;
+	outline: none;
+	border-radius: 6px;
+}
+
