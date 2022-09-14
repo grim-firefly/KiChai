@@ -106,7 +106,7 @@
 							</li>
 					</div>
 					<div class="sidebar-only-button">
-						<a href="product.html" class="sidebar-button  "><i
+						<a href="product.php" class="sidebar-button  "><i
 								class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 							Products</a>
 					</div>

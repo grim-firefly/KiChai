@@ -2,11 +2,11 @@
 include_once '../../vendor/autoload.php';
 use kichaiAdmin\Category\Category;
 
-if(isset($_POST['update'])){
-    $id = $_POST['id'];
+if(isset($_POST['create'])){
+   
     $name = $_POST['name'];
     $category = new Category();
-    echo $category->update($id,$name);
+    echo $category->create($name);
 
     // header('Location: categoryphp');
 }
