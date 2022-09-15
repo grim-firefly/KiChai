@@ -1,12 +1,18 @@
-<?php 
+<?php
 include_once '../../vendor/autoload.php';
-use kichaiAdmin\Category\Category;
 
-if(isset($_POST['create'])){
-   
-    $name = $_POST['name'];
-    $category = new Category();
-    echo $category->create($name);
+use kichaiAdmin\Product\Product;
 
-    // header('Location: categoryphp');
+$product = new Product();
+print_r($_POST);
+
+if (isset($_FILES['pimg'])) {
+    $file_name = $_FILES['pimg']['name'];
+    $file_tmp = $_FILES['pimg']['tmp_name'];
+   if($product->productImgUpload( $file_name,$file_tmp)){
+        $_POST['fileName'] = $file_name;
+
+   }
 }
+$product->create($_POST);
+header('Location: ../product.php');

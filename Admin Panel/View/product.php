@@ -145,7 +145,7 @@ $products = $productObj->index();
 								<button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="">
+								<form action="./product_options/create_product.php" method="POST" id="product-create" enctype="multipart/form-data">
 									<div class="input-box">
 										<input placeholder="title" type="text" class="input-box-input" name="Product-title" />
 										<span class="line"></span>
@@ -177,7 +177,7 @@ $products = $productObj->index();
 								<!-- <button type="button" class="btn btn-success">Save
 									changes</button> -->
 								<button
-								id="save-update-info-btn"
+								id="create-new-btn"
 								class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
@@ -263,7 +263,7 @@ $products = $productObj->index();
 
 
 				<div class="add-new-category mb-1">
-					<button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-product">
+					<button class="animate-button"  data-bs-toggle="modal" data-bs-target="#add-product">
 						<i class="fa-solid fa-plus"></i>
 						<span class="btn-animate-top"></span>
 						<span class="btn-animate-right"></span>
@@ -442,7 +442,7 @@ $products = $productObj->index();
 			$('.edit-product-btn').on('click', function() {
 				let node = $(this);
 				let id = $(this).parent().find('input[name="id"]').val();
-				 $('#product-edit').children().find('input[name="id"]').val(id);
+				$('#product-edit').find('input[name="id"]').val(id);
 				let title = $('#product-edit').children().find('input[name="Product-title"]');
 				let price = $('#product-edit').children().find('input[name="price"]');
 				let qty = $('#product-edit').children().find('input[name="qty"]');
@@ -466,6 +466,10 @@ $products = $productObj->index();
 				});
 			});
 
+			//! add products
+			$('#create-new-btn').on('click', function() {
+				$("#product-create").submit();
+			});
 		});
 	</script>
 </body>

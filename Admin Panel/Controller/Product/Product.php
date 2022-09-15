@@ -10,7 +10,7 @@ class Product
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '';
+	private $password = 'root';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -32,7 +32,8 @@ class Product
 		}
 		return [];
 	}
-	public function getProduct($id){
+	public function getProduct($id)
+	{
 		$query = "SELECT * FROM $this->dbname.product WHERE id=?";
 		$queryP = $this->dbh->prepare($query);
 		$flag = $queryP->execute([$id]);
@@ -52,23 +53,53 @@ class Product
 		}
 		return false;
 	}
-
-
-	public function update($id, $name)
+	public function fileValidate($fileName)
 	{
-		$query = "UPDATE $this->dbname.product SET category_name=? WHERE id=?";
+
+		if (empty($fileName)) {
+			return false;
+		}
+		$file_ext = strtolower(pathinfo($fileName)['extension']);
+		$extensions = array("jpeg", "jpg", "png", "gif");
+		if (in_array($file_ext, $extensions) === false) {
+			return false;
+		}
+
+		return true;
+	}
+	public function productImgUpload($fileName, $fileTmp)
+	{
+		if ($this->fileValidate($fileName)) {
+			move_uploaded_file($fileTmp, "../../../uploads/products/" . $fileName);
+			return true;
+		}
+		return false;
+	}
+	public function update($productInfo)
+	{
+		$id = $productInfo['id'];
+		$getThisProduct=$this->getProduct($id);
+		$fileName=$getThisProduct[0]['product_img'];
+		if (isset($productInfo['fileName'])) {
+			$fileName = $productInfo['fileName'];
+		}
+		$query = "UPDATE $this->dbname.product SET title=? ,price=?,quantity=?,description=?,product_img=? WHERE id=?";
 		$queryP = $this->dbh->prepare($query);
-		$flag = $queryP->execute([$name, $id]);
+		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName, $id]);
 		if ($flag) {
 			return true;
 		}
 		return false;
 	}
-	public function create($name)
+	public function create($productInfo)
 	{
-		$query = "INSERT INTO $this->dbname.product (category_name) VALUES (?)";
+		$fileName='';
+		if (isset($productInfo['fileName'])) {
+			$fileName = $productInfo['fileName'];
+		}
+		$query = "INSERT INTO $this->dbname.product(title,price,quantity,description,product_img) values(?,?,?,?,?)";
 		$queryP = $this->dbh->prepare($query);
-		$flag = $queryP->execute([$name]);
+		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName]);
 		if ($flag) {
 			return true;
 		}

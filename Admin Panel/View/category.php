@@ -233,7 +233,7 @@
 						</thead>
 						<tbody>
 							<?php
-							$slNo = 1;
+							
 							foreach ($categories as $category) {
 							?>
 								<tr>
