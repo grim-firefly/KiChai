@@ -13,15 +13,35 @@
 	<link rel="stylesheet" href="css/category.css">
 	<link rel="stylesheet" href="css/product.css">
 	<script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
+
+	<style>
+		.select_field {
+			width: 100%;
+			padding: 10px 20px;
+			background-color: transparent;
+			border: 1px solid #f05532ea;
+			border-radius: 6px;
+		}
+
+		.select_options {
+			padding: 10px 20px;
+			background-color: #FFF;
+			border: 1px solid #f05532ea;
+		}
+	</style>
 </head>
 <?php
 session_start();
 include_once './../vendor/autoload.php';
 
 use kichaiAdmin\Product\Product;
+use kichaiAdmin\Category\Category;
 
 $productObj = new Product();
 $products = $productObj->index();
+
+$categoryObj = new Category();
+$categories = $categoryObj->index();
 ?>
 
 <body>
@@ -153,6 +173,19 @@ $products = $productObj->index();
 
 									</div>
 									<div class="input-box mt-3">
+										<select name="category" id="category" class="input-box-input select_field">
+
+											<?php
+											foreach ($categories as $category) {
+											?>
+												<option value="<?= $category['id'] ?>" class="select_options"><?= $category['category_name'] ?></option>
+											<?php } ?>
+
+
+										</select>
+										<span class="line"></span>
+									</div>
+									<div class="input-box mt-3">
 										<input placeholder="price" type="text" name="price" class="input-box-input" />
 										<span class="line"></span>
 									</div>
@@ -176,9 +209,7 @@ $products = $productObj->index();
 								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 								<!-- <button type="button" class="btn btn-success">Save
 									changes</button> -->
-								<button
-								id="create-new-btn"
-								class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
+								<button id="create-new-btn" class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
 									<span class="btn-animate-right"></span>
@@ -202,15 +233,27 @@ $products = $productObj->index();
 								<button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="./product_options/update_product.php"  method="POST" id="product-edit" enctype="multipart/form-data">
-										<input type="number" value="" name="id" hidden>
-									
+								<form action="./product_options/update_product.php" method="POST" id="product-edit" enctype="multipart/form-data">
+									<input type="number" value="" name="id" hidden>
+
 									<div class="input-box">
 										<label for="Product-title">Title</label>
 										<input placeholder="title" type="text" class="input-box-input" name="Product-title" />
 										<span class="line"></span>
 
+									</div>
+									<div class="input-box mt-3">
+										<select name="category_id" id="category" class="input-box-input select_field">
 
+											<?php
+											foreach ($categories as $category) {
+											?>
+												<option value="<?= $category['id'] ?>" class="select_options"><?= $category['category_name'] ?></option>
+											<?php } ?>
+
+
+										</select>
+										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
 										<label for="price">Price</label>
@@ -244,9 +287,7 @@ $products = $productObj->index();
 								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 								<!-- <button type="button" class="btn btn-success">Save
 									changes</button> -->
-								<button
-									id="save-update-info-btn"
-								class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
+								<button id="save-update-info-btn" class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
 									<span class="btn-animate-right"></span>
@@ -263,7 +304,7 @@ $products = $productObj->index();
 
 
 				<div class="add-new-category mb-1">
-					<button class="animate-button"  data-bs-toggle="modal" data-bs-target="#add-product">
+					<button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-product">
 						<i class="fa-solid fa-plus"></i>
 						<span class="btn-animate-top"></span>
 						<span class="btn-animate-right"></span>
@@ -461,7 +502,7 @@ $products = $productObj->index();
 				});
 
 
-				$(document).on('click','#save-update-info-btn', function() {
+				$(document).on('click', '#save-update-info-btn', function() {
 					$('#product-edit').submit();
 				});
 			});
