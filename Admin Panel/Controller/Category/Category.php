@@ -63,4 +63,11 @@ class Category
 		}
 		return false;
 	}
+
+	public function getCategoryName($id){
+		$query="SELECT category_name from $this->dbname.category where id = ?";
+		$ctgquery=$this->dbh->prepare($query);
+		$flag= $ctgquery->execute([$id]);
+		return $ctgquery->fetch(PDO::FETCH_ASSOC);
+	}
 }

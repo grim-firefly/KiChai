@@ -173,7 +173,7 @@ $categories = $categoryObj->index();
 
 									</div>
 									<div class="input-box mt-3">
-										<select name="category" id="category" class="input-box-input select_field">
+										<select name="category_id" id="category_id"  class="input-box-input select_field">
 
 											<?php
 											foreach ($categories as $category) {
@@ -243,7 +243,7 @@ $categories = $categoryObj->index();
 
 									</div>
 									<div class="input-box mt-3">
-										<select name="category_id" id="category" class="input-box-input select_field">
+										<select name="category_id" id="category_id" class="input-box-input select_field">
 
 											<?php
 											foreach ($categories as $category) {
@@ -320,6 +320,7 @@ $categories = $categoryObj->index();
 								<th scope="col">#</th>
 								<th scope="col">Image</th>
 								<th scope="col">Name</th>
+								<th scope="col">Category</th>
 								<th scope="col">Price</th>
 								<th scope="col">Stock</th>
 								<th scope="col">Created at</th>
@@ -338,6 +339,7 @@ $categories = $categoryObj->index();
 									<th scope="row"><?= $product['id'] ?></th>
 									<td> <img class style="width: 50px; height:50px;" src="../../uploads/products/<?= $product['product_img'] ?>" alt="product image" srcset=""> </td>
 									<td><?= $product['title'] ?></td>
+									<td><?= $categoryObj->getCategoryName($product['category_id'])['category_name'] ?></td>
 									<td><?= $product['price'] ?></td>
 									<td><?= $product['quantity'] ?></td>
 									<td><?= $product['created_at'] ?></td>
@@ -487,6 +489,8 @@ $categories = $categoryObj->index();
 				let title = $('#product-edit').children().find('input[name="Product-title"]');
 				let price = $('#product-edit').children().find('input[name="price"]');
 				let qty = $('#product-edit').children().find('input[name="qty"]');
+				let category = $('#product-edit').children().find('select[name="category_id"]');
+				
 				let description = $('#product-edit').children().find('textarea[name="product-description"]');
 
 
@@ -499,6 +503,8 @@ $categories = $categoryObj->index();
 					$(price).val(obj[0].price);
 					$(qty).val(obj[0].quantity);
 					$(description).val(obj[0].description);
+					$(category).find(`option[value="${obj[0].category_id}"]`).attr('selected', true);
+
 				});
 
 

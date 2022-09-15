@@ -97,9 +97,9 @@ class Product
 		if (isset($productInfo['fileName'])) {
 			$fileName = $productInfo['fileName'];
 		}
-		$query = "INSERT INTO $this->dbname.product(title,price,quantity,description,product_img) values(?,?,?,?,?)";
+		$query = "INSERT INTO $this->dbname.product(title,category_id,price,quantity,description,product_img) values(?,?,?,?,?,?)";
 		$queryP = $this->dbh->prepare($query);
-		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName]);
+		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['category_id'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName]);
 		if ($flag) {
 			return true;
 		}
