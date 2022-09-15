@@ -52,6 +52,8 @@ class Product
 		}
 		return false;
 	}
+
+
 	public function update($id, $name)
 	{
 		$query = "UPDATE $this->dbname.product SET category_name=? WHERE id=?";

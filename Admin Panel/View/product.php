@@ -454,7 +454,6 @@ $products = $productObj->index();
 					id: id
 				}, function(data) {
 					const obj = JSON.parse(data);
-					// console.log();
 					$(title).val(obj[0].title);
 					$(price).val(obj[0].price);
 					$(qty).val(obj[0].quantity);
