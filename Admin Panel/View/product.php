@@ -14,6 +14,15 @@
 	<link rel="stylesheet" href="css/product.css">
 	<script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
 </head>
+<?php
+session_start();
+include_once './../vendor/autoload.php';
+
+use kichaiAdmin\Product\Product;
+
+$productObj = new Product();
+$products = $productObj->index();
+?>
 
 <body>
 	<!-- ========================Navbar starts======================== -->
@@ -22,8 +31,7 @@
 			<div class="nav-title">Admin | Control Panel</div>
 			<div class="middle-section">
 				<div class="search-box">
-					<input placeholder="Search Something" type="text" name="search"
-						id="input-search-box" />
+					<input placeholder="Search Something" type="text" name="search" id="input-search-box" />
 					<span class="line"></span>
 					<button class="">
 						<i class="fa-solid fa-magnifying-glass"></i>
@@ -34,19 +42,16 @@
 			<div class="navbar-right-section">
 
 				<div class="chat">
-					<a href="#"><i class="fa-solid fa-message"></i><span
-							class="badge chat-badge">99</span> </a>
+					<a href="#"><i class="fa-solid fa-message"></i><span class="badge chat-badge">99</span> </a>
 				</div>
 				<div class="chat">
-					<a href="#"><i class="fa-solid fa-bell"></i><span
-							class="badge chat-badge">99</span> </a>
+					<a href="#"><i class="fa-solid fa-bell"></i><span class="badge chat-badge">99</span> </a>
 				</div>
 
 
 				<div class="admin-menu dropdown">
-					<a href="#" class="btn admin btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
-						<img class="admin-img" src="asset/images/navbar/user.jpg" alt="user"
-							srcset="" />
+					<a href="#" class="btn admin btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="admin-img" src="asset/images/navbar/user.jpg" alt="user" srcset="" />
 					</a>
 
 					<ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">
@@ -67,52 +72,43 @@
 		<div class="col-md-1 " id="sidebar-left-section">
 
 			<div class="sidebar">
-				<a href="#" id="sidebar-toggler-btn"><i
-						class="fa-solid fa-circle-chevron-right"></i></a>
+				<a href="#" id="sidebar-toggler-btn"><i class="fa-solid fa-circle-chevron-right"></i></a>
 				<div class="sidebar-main" id="sidebar">
 					<!-- single sidebar button  -->
 					<div class="sidebar-only-button">
-						<a href="index.html" class="sidebar-button "><i
-								class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="index.html" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							DashBoard</a>
 					</div>
 
 					<div class="sidebar-only-button">
-						<a href="category.html" class="sidebar-button "><i
-								class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="category.html" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							Category</a>
 					</div>
 
 					<!-- sidebar button containing list  -->
 					<div class="sidebar-list-container">
-						<button class=" sidebar-button collapsed" data-bs-target="#usersection"
-							data-bs-toggle="collapse" aria-controls="usersection"
-							aria-expanded="true">
+						<button class=" sidebar-button collapsed" data-bs-target="#usersection" data-bs-toggle="collapse" aria-controls="usersection" aria-expanded="true">
 							<i class="fa-solid fa-user sidebar-button-left-icon"></i>
-							Users<i
-								class="fa-solid fa-circle-chevron-down sidebar-button-icon "></i>
+							Users<i class="fa-solid fa-circle-chevron-down sidebar-button-icon "></i>
 						</button>
 						<ul class="sidebar-list collapse show " id="usersection">
 
 
 							<li class="sidebar-list-item">
 								<a href="user.html">
-									<i
-										class="list-item-icon fa-solid fa-user-edit"></i>
+									<i class="list-item-icon fa-solid fa-user-edit"></i>
 									<span> User</span>
 								</a>
 							</li>
 							<li class="sidebar-list-item">
 								<a href="user-banned.html">
-									<i
-										class=" list-item-icon fa-solid fa-user-times"></i>
+									<i class=" list-item-icon fa-solid fa-user-times"></i>
 									<span>Banned User</span>
 								</a>
 							</li>
 					</div>
 					<div class="sidebar-only-button">
-						<a href="product.html" class="sidebar-button active "><i
-								class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+						<a href="product.html" class="sidebar-button active "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 							Products</a>
 					</div>
 
@@ -137,7 +133,7 @@
 
 				</div>
 			</div>
-			
+
 			<div class="container-fluid mt-1">
 
 				<!-- ================add modal starts===================== -->
@@ -146,47 +142,30 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title">Add Product</h5>
-								<button type="button" class="btn-close modal-close"
-									data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
 								<form action="">
 									<div class="input-box">
-										<input placeholder="title" type="text"
-											class="input-box-input"
-											name="Product-title" />
+										<input placeholder="title" type="text" class="input-box-input" name="Product-title" />
 										<span class="line"></span>
 
 
 									</div>
 									<div class="input-box mt-3">
-										<input placeholder="price" type="text"
-											name="price"
-											class="input-box-input" />
+										<input placeholder="price" type="text" name="price" class="input-box-input" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
-										<input placeholder="quantity"
-											type="text" name="qty"
-											class="input-box-input" />
+										<input placeholder="quantity" type="text" name="qty" class="input-box-input" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
-										<input placeholder="product image"
-
-											type="file"
-											class="input-box-input "
-											name="pimg" />
+										<input placeholder="product image" type="file" class="input-box-input " name="pimg" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
-										<textarea
-											type="file"
-											class="input-box-description"
-											name="product-description"
-											
-											>
+										<textarea type="file" class="input-box-description" name="product-description">
 											product description
 											</textarea>
 										<span class="line"></span>
@@ -194,13 +173,12 @@
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-danger"
-									data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 								<!-- <button type="button" class="btn btn-success">Save
 									changes</button> -->
-								<button class="animate-button" data-bs-toggle="modal"
-									data-bs-target="#add-category"
-									data-bs-dismiss="modal">
+								<button
+								id="save-update-info-btn"
+								class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
 									<span class="btn-animate-right"></span>
@@ -221,17 +199,15 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title">Edit Product</h5>
-								<button type="button" class="btn-close modal-close"
-									data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="">
+								<form action="./product_options/update_product.php"  method="POST" id="product-edit" enctype="multipart/form-data">
+										<input type="number" value="" name="id" hidden>
+									
 									<div class="input-box">
 										<label for="Product-title">Title</label>
-										<input placeholder="title" type="text"
-											class="input-box-input"
-											name="Product-title" />
+										<input placeholder="title" type="text" class="input-box-input" name="Product-title" />
 										<span class="line"></span>
 
 
@@ -239,52 +215,38 @@
 									<div class="input-box mt-3">
 										<label for="price">Price</label>
 
-										<input placeholder="price" type="text"
-											name="price"
-											class="input-box-input" />
+										<input placeholder="price" type="text" name="price" class="input-box-input" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
 										<label for="qty">Quantity</label>
 
-										<input placeholder="quantity"
-											type="text" name="qty"
-											class="input-box-input" />
+										<input placeholder="quantity" type="text" name="qty" class="input-box-input" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
 										<label for="pimg">Product Image</label>
 
-										<input placeholder="product image"
-
-											type="file"
-											class="input-box-input "
-											name="pimg" />
+										<input placeholder="product image" type="file" class="input-box-input " name="pimg" />
 										<span class="line"></span>
 									</div>
 									<div class="input-box mt-3">
 										<label for="input-box-description">Description</label>
 
-										<textarea
-											type="file"
-											class="input-box-description"
-											name="product-description"
-											
-											>
+										<textarea type="file" class="input-box-description" name="product-description">
 											product description
-											</textarea>
+										</textarea>
 										<span class="line"></span>
 									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-danger"
-									data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 								<!-- <button type="button" class="btn btn-success">Save
 									changes</button> -->
-								<button class="animate-button" data-bs-toggle="modal"
-									data-bs-target="#add-category"
-									data-bs-dismiss="modal">
+								<button
+									id="save-update-info-btn"
+								class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
 									<i class="fa-solid fa-floppy-disk"></i>
 									<span class="btn-animate-top"></span>
 									<span class="btn-animate-right"></span>
@@ -299,9 +261,9 @@
 				<!-- ================Edit modal ends===================== -->
 
 
+
 				<div class="add-new-category mb-1">
-					<button class="animate-button" data-bs-toggle="modal"
-						data-bs-target="#add-product">
+					<button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-product">
 						<i class="fa-solid fa-plus"></i>
 						<span class="btn-animate-top"></span>
 						<span class="btn-animate-right"></span>
@@ -326,150 +288,34 @@
 						<tbody>
 
 
-							<tr>
-								<th scope="row">1</th>
-								<td> <img class style="width: 50px; height:50px;"
-										src="asset/images/Products/mouse.jpg"
-										alt="product image" srcset=""> </td>
-								<td>illus1on</td>
-								<td>39,910</td>
-								<td>407</td>
-								<td>13 Aug, 2222</td>
-								<td>
+							<?php
 
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-product">
-										<i class="fa-solid fa-edit"></i>
-									</button>
-									<button
-										class="btn btn-danger btn-sm delete-btn">
-										<i class="fa-solid fa-trash"></i>
-									</button>
-									<a href="product-view.html"
-										class="btn btn-info btn-sm view-btn">
-										<i
-											class="fa-solid fa-eye text-white"></i>
-									</a>
+							// ! product shows here
+							foreach ($products as $product) {
+							?>
+								<tr>
+									<th scope="row"><?= $product['id'] ?></th>
+									<td> <img class style="width: 50px; height:50px;" src="../../uploads/products/<?= $product['product_img'] ?>" alt="product image" srcset=""> </td>
+									<td><?= $product['title'] ?></td>
+									<td><?= $product['price'] ?></td>
+									<td><?= $product['quantity'] ?></td>
+									<td><?= $product['created_at'] ?></td>
+									<td>
+										<input type="number" value="<?= $product['id'] ?>" name="id" hidden>
+										<button class="btn btn-primary btn-sm edit-product-btn" data-bs-toggle="modal" data-bs-target="#edit-product">
+											<i class="fa-solid fa-edit"></i>
+										</button>
+										<button class="btn btn-danger btn-sm delete-btn">
+											<i class="fa-solid fa-trash"></i>
+										</button>
+										<a href="product-view.html" class="btn btn-info btn-sm view-btn">
+											<i class="fa-solid fa-eye text-white"></i>
+										</a>
 
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">1</th>
-								<td> <img class style="width: 50px; height:50px;"
-										src="asset/images/Products/mouse.jpg"
-										alt="product image" srcset=""> </td>
-								<td>illus1on</td>
-								<td>39,910</td>
-								<td>407</td>
-								<td>13 Aug, 2222</td>
-								<td>
-
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-product">
-										<i class="fa-solid fa-edit"></i>
-									</button>
-									<button
-										class="btn btn-danger btn-sm delete-btn">
-										<i class="fa-solid fa-trash"></i>
-									</button>
-									<a href="product-view.html"
-										class="btn btn-info btn-sm view-btn">
-										<i
-											class="fa-solid fa-eye text-white"></i>
-									</a>
-
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">1</th>
-								<td> <img class style="width: 50px; height:50px;"
-										src="asset/images/Products/mouse.jpg"
-										alt="product image" srcset=""> </td>
-								<td>illus1on</td>
-								<td>39,910</td>
-								<td>407</td>
-								<td>13 Aug, 2222</td>
-								<td>
-
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-product">
-										<i class="fa-solid fa-edit"></i>
-									</button>
-									<button
-										class="btn btn-danger btn-sm delete-btn">
-										<i class="fa-solid fa-trash"></i>
-									</button>
-									<a href="product-view.html"
-										class="btn btn-info btn-sm view-btn">
-										<i
-											class="fa-solid fa-eye text-white"></i>
-									</a>
-
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">1</th>
-								<td> <img class style="width: 50px; height:50px;"
-										src="asset/images/Products/mouse.jpg"
-										alt="product image" srcset=""> </td>
-								<td>illus1on</td>
-								<td>39,910</td>
-								<td>407</td>
-								<td>13 Aug, 2222</td>
-								<td>
-
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-product">
-										<i class="fa-solid fa-edit"></i>
-									</button>
-									<button
-										class="btn btn-danger btn-sm delete-btn">
-										<i class="fa-solid fa-trash"></i>
-									</button>
-									<a href="product-view.html"
-										class="btn btn-info btn-sm view-btn">
-										<i
-											class="fa-solid fa-eye text-white"></i>
-									</a>
-
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row">1</th>
-								<td> <img class style="width: 50px; height:50px;"
-										src="asset/images/Products/mouse.jpg"
-										alt="product image" srcset=""> </td>
-								<td>illus1on</td>
-								<td>39,910</td>
-								<td>407</td>
-								<td>13 Aug, 2222</td>
-								<td>
-
-									<button class="btn btn-primary btn-sm"
-										data-bs-toggle="modal"
-										data-bs-target="#edit-product">
-										<i class="fa-solid fa-edit"></i>
-									</button>
-									<button
-										class="btn btn-danger btn-sm delete-btn">
-										<i class="fa-solid fa-trash"></i>
-									</button>
-									<a href="product-view.html"
-										class="btn btn-info btn-sm view-btn">
-										<i
-											class="fa-solid fa-eye text-white"></i>
-									</a>
-
-								</td>
-							</tr>
+									</td>
+								</tr>
+							<?php
+							} ?>
 
 
 						</tbody>
@@ -486,19 +332,19 @@
 	<!-- // chart -->
 	<script src="js/sweetalert/sweetalert.js"></script>
 	<script>
-		$(document).ready(function () {
+		$(document).ready(function() {
 			// search box 
 			let node = $('#input-search-box');
-			$(node).on('focus', function () {
+			$(node).on('focus', function() {
 				$(node).next('.line').css('left', 0);
-			}).on('focusout', function () {
+			}).on('focusout', function() {
 				$(node).next('.line').css('left', '-100%');
 
 			});
 
 
 			// sidebar toggle
-			$("#sidebar-toggler-btn").on('click', function () {
+			$("#sidebar-toggler-btn").on('click', function() {
 				if ($("#sidebar").css("left") == "0px") {
 					$("#sidebar").css("left", "-230px");
 					$('#sidebar-toggler-btn').css("left", "10px");
@@ -522,26 +368,29 @@
 			});
 
 			// input box 
-			$('.input-box-input').on('focus', function () {
+			$('.input-box-input').on('focus', function() {
 				$(this).next('.line').css('left', 0);
-			}).on('focusout', function () {
+			}).on('focusout', function() {
 				$(this).next('.line').css('left', '-100%');
 
 			});
 
 
 
-			$('.input-box-description').on('focus', function () {
+			$('.input-box-description').on('focus', function() {
 				$(this).next('.line').css('left', 0);
-			}).on('focusout', function () {
+			}).on('focusout', function() {
 				$(this).next('.line').css('left', '-100%');
 
 			});
 
 
 
+			//! delete products
+			$('.delete-btn').on('click', function() {
+				let id = $(this).parent().find('input[name="id"]').val();
+				let node = $(this).parent().parent();
 
-			$('.delete-btn').on('click', function () {
 				Swal.fire({
 					title: 'Are you sure?',
 					text: "You won't be able to revert this!",
@@ -552,27 +401,73 @@
 					confirmButtonText: 'Yes, delete it!'
 				}).then((result) => {
 					if (result.isConfirmed) {
+						$.ajax({
+							url: './product_options/delete_product.php',
+							type: 'POST',
+							data: {
+								delete: true,
+								id: id
+							},
+							success: function(data) {
+								if (data == 1) {
+									Swal.fire(
+										'Deleted!',
+										'Your file has been deleted.',
+										'success'
+									).then((result) => {
+										if (result.isConfirmed) {
+											$(node).remove();
+										}
+									})
+								} else {
+									Swal.fire(
+										'Error!',
+										'Your file has not been deleted.',
+										'error'
+									)
+								}
+							}
+						});
+
 						Swal.fire(
 							'Deleted!',
-							'user has been deleted.',
+							'Your file has been deleted.',
 							'success'
 						)
 					}
 				});
 			});
 
+			// ! edit products
+			$('.edit-product-btn').on('click', function() {
+				let node = $(this);
+				let id = $(this).parent().find('input[name="id"]').val();
+				 $('#product-edit').children().find('input[name="id"]').val(id);
+				let title = $('#product-edit').children().find('input[name="Product-title"]');
+				let price = $('#product-edit').children().find('input[name="price"]');
+				let qty = $('#product-edit').children().find('input[name="qty"]');
+				let description = $('#product-edit').children().find('textarea[name="product-description"]');
+
+
+				$.get('./product_options/get_product.php', {
+					info: true,
+					id: id
+				}, function(data) {
+					const obj = JSON.parse(data);
+					// console.log();
+					$(title).val(obj[0].title);
+					$(price).val(obj[0].price);
+					$(qty).val(obj[0].quantity);
+					$(description).val(obj[0].description);
+				});
+
+
+				$(document).on('click','#save-update-info-btn', function() {
+					$('#product-edit').submit();
+				});
+			});
 
 		});
-
-
-
-
-
-
-
-
-
-
 	</script>
 </body>
 

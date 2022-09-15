@@ -238,7 +238,7 @@
 							?>
 								<tr>
 
-									<th scope="row"><?= $slNo++ ?></th>
+									<th scope="row"><?= $category['id'] ?></th>
 									<td><?= $category['category_name'] ?></td>
 									<td><?= $category['created_at'] ?></td>
 									<td>

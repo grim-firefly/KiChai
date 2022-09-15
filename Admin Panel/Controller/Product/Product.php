@@ -1,11 +1,11 @@
 <?php
 
-namespace kichaiAdmin\Category;
+namespace kichaiAdmin\Product;
 
 use PDO;
 use PDOException;
 
-class Category
+class Product
 {
 	private $host = 'localhost';
 	private $dbname = 'kichai';
@@ -23,21 +23,30 @@ class Category
 	}
 	public function index()
 	{
-		$query = "SELECT * FROM $this->dbname.category";
-		$ctgquery = $this->dbh->prepare($query);
-		$flag = $ctgquery->execute();
+		$query = "SELECT * FROM $this->dbname.product";
+		$queryP = $this->dbh->prepare($query);
+		$flag = $queryP->execute();
 		if ($flag) {
-			$ctgdata = $ctgquery->fetchAll(PDO::FETCH_ASSOC);
-			return $ctgdata;
+			$products = $queryP->fetchAll(PDO::FETCH_ASSOC);
+			return $products;
 		}
 		return [];
 	}
-
+	public function getProduct($id){
+		$query = "SELECT * FROM $this->dbname.product WHERE id=?";
+		$queryP = $this->dbh->prepare($query);
+		$flag = $queryP->execute([$id]);
+		if ($flag) {
+			$products = $queryP->fetchAll(PDO::FETCH_ASSOC);
+			return $products;
+		}
+		return [];
+	}
 	public function delete($id)
 	{
-		$query = "DELETE FROM $this->dbname.category WHERE id=?";
-		$ctgquery = $this->dbh->prepare($query);
-		$flag = $ctgquery->execute([$id]);
+		$query = "DELETE FROM $this->dbname.product WHERE id=?";
+		$queryP = $this->dbh->prepare($query);
+		$flag = $queryP->execute([$id]);
 		if ($flag) {
 			return true;
 		}
@@ -45,9 +54,9 @@ class Category
 	}
 	public function update($id, $name)
 	{
-		$query = "UPDATE $this->dbname.category SET category_name=? WHERE id=?";
-		$ctgquery = $this->dbh->prepare($query);
-		$flag = $ctgquery->execute([$name, $id]);
+		$query = "UPDATE $this->dbname.product SET category_name=? WHERE id=?";
+		$queryP = $this->dbh->prepare($query);
+		$flag = $queryP->execute([$name, $id]);
 		if ($flag) {
 			return true;
 		}
@@ -55,9 +64,9 @@ class Category
 	}
 	public function create($name)
 	{
-		$query = "INSERT INTO $this->dbname.category (category_name) VALUES (?)";
-		$ctgquery = $this->dbh->prepare($query);
-		$flag = $ctgquery->execute([$name]);
+		$query = "INSERT INTO $this->dbname.product (category_name) VALUES (?)";
+		$queryP = $this->dbh->prepare($query);
+		$flag = $queryP->execute([$name]);
 		if ($flag) {
 			return true;
 		}

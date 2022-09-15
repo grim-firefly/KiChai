@@ -2,10 +2,10 @@
 include_once '../../vendor/autoload.php';
 use kichaiAdmin\Product\Product;
 
-if(isset($_POST['delete'])){
-    $id = $_POST['id'];
+if(isset($_GET['info'])){
+    $id = $_GET['id'];
     $category = new Product();
-    echo $category->delete($id);
-
+   
+	echo json_encode($category->getProduct($id));
     // header('Location: categoryphp');
 }
