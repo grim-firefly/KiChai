@@ -98,13 +98,13 @@ $categorieObj=new Category();
 
 
 							<li class="sidebar-list-item">
-								<a href="user.html">
+								<a href="user.php">
 									<i class="list-item-icon fa-solid fa-user-edit"></i>
 									<span> User</span>
 								</a>
 							</li>
 							<li class="sidebar-list-item">
-								<a href="user-banned.html">
+								<a href="user-banned.php">
 									<i class=" list-item-icon fa-solid fa-user-times"></i>
 									<span>Banned User</span>
 								</a>
