@@ -1,6 +1,6 @@
 <?php
 
-namespace kichaiAdmin\Product;
+namespace kichaiUser\Product;
 
 use PDO;
 use PDOException;
@@ -10,7 +10,7 @@ class Product
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '';
+	private $password = '123';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -78,14 +78,14 @@ class Product
 	public function update($productInfo)
 	{
 		$id = $productInfo['id'];
-		$getThisProduct=$this->getProduct($id);
-		$fileName=$getThisProduct[0]['product_img'];
+		$getThisProduct = $this->getProduct($id);
+		$fileName = $getThisProduct[0]['product_img'];
 		if (isset($productInfo['fileName'])) {
 			$fileName = $productInfo['fileName'];
 		}
 		$query = "UPDATE $this->dbname.product SET title=? ,category_id=?,price=?,quantity=?,description=?,product_img=? WHERE id=?";
 		$queryP = $this->dbh->prepare($query);
-		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['category_id'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName, $id]);
+		$flag = $queryP->execute([$productInfo['Product-title'], $productInfo['category_id'], $productInfo['price'], $productInfo['qty'], $productInfo['product-description'], $fileName, $id]);
 		if ($flag) {
 			return true;
 		}
@@ -93,13 +93,13 @@ class Product
 	}
 	public function create($productInfo)
 	{
-		$fileName='';
+		$fileName = '';
 		if (isset($productInfo['fileName'])) {
 			$fileName = $productInfo['fileName'];
 		}
 		$query = "INSERT INTO $this->dbname.product(title,category_id,price,quantity,description,product_img) values(?,?,?,?,?,?)";
 		$queryP = $this->dbh->prepare($query);
-		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['category_id'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName]);
+		$flag = $queryP->execute([$productInfo['Product-title'], $productInfo['category_id'], $productInfo['price'], $productInfo['qty'], $productInfo['product-description'], $fileName]);
 		if ($flag) {
 			return true;
 		}
