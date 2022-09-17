@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Log in | Sign up</title>
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
 
@@ -16,6 +16,13 @@
     <!-- log in form start  -->
     <div class="container" style="display: flex; justify-content: center">
         <div class="wrapper mx-auto mt-5 margin">
+            <?php
+      session_start();
+      if (isset($_SESSION['toast'])) {
+        echo $_SESSION['toast'];
+        unset($_SESSION['toast']);
+      }
+      ?>
             <div class="title-text">
                 <div class="title login">Login Form</div>
                 <div class="title signup">Signup Form</div>

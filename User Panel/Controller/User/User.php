@@ -34,6 +34,9 @@ class User
 					'password' => $info['password']
 				]
 			);
+
+			session_start();
+			$_SESSION['toast'] = 'Account created! Now log in.';
 		} catch (PDOException $e) {
 			echo 'Error: ' . $e->getMessage();
 			die();
