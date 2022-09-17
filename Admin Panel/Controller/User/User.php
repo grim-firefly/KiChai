@@ -10,7 +10,7 @@ class User
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = 'root';
+	private $password = '';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -23,7 +23,7 @@ class User
 	}
 	public function index()
 	{
-		$query = "SELECT id,username,email,register_at FROM $this->dbname.users";
+		$query = "SELECT id,username,email,register_at FROM $this->dbname.users WHERE banned=0";
 		$ctgquery = $this->dbh->prepare($query);
 		$flag = $ctgquery->execute();
 		if ($flag) {

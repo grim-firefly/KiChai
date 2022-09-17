@@ -10,7 +10,7 @@ class Product
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = 'root';
+	private $password = '';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -83,9 +83,9 @@ class Product
 		if (isset($productInfo['fileName'])) {
 			$fileName = $productInfo['fileName'];
 		}
-		$query = "UPDATE $this->dbname.product SET title=? ,price=?,quantity=?,description=?,product_img=? WHERE id=?";
+		$query = "UPDATE $this->dbname.product SET title=? ,category_id=?,price=?,quantity=?,description=?,product_img=? WHERE id=?";
 		$queryP = $this->dbh->prepare($query);
-		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName, $id]);
+		$flag = $queryP->execute([$productInfo['Product-title'],$productInfo['category_id'],$productInfo['price'],$productInfo['qty'],$productInfo['product-description'],$fileName, $id]);
 		if ($flag) {
 			return true;
 		}
