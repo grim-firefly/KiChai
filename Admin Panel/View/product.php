@@ -96,12 +96,12 @@ $categories = $categoryObj->index();
 				<div class="sidebar-main" id="sidebar">
 					<!-- single sidebar button  -->
 					<div class="sidebar-only-button">
-						<a href="index.html" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="index.php" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							DashBoard</a>
 					</div>
 
 					<div class="sidebar-only-button">
-						<a href="category.html" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="category.php" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							Category</a>
 					</div>
 
@@ -115,20 +115,20 @@ $categories = $categoryObj->index();
 
 
 							<li class="sidebar-list-item">
-								<a href="user.html">
+								<a href="user.php">
 									<i class="list-item-icon fa-solid fa-user-edit"></i>
 									<span> User</span>
 								</a>
 							</li>
 							<li class="sidebar-list-item">
-								<a href="user-banned.html">
+								<a href="user-banned.php">
 									<i class=" list-item-icon fa-solid fa-user-times"></i>
 									<span>Banned User</span>
 								</a>
 							</li>
 					</div>
 					<div class="sidebar-only-button">
-						<a href="product.html" class="sidebar-button active "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+						<a href="product.php" class="sidebar-button active "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 							Products</a>
 					</div>
 
@@ -376,7 +376,7 @@ $categories = $categoryObj->index();
 	<script src="js/sweetalert/sweetalert.js"></script>
 	<script>
 		$(document).ready(function() {
-			// search box 
+			// search box
 			let node = $('#input-search-box');
 			$(node).on('focus', function() {
 				$(node).next('.line').css('left', 0);
@@ -410,7 +410,7 @@ $categories = $categoryObj->index();
 				}
 			});
 
-			// input box 
+			// input box
 			$('.input-box-input').on('focus', function() {
 				$(this).next('.line').css('left', 0);
 			}).on('focusout', function() {
@@ -490,7 +490,7 @@ $categories = $categoryObj->index();
 				let price = $('#product-edit').children().find('input[name="price"]');
 				let qty = $('#product-edit').children().find('input[name="qty"]');
 				let category = $('#product-edit').children().find('select[name="category_id"]');
-				
+
 				let description = $('#product-edit').children().find('textarea[name="product-description"]');
 
 
