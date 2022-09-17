@@ -61,6 +61,7 @@ class User
 					session_start();
 					$_SESSION['username'] = $data[0]['username'];
 					$_SESSION['email'] = $data[0]['email'];
+					header('Location: ../view/home.php');
 				} else {
 					session_start();
 					$_SESSION['toast'] = 'Incorrect username or password!';
