@@ -36,12 +36,14 @@
                     <div class="slider-tab"></div>
                 </div>
                 <div class="form-inner">
-                    <form action="#" class="login">
+
+                    <!-- Login start -->
+                    <form action="../Task_handler/login.php" class="login" method="POST">
                         <div class="field">
-                            <input type="text" placeholder="Email Address" required />
+                            <input type="text" name="email" placeholder="Email Address" required />
                         </div>
                         <div class="field">
-                            <input type="password" placeholder="Password" required />
+                            <input type="password" name="password" placeholder="Password" required />
                         </div>
                         <div class="pass-link"><a href="#">Forgot password?</a></div>
                         <div class="field btn">
@@ -52,6 +54,8 @@
                             Not a member? <a href="">Signup now</a>
                         </div>
                     </form>
+
+                    <!-- login end -->
 
                     <!-- Signup form -->
                     <form action="../Task_handler/signup.php" class="signup" method="POST">

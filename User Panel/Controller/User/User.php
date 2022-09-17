@@ -43,6 +43,13 @@ class User
 		}
 	}
 
+	public function UserLogin($info)
+	{
+		echo '<pre>';
+		print_r($info);
+		die();
+	}
+
 
 	// reurn all user
 	public function index()
