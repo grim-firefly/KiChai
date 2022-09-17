@@ -81,7 +81,7 @@ $categorieObj=new Category();
 				<div class="sidebar-main" id="sidebar">
 					<!-- single sidebar button  -->
 					<div class="sidebar-only-button">
-						<a href="index.html" class="sidebar-button active"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="index.php" class="sidebar-button active"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							DashBoard</a>
 					</div>
 

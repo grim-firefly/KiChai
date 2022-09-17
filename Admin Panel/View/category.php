@@ -77,12 +77,12 @@
 				<div class="sidebar-main" id="sidebar">
 					<!-- single sidebar button  -->
 					<div class="sidebar-only-button">
-						<a href="index.html" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="index.php" class="sidebar-button "><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							DashBoard</a>
 					</div>
 
 					<div class="sidebar-only-button">
-						<a href="category.html" class="sidebar-button active"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+						<a href="category.php" class="sidebar-button active"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 							Category</a>
 					</div>
 					<!-- sidebar button containing list  -->
@@ -95,20 +95,20 @@
 
 
 							<li class="sidebar-list-item">
-								<a href="user.html">
+								<a href="user.php">
 									<i class="list-item-icon fa-solid fa-user-edit"></i>
 									<span> User</span>
 								</a>
 							</li>
 							<li class="sidebar-list-item">
-								<a href="user-banned.html">
+								<a href="user-banned.php">
 									<i class=" list-item-icon fa-solid fa-user-times"></i>
 									<span>Banned User</span>
 								</a>
 							</li>
 					</div>
 					<div class="sidebar-only-button">
-						<a href="product.html" class="sidebar-button "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+						<a href="product.php" class="sidebar-button "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 							Products</a>
 					</div>
 
@@ -233,7 +233,7 @@
 						</thead>
 						<tbody>
 							<?php
-							
+
 							foreach ($categories as $category) {
 							?>
 								<tr>
@@ -272,7 +272,7 @@
 	<script>
 		$(document).ready(function() {
 
-			// search box 
+			// search box
 			let node = $('#input-search-box');
 			$(node).on('focus', function() {
 				$(node).next('.line').css('left', 0);
@@ -306,7 +306,7 @@
 				}
 			});
 
-			// input box 
+			// input box
 			$('.input-box-input').on('focus', function() {
 				$(this).next('.line').css('left', 0);
 			}).on('focusout', function() {
@@ -315,7 +315,7 @@
 			});
 
 
-			// ! delete category dynamic 
+			// ! delete category dynamic
 			$('.delete-btn').on('click', function() {
 				let id = $(this).parent().find('input[name="id"]').val();
 				let node = $(this).parent().parent();
@@ -367,7 +367,7 @@
 				});
 			});
 
-			// ! edit category dynamic 
+			// ! edit category dynamic
 			$('.edit-category-btn').on('click', function() {
 				let id = $(this).parent().find('input[name="id"]').val();
 				let name = $(this).parent().parent().find('td:nth-child(2)');
@@ -405,7 +405,7 @@
 				});
 			});
 
-			// ! create category dynamic 
+			// ! create category dynamic
 			$('#create-new-btn').on('click', function() {
 				let name = $('#create-inputbox').val();
 				$.ajax({
