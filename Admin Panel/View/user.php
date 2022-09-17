@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+	header('Location: ./login.php');
+}
+include_once './../vendor/autoload.php';
+
+use kichaiAdmin\User\User;
+
+$userObj = new User();
+$users = $userObj->index();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +25,7 @@
 	<link rel="stylesheet" href="css/category.css">
 	<script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
 </head>
-<?php
-session_start();
-include_once './../vendor/autoload.php';
 
-use kichaiAdmin\User\User;
-
-$userObj = new User();
-$users = $userObj->index();
-?>
 
 <body>
 	<!-- ========================Navbar starts======================== -->
@@ -56,7 +60,7 @@ $users = $userObj->index();
 					<ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">
 						<li><a class="dropdown-item" href="#">Profile</a></li>
 						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Log Out</a></li>
+						<li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 					</ul>
 				</div>
 			</div>

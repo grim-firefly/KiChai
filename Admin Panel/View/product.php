@@ -1,3 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+	header('Location: ./login.php');
+}
+include_once './../vendor/autoload.php';
+
+use kichaiAdmin\Product\Product;
+use kichaiAdmin\Category\Category;
+
+$productObj = new Product();
+$products = $productObj->index();
+
+$categoryObj = new Category();
+$categories = $categoryObj->index();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,19 +47,6 @@
 		}
 	</style>
 </head>
-<?php
-session_start();
-include_once './../vendor/autoload.php';
-
-use kichaiAdmin\Product\Product;
-use kichaiAdmin\Category\Category;
-
-$productObj = new Product();
-$products = $productObj->index();
-
-$categoryObj = new Category();
-$categories = $categoryObj->index();
-?>
 
 <body>
 	<!-- ========================Navbar starts======================== -->
@@ -77,7 +81,7 @@ $categories = $categoryObj->index();
 					<ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">
 						<li><a class="dropdown-item" href="#">Profile</a></li>
 						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Log Out</a></li>
+						<li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 					</ul>
 				</div>
 			</div>
