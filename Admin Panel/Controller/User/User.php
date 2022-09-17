@@ -32,12 +32,31 @@ class User
 		}
 		return [];
 	}
-
+	public function bannedUser()
+	{
+		$query = "SELECT id,username,email,register_at FROM $this->dbname.users WHERE banned=1";
+		$ctgquery = $this->dbh->prepare($query);
+		$flag = $ctgquery->execute();
+		if ($flag) {
+			$ctgdata = $ctgquery->fetchAll(PDO::FETCH_ASSOC);
+			return $ctgdata;
+		}
+		return [];
+	}
 	public function delete($id)
 	{
 		$query = "DELETE FROM $this->dbname.users WHERE id=?";
 		$ctgquery = $this->dbh->prepare($query);
 		$flag = $ctgquery->execute([$id]);
+		if ($flag) {
+			return true;
+		}
+		return false;
+	}
+	public function removeFromBanned($id){
+		$query = "UPDATE $this->dbname.users SET banned=? WHERE id=?";
+		$ctgquery = $this->dbh->prepare($query);
+		$flag = $ctgquery->execute([0, $id]);
 		if ($flag) {
 			return true;
 		}
