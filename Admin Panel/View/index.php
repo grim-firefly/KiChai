@@ -25,6 +25,8 @@ $categoryObj = new Category();
 $categories = $categoryObj->index();
 
 $userObj= new User();
+$productobj=new Product();
+$categorieObj=new Category();
 ?>
 
 <body>
@@ -131,6 +133,7 @@ $userObj= new User();
 					</div>
 					<div class="card-right-section">
 						<div class="count">
+
 							<h1><?=($userObj->CountUser())?></h1>
 						</div>
 						<div class="title">Total Clients</div>
@@ -143,13 +146,15 @@ $userObj= new User();
 					</div>
 					<div class="card-right-section">
 						<div class="count">
-							<h1>9999</h1>
+
+						<h1><?=($categorieObj->CountCategory())?></h1>
+
 						</div>
 						<div class="title">Total Categories</div>
 
 					</div>
 				</div>
-				<div class="dashboard-card col-3 mx-1">
+				<!-- <div class="dashboard-card col-3 mx-1">
 					<div class="card-left-section">
 						<i class="fa-solid fa-sack-dollar"></i>
 					</div>
@@ -160,14 +165,14 @@ $userObj= new User();
 						<div class="title">Total Sold</div>
 
 					</div>
-				</div>
+				</div> -->
 				<div class="dashboard-card col-3">
 					<div class="card-left-section">
 						<i class="fa-solid fa-cart-shopping"></i>
 					</div>
 					<div class="card-right-section">
 						<div class="count">
-							<h1>9999</h1>
+						<h1><?=($productobj->CountProduct())?></h1>
 						</div>
 						<div class="title">Total Products</div>
 
@@ -220,7 +225,7 @@ $userObj= new User();
 	</script>
 	<script>
 		$(document).ready(function() {
-			// search box 
+			// search box
 			let node = $('#input-search-box');
 			$(node).on('focus', function() {
 				$(node).next('.line').css('left', 0);

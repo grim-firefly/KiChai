@@ -43,6 +43,19 @@ class Product
 		}
 		return [];
 	}
+
+	// counter number of Product
+	public function CountProduct()
+	{
+		$query = "SELECT COUNT(id) FROM $this->dbname.product";
+		$prodquery = $this->dbh->prepare($query);
+		$flag = $prodquery->execute();
+		if ($flag) {
+			$prodquery = $prodquery->fetch(PDO::FETCH_NUM);
+			return $prodquery[0];
+		}
+		return 0;
+	}
 	public function delete($id)
 	{
 		$query = "DELETE FROM $this->dbname.product WHERE id=?";

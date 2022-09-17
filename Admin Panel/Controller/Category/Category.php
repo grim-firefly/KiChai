@@ -64,6 +64,18 @@ class Category
 		return false;
 	}
 
+	public function CountCategory()
+	{
+		$query = "SELECT COUNT(id) FROM $this->dbname.category";
+		$prodquery = $this->dbh->prepare($query);
+		$flag = $prodquery->execute();
+		if ($flag) {
+			$prodquery = $prodquery->fetch(PDO::FETCH_NUM);
+			return $prodquery[0];
+		}
+		return 0;
+	}
+
 	public function getCategoryName($id){
 		$query="SELECT category_name from $this->dbname.category where id = ?";
 		$ctgquery=$this->dbh->prepare($query);
