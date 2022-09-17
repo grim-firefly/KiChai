@@ -21,6 +21,7 @@ class User
 			echo 'Error: ' . $e->getMessage();
 		}
 	}
+	// reurn all user
 	public function index()
 	{
 		$query = "SELECT id,username,email,register_at FROM $this->dbname.users WHERE banned=0";
@@ -32,6 +33,7 @@ class User
 		}
 		return [];
 	}
+	//all banned user
 	public function bannedUser()
 	{
 		$query = "SELECT id,username,email,register_at FROM $this->dbname.users WHERE banned=1";
@@ -43,6 +45,7 @@ class User
 		}
 		return [];
 	}
+	// delete user 
 	public function delete($id)
 	{
 		$query = "DELETE FROM $this->dbname.users WHERE id=?";
@@ -53,7 +56,31 @@ class User
 		}
 		return false;
 	}
-	public function removeFromBanned($id){
+	// soft banned single user
+	public function bannThisUser($id)
+	{
+		$query = "UPDATE $this->dbname.users SET banned=? WHERE id=?";
+		$ctgquery = $this->dbh->prepare($query);
+		$flag = $ctgquery->execute([1, $id]);
+		if ($flag) {
+			return true;
+		}
+		return false;
+	}
+	// permanently banned user 
+	public function bannThisUserPermanently($id)
+	{
+		$query = "UPDATE $this->dbname.users SET banned=? WHERE id=?";
+		$ctgquery = $this->dbh->prepare($query);
+		$flag = $ctgquery->execute([2, $id]);
+		if ($flag) {
+			return true;
+		}
+		return false;
+	}
+	// remove from banned 
+	public function removeFromBanned($id)
+	{
 		$query = "UPDATE $this->dbname.users SET banned=? WHERE id=?";
 		$ctgquery = $this->dbh->prepare($query);
 		$flag = $ctgquery->execute([0, $id]);
@@ -62,6 +89,7 @@ class User
 		}
 		return false;
 	}
+
 	public function update($id, $name)
 	{
 		$query = "UPDATE $this->dbname.users SET users_name=? WHERE id=?";

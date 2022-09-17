@@ -282,15 +282,14 @@ $users = $userObj->bannedUser();
 							}
 						});
 
-						Swal.fire(
-							'Deleted!',
-							'Your file has been deleted.',
-							'success'
-						)
+						
 					}
 				});
 			});
+			
 			$('.ban-btn').on('click', function() {
+				let id = $(this).parent().find('input[name="id"]').val();
+				let node = $(this).parent().parent();
 				Swal.fire({
 					title: 'Are you sure?',
 					text: "You won't be able to revert this!",
@@ -301,14 +300,38 @@ $users = $userObj->bannedUser();
 					confirmButtonText: 'Yes, ban permanently!'
 				}).then((result) => {
 					if (result.isConfirmed) {
-						Swal.fire(
-							'banned!',
-							'this user has been banned permanently',
-							'success'
-						)
+						$.ajax({
+							url: './user_options/banned_user_permanently.php',
+							type: 'POST',
+							data: {
+								banned: true,
+								id: id
+							},
+							success: function(data) {
+								if (data == 1) {
+									Swal.fire(
+										'banned!',
+										'this user has been banned permanently',
+										'success'
+									).then((result) => {
+										if (result.isConfirmed) {
+											$(node).remove();
+										}
+									})
+								} else {
+									Swal.fire(
+										'Failed!',
+										'Failed to this user has been banned permanently',
+										'error'
+									)
+								}
+							}
+						});
+						
 					}
 				});
 			});
+
 
 		});
 	</script>

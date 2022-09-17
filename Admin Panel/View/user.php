@@ -162,13 +162,13 @@ $users = $userObj->index();
 							foreach ($users as $user) {
 							?>
 								<tr>
-									<th scope="row"><?=$user['id']?></th>
-									<td><?=$user['username']?></td>
-									<td><?=$user['email']?></td>
-									<td><?=$user['register_at']?></td>
+									<th scope="row"><?= $user['id'] ?></th>
+									<td><?= $user['username'] ?></td>
+									<td><?= $user['email'] ?></td>
+									<td><?= $user['register_at'] ?></td>
 									<td>
 
-										<input type="text" name="id" value="<?=$user['id']?>" hidden>
+										<input type="text" name="id" value="<?= $user['id'] ?>" hidden>
 										<button class="btn btn-danger btn-sm delete-btn">
 											<i class="fa-solid fa-trash"></i>
 										</button>
@@ -239,9 +239,10 @@ $users = $userObj->index();
 				$(this).next('.line').css('left', '-100%');
 
 			});
+			// delete 
 			$('.delete-btn').on('click', function() {
-				let id= $(this).parent().find('input[name="id"]').val();
-				let node= $(this).parent().parent();
+				let id = $(this).parent().find('input[name="id"]').val();
+				let node = $(this).parent().parent();
 				Swal.fire({
 					title: 'Are you sure?',
 					text: "You won't be able to revert this!",
@@ -289,6 +290,8 @@ $users = $userObj->index();
 				});
 			});
 			$('.ban-btn').on('click', function() {
+				let id = $(this).parent().find('input[name="id"]').val();
+				let node = $(this).parent().parent();
 				Swal.fire({
 					title: 'Are you sure?',
 					text: "Though , You can revert this later",
@@ -299,11 +302,34 @@ $users = $userObj->index();
 					confirmButtonText: 'Yes, ban this user!'
 				}).then((result) => {
 					if (result.isConfirmed) {
-						Swal.fire(
-							'banned!',
-							'this user has been banned.',
-							'success'
-						)
+						$.ajax({
+							url: './user_options/banned_user.php',
+							type: 'POST',
+							data: {
+								banned: true,
+								id: id
+							},
+							success: function(data) {
+								if (data == 1) {
+									Swal.fire(
+										'banned!',
+										'this user has been banned',
+										'success'
+									).then((result) => {
+										if (result.isConfirmed) {
+											$(node).remove();
+										}
+									})
+								} else {
+									Swal.fire(
+										'Failed!',
+										'Failed to this user has been banned permanently',
+										'error'
+									)
+								}
+							}
+						});
+						
 					}
 				});
 			});
