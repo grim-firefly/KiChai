@@ -45,9 +45,38 @@ class User
 
 	public function UserLogin($info)
 	{
-		echo '<pre>';
-		print_r($info);
-		die();
+		try {
+
+			$statement = $this->dbh->prepare("SELECT * FROM users WHERE email= :email");
+			$data = $statement->execute(
+				[
+					'email' => $info['email']
+				]
+			);
+
+			$data = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+			if (isset($data[0]['email'])) {
+				if ($data[0]['password'] == $info['password']) {
+					session_start();
+					$_SESSION['username'] = $data[0]['username'];
+					$_SESSION['email'] = $data[0]['email'];
+				} else {
+					session_start();
+					$_SESSION['toast'] = 'Incorrect username or password!';
+					header('Location: ../view/login-signup.php');
+				}
+			} else {
+				session_start();
+				$_SESSION['toast'] = 'Incorrect username or password!';
+				header('Location: ../view/login-signup.php');
+			}
+
+			die();
+		} catch (PDOException $e) {
+			echo 'Error: ' . $e->getMessage();
+			die();
+		}
 	}
 
 
