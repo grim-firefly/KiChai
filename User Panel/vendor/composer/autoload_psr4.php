@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'kichaiAdmin\\' => array($baseDir . '/Controller'),
+    'kichaiUser\\' => array($baseDir . '/Controller'),
 );

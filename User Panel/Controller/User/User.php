@@ -10,7 +10,7 @@ class User
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '';
+	private $password = '123';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -21,6 +21,36 @@ class User
 			echo 'Error: ' . $e->getMessage();
 		}
 	}
+
+	public function createNewUser($info)
+	{
+		try {
+
+			$statement = $this->dbh->prepare("INSERT INTO users(username, email, password) VALUES(:username, :email, :password)");
+			$statement->execute(
+				[
+					'username' => $info['username'],
+					'email' => $info['email'],
+					'password' => $info['password']
+				]
+			);
+
+			session_start();
+			$_SESSION['toast'] = 'Account created! Now log in.';
+		} catch (PDOException $e) {
+			echo 'Error: ' . $e->getMessage();
+			die();
+		}
+	}
+
+	public function UserLogin($info)
+	{
+		echo '<pre>';
+		print_r($info);
+		die();
+	}
+
+
 	// reurn all user
 	public function index()
 	{

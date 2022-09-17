@@ -10,7 +10,7 @@ class Category
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '';
+	private $password = '123';
 	public  $dbh = null;
 	public function __construct()
 	{
