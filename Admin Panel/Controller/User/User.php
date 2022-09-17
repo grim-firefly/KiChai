@@ -89,7 +89,21 @@ class User
 		}
 		return false;
 	}
+	// counter number of user 
+	public function CountUser()
+	{
+		$query = "SELECT COUNT(id) FROM $this->dbname.users";
+		$ctgquery = $this->dbh->prepare($query);
+		$flag = $ctgquery->execute();
+		if ($flag) {
+			$ctgdata = $ctgquery->fetch(PDO::FETCH_NUM);
+			return $ctgdata[0];
+		}
+		return 0;
+	}
 
+
+	// no work 
 	public function update($id, $name)
 	{
 		$query = "UPDATE $this->dbname.users SET users_name=? WHERE id=?";
