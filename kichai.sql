@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2022 at 03:10 PM
+-- Generation Time: Sep 18, 2022 at 08:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `kichai`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
+(1, 'illus1on', 'illus1on@gmail.com', 'illus1on');
 
 -- --------------------------------------------------------
 
@@ -89,12 +109,20 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `register_at`, `banned`) VALUES
 (1, 'admin', 'admin@gmail.com', '123', '2022-09-17 18:58:13', 0),
-(3, 'sdfa', '1adsaj@gmail.com', '123', '2022-09-17 19:02:39', 1),
-(6, 'sdfaasd', 'adsaj@gmail.com', '123', '2022-09-17 19:03:06', 1);
+(3, 'sdfa', '1adsaj@gmail.com', '123', '2022-09-17 19:02:39', 0),
+(6, 'sdfaasd', 'adsaj@gmail.com', '123', '2022-09-17 19:03:06', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `category`
@@ -119,6 +147,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
