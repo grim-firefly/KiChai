@@ -10,7 +10,7 @@ class Admin
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '';
+	private $password = 'root';
 	public  $dbh = null;
 	public function __construct()
 	{
