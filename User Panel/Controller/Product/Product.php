@@ -10,7 +10,7 @@ class Product
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '';
+	private $password = '123';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -109,9 +109,9 @@ class Product
 	public function addtocart($info)
 	{
 
-		 try {
-		// 	echo"<pre>";
-		// 	print_r ($info['item_name']);
+		try {
+			// 	echo"<pre>";
+			// 	print_r ($info['item_name']);
 
 			$statement = $this->dbh->prepare("INSERT INTO cart(ItemName, Price) VALUES(:ItemName, :Price)");
 			$statement->execute(

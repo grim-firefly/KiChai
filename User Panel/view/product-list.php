@@ -117,7 +117,8 @@ $ProductList = $ProductObj->index();
                             <p class="card-text">
                                 <?= $Product['description'] ?>
                             </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
+                            <a href="product-details.php?id=<?= $Product['id'] ?>" class="btn btn-primary">More
+                                Details</a>
                         </div>
                     </div>
                 </div>
