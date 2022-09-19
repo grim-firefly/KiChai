@@ -14,11 +14,20 @@ if (!isset($_SESSION['email'])) {
 include_once './../vendor/autoload.php';
 
 use kichaiUser\Category\Category;
+use kichaiUser\Product\Product;
 
 $CategoryObj = new Category();
+$ProductObj = new Product();
 
-$CategoryName = $CategoryObj->getCategoryName($_GET['id']);
+$productID = $_GET['id'];
+
 $CategoryList = $CategoryObj->index();
+$CategoryName = $CategoryObj->getCategoryName($productID);
+$ProductList = $ProductObj->index();
+
+// echo '<pre>';
+// print_r($ProductList);
+// die();
 ?>
 
 
@@ -93,204 +102,36 @@ $CategoryList = $CategoryObj->index();
 
         <div class="product-cards">
             <div class="row">
+
+                <?php foreach ($ProductList as $Product) {
+
+          if ($Product['category_id'] == $productID) { ?>
+
+
                 <div class="col-3">
                     <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone1.jpg" alt="Card image cap" />
+                        <img class="card-img-top" src="../../uploads/products/<?= $Product['product_img'] ?>"
+                            alt="Card image cap" />
                         <div class="card-body">
-                            <h5 class="card-title">Phone 1</h5>
+                            <h5 class="card-title"><?= $Product['title'] ?></h5>
                             <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
+                                <?= $Product['description'] ?>
                             </p>
                             <a href="product-details.html" class="btn btn-primary">More Details</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone2.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 2</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+          }
+        } ?>
 
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone3.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 3</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone4.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 4</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <br />
-            <br />
+            <br>
+            <br>
 
-            <div class="row">
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone5.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 5</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone6.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 6</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone7.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 7</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone8.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 8</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <br />
-            <br />
-
-            <div class="row">
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone9.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 9</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone1.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 10</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone2.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 11</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="width: 18rem">
-                        <img class="card-img-top" src="image/phone3.jpg" alt="Card image cap" />
-                        <div class="card-body">
-                            <h5 class="card-title">Phone 12</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
-                            </p>
-                            <a href="product-details.html" class="btn btn-primary">More Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <br />
-            <br />
-
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     </section>
-
 
     <!-- Footer -->
 
