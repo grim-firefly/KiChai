@@ -9,6 +9,18 @@ if (!isset($_SESSION['email'])) {
 
 ?>
 
+<?php
+
+include_once './../vendor/autoload.php';
+
+use kichaiUser\Category\Category;
+
+$CategoryObj = new Category();
+
+$CategoryList = $CategoryObj->index();
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,19 +53,13 @@ if (!isset($_SESSION['email'])) {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Product Category
+                            Category
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="product-list.html">All Products</a>
-                            <a class="dropdown-item" href="product-list.html">Drone</a>
-                            <a class="dropdown-item" href="product-list.html">Laptop</a>
-                            <a class="dropdown-item" href="product-list.html">SmartPhone</a>
-                            <a class="dropdown-item" href="product-list.html">Play Station</a>
-                            <a class="dropdown-item" href="product-list.html">Camera</a>
-                            <a class="dropdown-item" href="product-list.html">Headphons</a>
-                            <a class="dropdown-item" href="product-list.html">Keyboards</a>
-                            <a class="dropdown-item" href="product-list.html">Mouse</a>
-                            <a class="dropdown-item" href="product-list.html">Other</a>
+                            <?php foreach ($CategoryList as $Category) { ?>
+                            <a class="dropdown-item"
+                                href="product-list.php?id=<?= $Category['id']; ?>"><?= $Category['category_name']; ?></a>
+                            <?php } ?>
                         </div>
                     </li>
                     <li class="nav-item">
