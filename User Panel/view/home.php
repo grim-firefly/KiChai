@@ -14,6 +14,7 @@ if (!isset($_SESSION['email'])) {
 include_once './../vendor/autoload.php';
 
 use kichaiUser\Category\Category;
+use kichaiUser\Product\Product;
 
 $CategoryObj = new Category();
 
@@ -22,8 +23,8 @@ $CategoryList = $CategoryObj->index();
 
 
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -63,21 +64,31 @@ $CategoryList = $CategoryObj->index();
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-4 mr-4" href="about-us/aboutUs.html">About Us</a>
+                        <a class="nav-link ml-4 mr-4" href="about-us/aboutUs.php">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us/contactUs.html">Contact us</a>
+                        <a class="nav-link" href="contact-us/contactUs.php">Contact us</a>
                     </li>
                 </ul>
             </div>
         </div>
+        <!-- <?php
+        echo $_SESSION['userid'];
+        ?> -->
 
         <div class="right-side">
             <ul class="navbar-nav">
 
+            <?php
+                $cartquantityobj = new Product();
+                $cartquantity = $cartquantityobj->CountCartItem();
+
+            ?>
+
 
                 <li class="nav-item">
-                    <a class="nav-link button-cart" href="cart/cart.html">Your Cart</a>
+                    <a class="nav-link button-cart" href="cart/cart.html"><span>Your Cart
+                            <?= $cartquantity; ?></span></a>
                 </li>
 
 
@@ -145,7 +156,7 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">Airpods</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See Details</a>
+                            <a href="product-details.php" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +168,7 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">Smart Watch</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See Details</a>
+                            <a href="product-details.php" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>
@@ -169,7 +180,7 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">Google Assistant</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See Details</a>
+                            <a href="product-details.php" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>
@@ -181,12 +192,12 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">camera</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See Details</a>
+                            <a href="product-details.php" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>
 
-                <a href="product-list.html"><button type="button" class="btn btn-warning mt-4 ml-3">See More
+                <a href="product-list.php"><button type="button" class="btn btn-warning mt-4 ml-3">See More
                         ...</button></a>
 
 
@@ -356,7 +367,7 @@ $CategoryList = $CategoryObj->index();
                         </div>
                     </div>
                 </div>
-                <a href="product-list.html"><button type="button" class="btn btn-warning mt-4 ml-3">See More
+                <a href="product-list.php"><button type="button" class="btn btn-warning mt-4 ml-3">See More
                         ...</button></a>
             </div>
         </div>
@@ -373,7 +384,7 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">Airpods</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See More</a>
+                            <a href="product-details.php" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>
@@ -385,7 +396,7 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">Smart Watch</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See More</a>
+                            <a href="product-details.php" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>
@@ -397,7 +408,7 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">Google Assistant</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See More</a>
+                            <a href="product-details.php" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>
@@ -409,11 +420,11 @@ $CategoryList = $CategoryObj->index();
                             <h5 class="card-title">camera</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="product-details.html" class="btn btn-primary">See More</a>
+                            <a href="product-details.php" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>
-                <a href="product-list.html"><button type="button" class="btn btn-warning mt-4 ml-3">See More
+                <a href="product-list.php"><button type="button" class="btn btn-warning mt-4 ml-3">See More
                         ...</button></a>
             </div>
         </div>
@@ -558,4 +569,4 @@ $CategoryList = $CategoryObj->index();
     </script>
 </body>
 
-</html>
+</php>

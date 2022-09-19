@@ -9,8 +9,8 @@ if (!isset($_SESSION['email'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -30,7 +30,7 @@ if (!isset($_SESSION['email'])) {
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="left-side d-flex">
-            <a class="navbar-brand" href="home.html"><img src="image/logo.svg" alt="" /></a>
+            <a class="navbar-brand" href="home.php"><img src="image/logo.svg" alt="" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,23 +43,23 @@ if (!isset($_SESSION['email'])) {
                             Product Category
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="product-list.html">All Products</a>
-                            <a class="dropdown-item" href="product-list.html">Drone</a>
-                            <a class="dropdown-item" href="product-list.html">Laptop</a>
-                            <a class="dropdown-item" href="product-list.html">SmartPhone</a>
-                            <a class="dropdown-item" href="product-list.html">Play Station</a>
-                            <a class="dropdown-item" href="product-list.html">Camera</a>
-                            <a class="dropdown-item" href="product-list.html">Headphons</a>
-                            <a class="dropdown-item" href="product-list.html">Keyboards</a>
-                            <a class="dropdown-item" href="product-list.html">Mouse</a>
-                            <a class="dropdown-item" href="product-list.html">Other</a>
+                            <a class="dropdown-item" href="product-list.php">All Products</a>
+                            <a class="dropdown-item" href="product-list.php">Drone</a>
+                            <a class="dropdown-item" href="product-list.php">Laptop</a>
+                            <a class="dropdown-item" href="product-list.php">SmartPhone</a>
+                            <a class="dropdown-item" href="product-list.php">Play Station</a>
+                            <a class="dropdown-item" href="product-list.php">Camera</a>
+                            <a class="dropdown-item" href="product-list.php">Headphons</a>
+                            <a class="dropdown-item" href="product-list.php">Keyboards</a>
+                            <a class="dropdown-item" href="product-list.php">Mouse</a>
+                            <a class="dropdown-item" href="product-list.php">Other</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-4 mr-4" href="about-us/aboutUs.html">About Us</a>
+                        <a class="nav-link ml-4 mr-4" href="about-us/aboutUs.php">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us/contactUs.html">Contact us</a>
+                        <a class="nav-link" href="contact-us/contactUs.php">Contact us</a>
                     </li>
                 </ul>
             </div>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['email'])) {
         <div class="right-side">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link button-cart" href="cart/cart.html">Your Cart</a>
+                    <a class="nav-link button-cart" href="cart/cart.php">Your Cart</a>
                 </li>
 
                 <li class="nav-item">
@@ -233,4 +233,4 @@ if (!isset($_SESSION['email'])) {
     </script>
 </body>
 
-</html>
+</php>

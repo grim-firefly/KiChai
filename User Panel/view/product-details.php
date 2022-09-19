@@ -16,9 +16,15 @@ include_once './../vendor/autoload.php';
 use kichaiUser\Product\Product;
 
 $ProductObj = new Product();
-$productID = $_GET['id'];
 
-$product_details = $ProductObj->getProduct($productID);
+    $productID = $_GET['id'];
+    $product_details = $ProductObj->getProduct($productID);
+
+
+
+
+
+
 
 // echo '<pre>';
 // print_r($product_details);
@@ -84,18 +90,15 @@ $product_details = $ProductObj->getProduct($productID);
                 </ul>
             </div>
         </div>
-        <?php
 
-
-
-
-        $cartquantityobj = new Product();
-        $cartquantity = $cartquantityobj->CountCartItem();
-
-
-        ?>
         <div class="right-side">
             <ul class="navbar-nav">
+
+            <?php
+                $cartquantityobj = new Product();
+                $cartquantity = $cartquantityobj->CountCartItem();
+
+            ?>
 
 
                 <li class="nav-item">
@@ -104,14 +107,14 @@ $product_details = $ProductObj->getProduct($productID);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link button-profile ml-5" href="user-profile.html">Profile</a>
+                    <a class="nav-link button-profile ml-5" href="user-profile.php">Profile</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <section class="product-details">
-        <form action="../Task_handler/manage_cart.php" method="POST">
+
             <div class="product-image">
                 <img src="../../uploads/products/<?= $product_details[0]['product_img'] ?>" alt="" />
             </div>
@@ -119,27 +122,30 @@ $product_details = $ProductObj->getProduct($productID);
             <div class="specifications m-5">
                 <h1>Product specifications,</h1>
 
+
                 <div class="spec m-4">
                     <p>Name: <?= $product_details[0]['title'] ?></p>
                     <p>Description: <?= $product_details[0]['description'] ?></p>
                     <p class="price">Price: <?= $product_details[0]['price'] ?> BDT</p>
                 </div>
-                <div>
-                    <input type="hidden" name="item_name" value="DJI Mavic 3">
-                    <input type="hidden" name="price" value="110000">
-                </div>
+
 
                 <div class="buttons">
-                    <a href="checkout/paymentmethod.html"><button type="button" class="btn btn-primary">Buy
+                    <a href="checkout/paymentmethod.php"><button type="button" class="btn btn-primary">Buy
                             Now</button></a>
 
 
 
                     <!-- Button trigger modal -->
+                    <!-- <?= $Category['id']; ?> -->
+                    <a href="../Task_handler/manage_cart.php ?id=<?=$productID?>">
                     <button type="submit" name="Add_To_Cart" class="btn btn-primary" data-toggle="modal"
                         data-target="#exampleModal">
                         Add to cart
                     </button>
+
+                    </a>
+
 
 
 
@@ -173,7 +179,7 @@ $product_details = $ProductObj->getProduct($productID);
                     </div>
                 </div>
             </div>
-        </form>
+
     </section>
 
 

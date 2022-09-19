@@ -5,6 +5,7 @@ namespace kichaiUser\Product;
 use PDO;
 use PDOException;
 
+
 class Product
 {
 	private $host = 'localhost';
@@ -106,23 +107,45 @@ class Product
 		return false;
 	}
 
-	public function addtocart($info)
+	public function addtocart($prod_id)
 	{
+		session_start();
+		$quantity=1;
 
 		try {
 			// 	echo"<pre>";
 			// 	print_r ($info['item_name']);
 
-			$statement = $this->dbh->prepare("INSERT INTO cart(ItemName, Price) VALUES(:ItemName, :Price)");
+			// $query = "SELECT product_id FROM $this->dbname.cart WHERE user_id =$_SESSION['userid']";
+			// $queryP = $this->dbh->prepare($query);
+			// $flag = $queryP->execute([$id]);
+			// if ($flag) {
+			// 	$productid = $queryP->fetchAll(PDO::FETCH_ASSOC);
+
+			// }
+
+			// if($prod_id==){
+
+
+			// 	}
+
+
+
+
+
+
+			$statement = $this->dbh->prepare("INSERT INTO cart(	product_id,quantity, user_id) VALUES(:ProductID,:Quantity, :UserID)");
 			$statement->execute(
 				[
-					'ItemName' => $info['item_name'],
-					'Price' => $info['price']
+
+					'ProductID'=> $prod_id,
+					'Quantity'=>$quantity,
+					'UserID' => $_SESSION['userid']
 
 				]
 			);
 
-			session_start();
+
 			$_SESSION['toast'] = 'Added to Cart Successfully';
 		} catch (PDOException $e) {
 			echo 'Error: ' . $e->getMessage();

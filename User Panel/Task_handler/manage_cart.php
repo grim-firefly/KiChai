@@ -7,8 +7,8 @@ use kichaiUser\Product\Product;
 
 
 $cartobj = new Product();
-$cart = $cartobj->addtocart($_POST);
-header('Location: ../view/product-details.php');
+$cart = $cartobj->addtocart($_GET['id']);
+header('Location: ../view/home.php');
 
 ?>
 

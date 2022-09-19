@@ -67,7 +67,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../contact-us/contactUs.html"
+              <a class="nav-link" href="../contact-us/contactUs.php"
                 >Contact us</a
               >
             </li>
@@ -82,7 +82,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link button-profile ml-5" href="../user-profile.html"
+            <a class="nav-link button-profile ml-5" href="../user-profile.php"
               >Profile</a
             >
           </li>
@@ -118,18 +118,7 @@
                                   >DCL C483 8th Generation Intel Core i3 8130U
                                   Laptop</a
                                 >
-                                <div class="product-info">
-                                  <p>
-                                    Intel Core i3-8130U Processor (4M Cache,
-                                    2.20 GHz up to 3.40 GHz) <br />
-                                    Display 14″ 35.56cm HD(1366 x 768) <br />
-                                    Memory 4GB DDR4 2400MHz (Expandable Up to
-                                    32GB) <br />
-                                    Storage 1TB 5400 rpm SATA 2.5” 7mm Hard
-                                    Drive <br />
-                                    Graphics Intel Graphics UHD 620
-                                  </p>
-                                </div>
+
                               </div>
                             </div>
 
@@ -172,17 +161,7 @@
                             <div class="col-md-4 product-name">
                               <div class="product-name">
                                 <a href="#">DJI Mavic 3 - Camera Drone</a>
-                                <div class="product-info">
-                                  <p>
-                                    4/3 CMOS Hasselblad Camera <br />
-                                    5.1K Video <br />
-                                    Omnidirectional Obstacle Sensing <br />
-                                    46-Min Flight <br />
-                                    RC Quadcopter with Advanced Auto Return
-                                    <br />
-                                    Max 15km Video Transmission
-                                  </p>
-                                </div>
+
                               </div>
                             </div>
 
@@ -222,15 +201,7 @@
                                 <a href="#"
                                   >HP Pavilion 15-cc153tx Core i5 8th</a
                                 >
-                                <div class="product-info">
-                                  <p>
-                                    Model: HP Pavilion 15-cc153tx <br />
-                                    IntelÂ® Core i5-8250U (1.6 GHz base up to
-                                    3.4 GHz) <br />2 GB DDR3 Graphics <br />
-                                    1 TB HDD <br />
-                                    OS: Windows 10
-                                  </p>
-                                </div>
+
                               </div>
                             </div>
 
@@ -268,19 +239,7 @@
                             <div class="col-md-4 product-name">
                               <div class="product-name">
                                 <a href="#">Realme XT</a>
-                                <div class="product-info">
-                                  <p>
-                                    Processor: Qualcomm SDM712 Snapdragon 712
-                                    <br />
-                                    RAM: 6 GB, 8 GB <br />
-                                    Storage: 64 GB, 128 GB <br />Display: 6.4
-                                    inches <br />
-                                    Camera: 64 MP (wide) + 8 MP (ultrawide) + 2
-                                    MP (dedicated macro camera) + 2 MP depth
-                                    sensor <br />Battery: Non-removable Li-Po
-                                    4000 mAh battery
-                                  </p>
-                                </div>
+
                               </div>
                             </div>
 
