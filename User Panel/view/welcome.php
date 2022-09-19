@@ -61,12 +61,12 @@
         </span>
 
         <span class="navbar-text d-flrx">
-          <a href="../Admin Panel/login-signup.html">
+          <a href="./login-signup.php">
             <button type="button" class="btn btn-dark mr-3 font-weight-bold">
               Log In
             </button>
           </a>
-          <a href="../Admin Panel/login-signup.html">
+          <a href="./login-signup.php">
             <button type="button" class="btn btn-danger font-weight-bold">
               Sign Up
             </button>
