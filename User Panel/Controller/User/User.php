@@ -10,7 +10,7 @@ class User
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '123';
+	private $password = '';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -105,7 +105,7 @@ class User
 		}
 		return [];
 	}
-	// delete user 
+	// delete user
 	public function delete($id)
 	{
 		$query = "DELETE FROM $this->dbname.users WHERE id=?";
@@ -127,7 +127,7 @@ class User
 		}
 		return false;
 	}
-	// permanently banned user 
+	// permanently banned user
 	public function bannThisUserPermanently($id)
 	{
 		$query = "UPDATE $this->dbname.users SET banned=? WHERE id=?";
@@ -138,7 +138,7 @@ class User
 		}
 		return false;
 	}
-	// remove from banned 
+	// remove from banned
 	public function removeFromBanned($id)
 	{
 		$query = "UPDATE $this->dbname.users SET banned=? WHERE id=?";
@@ -149,7 +149,7 @@ class User
 		}
 		return false;
 	}
-	// counter number of user 
+	// counter number of user
 	public function CountUser()
 	{
 		$query = "SELECT COUNT(id) FROM $this->dbname.users";
@@ -163,7 +163,7 @@ class User
 	}
 
 
-	// no work 
+	// no work
 	public function update($id, $name)
 	{
 		$query = "UPDATE $this->dbname.users SET users_name=? WHERE id=?";
