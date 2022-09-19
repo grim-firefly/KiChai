@@ -53,11 +53,25 @@
         </ul>
       </div>
     </div>
+        <?php
 
+        include_once './../vendor/autoload.php';
+
+
+        use kichaiUser\Product\Product;
+
+
+                $cartquantityobj = new Product();
+                $cartquantity = $cartquantityobj->CountCartItem();
+
+
+        ?>
     <div class="right-side">
       <ul class="navbar-nav">
+
+
         <li class="nav-item">
-          <a class="nav-link button-cart" href="cart/cart.html">Your Cart</a>
+          <a class="nav-link button-cart" href="cart/cart.html"><span>Your Cart <?=$cartquantity;?></span></a>
         </li>
 
         <li class="nav-item">
@@ -68,61 +82,78 @@
   </nav>
 
   <section class="product-details">
-    <div class="product-image">
-      <img src="image/drone3.jpg" alt="" />
-    </div>
-
-    <div class="specifications m-5">
-      <h1>Product specifications,</h1>
-
-      <div class="spec m-4">
-        <p>Name: DJI Mavic 3</p>
-        <p>Drone dimensions – hub-to-hub (diagonal): 360 mm</p>
-        <p>
-          Drone height – from the base to the top of a GPS antenna: 222 mm
-        </p>
-        <p>Propeller – length: 230 mm</p>
-        <p>Weight of drone – basic configuration without battery: 865 g</p>
-        <p>Gross weight (maximum) – takeoff weight: 1900 g3</p>
-        <p>Sustained wind (maximum): 15 knots3</p>
-        <p>Control distance (maximum): 300 m3</p>
-        <p>Altitude of operation (maximum): 5000 m3</p>
-        <p class="price">Price: 110,000 BDT</p>
+    <form action="../Task_handler/manage_cart.php" method="POST">
+      <div class="product-image">
+        <img src="image/drone3.jpg" alt="" />
       </div>
 
-      <div class="buttons">
-        <a href="checkout/paymentmethod.html"><button type="button" class="btn btn-primary">Buy Now</button></a>
-        
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Add to cart
-        </button>
+      <div class="specifications m-5">
+        <h1>Product specifications,</h1>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Congratulation!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Successfuly added to your cart.
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Got
-                  it</button>
+        <div class="spec m-4">
+          <p>Name: DJI Mavic 3</p>
+          <p>Drone dimensions – hub-to-hub (diagonal): 360 mm</p>
+          <p>
+            Drone height – from the base to the top of a GPS antenna: 222 mm
+          </p>
+          <p>Propeller – length: 230 mm</p>
+          <p>Weight of drone – basic configuration without battery: 865 g</p>
+          <p>Gross weight (maximum) – takeoff weight: 1900 g3</p>
+          <p>Sustained wind (maximum): 15 knots3</p>
+          <p>Control distance (maximum): 300 m3</p>
+          <p>Altitude of operation (maximum): 5000 m3</p>
+          <p class="price">Price: 110,000 BDT</p>
+        </div>
+        <div>
+          <input type="hidden" name="item_name" value="DJI Mavic 3">
+          <input type="hidden" name="price" value="110000">
+        </div>
+
+        <div class="buttons">
+          <a href="checkout/paymentmethod.html"><button type="button" class="btn btn-primary">Buy Now</button></a>
+
+
+
+          <!-- Button trigger modal -->
+          <button type="submit" name ="Add_To_Cart" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Add to cart
+          </button>
+
+
+
+
+
+
+
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Congratulation!</h5>
+                  <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Successfuly added to your cart.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Got
+                    it</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      </form>
   </section>
+
 
   <!-- Footer -->
 

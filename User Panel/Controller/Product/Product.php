@@ -10,7 +10,7 @@ class Product
 	private $host = 'localhost';
 	private $dbname = 'kichai';
 	private $user = 'root';
-	private $password = '123';
+	private $password = '';
 	public  $dbh = null;
 	public function __construct()
 	{
@@ -104,5 +104,41 @@ class Product
 			return true;
 		}
 		return false;
+	}
+
+	public function addtocart($info)
+	{
+
+		 try {
+		// 	echo"<pre>";
+		// 	print_r ($info['item_name']);
+
+			$statement = $this->dbh->prepare("INSERT INTO cart(ItemName, Price) VALUES(:ItemName, :Price)");
+			$statement->execute(
+				[
+					'ItemName' => $info['item_name'],
+					'Price' => $info['price']
+
+				]
+			);
+
+			session_start();
+			$_SESSION['toast'] = 'Added to Cart Successfully';
+		} catch (PDOException $e) {
+			echo 'Error: ' . $e->getMessage();
+			die();
+		}
+	}
+
+	public function CountCartItem()
+	{
+		$query = "SELECT COUNT(id) FROM $this->dbname.cart";
+		$countquery = $this->dbh->prepare($query);
+		$flag = $countquery->execute();
+		if ($flag) {
+			$countquery = $countquery->fetch(PDO::FETCH_NUM);
+			return $countquery[0];
+		}
+		return 0;
 	}
 }

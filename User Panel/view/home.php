@@ -74,9 +74,12 @@ $CategoryList = $CategoryObj->index();
 
         <div class="right-side">
             <ul class="navbar-nav">
+
+
                 <li class="nav-item">
                     <a class="nav-link button-cart" href="cart/cart.html">Your Cart</a>
                 </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link button-profile ml-5" href="./user-profile.php">Profile</a>
