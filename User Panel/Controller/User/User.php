@@ -22,6 +22,7 @@ class User
 		}
 	}
 
+	// Create a new user
 	public function createNewUser($info)
 	{
 		try {
@@ -61,7 +62,7 @@ class User
 					session_start();
 					$_SESSION['username'] = $data[0]['username'];
 					$_SESSION['email'] = $data[0]['email'];
-					 $_SESSION['userid'] = $data[0]['id'];
+					$_SESSION['userid'] = $data[0]['id'];
 
 
 					header('Location: ../view/home.php');
