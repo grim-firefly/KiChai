@@ -9,50 +9,27 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dashboard.css">
-    <script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/button.css">
+	<link rel="stylesheet" href="css/category.css">
+	<link rel="stylesheet" href="css/product.css">
+	<script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <nav class="navbar bg-white navbar-modify">
-        <div class="container ">
-            <div class="nav-title">Admin | Control Panel</div>
-            <div class="middle-section">
-                <div class="search-box">
-                    <input placeholder="Search Something" type="text" name="search" id="input-search-box" />
-                    <span class="line"></span>
-                    <button class="">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
-                </div>
-            </div>
-            <div class="navbar-right-section">
-
-                <div class="chat">
-                    <a href="#"><i class="fa-solid fa-message"></i><span class="badge chat-badge">99</span> </a>
-                </div>
-                <div class="chat">
-                    <a href="#"><i class="fa-solid fa-bell"></i><span class="badge chat-badge">99</span> </a>
-                </div>
+    @include('layout.navbar')
+    <div class="row">
+        @include('layout.sidebar')
+        @yield('main_content')
+    </div>
 
 
-                <div class="admin-menu dropdown">
-                    <a href="#" class="btn admin btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="admin-img" src="asset/images/navbar/user.jpg" alt="user" srcset="" />
-                    </a>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery/jquery-3.6.0.min.js"></script>
+    <!-- // chart -->
+    <script src="js/sweetalert/sweetalert.js"></script>
+    @yield('Script')
 
-                    <ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    @yield('main_content')
 </body>
 
 </html>
