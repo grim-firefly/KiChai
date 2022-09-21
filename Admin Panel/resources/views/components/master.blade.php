@@ -5,22 +5,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin | Ki CHai</title>
+    <title>{{$title ?? 'Admin | Ki CHai'}}</title>
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dashboard.css">
-	<link rel="stylesheet" href="css/button.css">
-	<link rel="stylesheet" href="css/category.css">
-	<link rel="stylesheet" href="css/product.css">
-	<script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/product.css">
+    <script src="https://kit.fontawesome.com/67bb6a6c2a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    @include('layout.navbar')
+    <x-partials.navbar />
     <div class="row">
-        @include('layout.sidebar')
-        @yield('main_content')
+        <x-partials.sidebar />
+        {{ $slot}}
     </div>
 
 
@@ -31,7 +31,8 @@
 
     <!-- // chart -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    @yield('Script')
+
+    {{$scripts}}
 
 </body>
 
