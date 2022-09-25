@@ -24,10 +24,10 @@
     </div>
 
 
-    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('js/jquery/jquery-3.6.0.min.js')}}"></script>
     <!-- // chart -->
-    <script src="js/sweetalert/sweetalert.js"></script>
+    <script src="{{ asset('js/sweetalert/sweetalert.js')}}"></script>
 
     <!-- // chart -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
