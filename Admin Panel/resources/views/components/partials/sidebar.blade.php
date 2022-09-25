@@ -35,7 +35,7 @@
 					</li>
 			</div>
 			<div class="sidebar-only-button">
-				<a href="{{url('product')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+				<a href="{{route('product.index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 					Products</a>
 			</div>
 			<!-- sidebar button containing list  -->
