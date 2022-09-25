@@ -12,5 +12,9 @@ Route::get('/', [PublicController::class, 'index']);
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/login', [LogInController::class, 'index']);
 Route::get('/product', [ProductController::class, 'index']);
-Route::get('/user', [UserController::class, 'index']);
-Route::get('/user-banned', [UserController::class, 'bannedUsers']);
+// Route::get('/user', [UserController::class, 'index']);
+// Route::get('/user-banned', [UserController::class, 'bannedUsers']);
+Route::prefix('users')->name('user.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/banned', [UserController::class, 'bannedUsers'])->name('banned');
+});

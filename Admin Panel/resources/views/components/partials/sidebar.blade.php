@@ -22,13 +22,13 @@
 
 
 					<li class="sidebar-list-item">
-						<a href="{{url('user')}}" class="{{Request::path()=='user' ? 'active':''}}">
+						<a href="{{route('user.index')}}" class="{{Request::path()=='user' ? 'active':''}}">
 							<i class="list-item-icon fa-solid fa-user-edit"></i>
 							<span> User</span>
 						</a>
 					</li>
 					<li class="sidebar-list-item">
-						<a href="{{url('user-banned')}}" class="{{Request::path()=='user-banned' ? 'active':''}}">
+						<a href="{{route('user.banned')}}" class="">
 							<i class=" list-item-icon fa-solid fa-user-times"></i>
 							<span>Banned User</span>
 						</a>
