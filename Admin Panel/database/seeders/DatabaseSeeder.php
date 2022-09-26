@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             ProductSeeder::class,
+            SizeSeeder::class,
+            ColorSeeder::class
         ]);
         // for($i=0;$i<10;$i++){
         //     DB::table('categories')->insert([
