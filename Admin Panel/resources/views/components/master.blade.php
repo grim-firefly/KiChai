@@ -31,6 +31,12 @@
 
     <!-- // chart -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+    </script>
+
+
 
     {{$scripts ?? ''}}
 

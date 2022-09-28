@@ -23,17 +23,6 @@ class DatabaseSeeder extends Seeder
             SizeSeeder::class,
             ColorSeeder::class
         ]);
-        // for($i=0;$i<10;$i++){
-        //     DB::table('categories')->insert([
-        //         'name' => fake()->name(),
-        //     ]);
-        // }
-     
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+      
     }
 }

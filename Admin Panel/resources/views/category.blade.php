@@ -110,62 +110,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>
-
-                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
-                                    <i class="fa-solid fa-edit"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm delete-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>
-
-                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
-                                    <i class="fa-solid fa-edit"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm delete-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>
-
-                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
-                                    <i class="fa-solid fa-edit"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm delete-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>
-
-                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
-                                    <i class="fa-solid fa-edit"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm delete-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
 
                     </tbody>
                 </table>
@@ -176,10 +120,41 @@
     </div>
     <x-slot:title>
         Admin | Category
-    </x-slot>
+        </x-slot>
         <x-slot:scripts>
 
             <script>
+                let tableData=$('#category-table').find('tbody');
+               
+                function loadTable() {
+                    axios.get('/getAllCategory', {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(function(response) {
+                        response.data.forEach(element => {
+                           
+                           $(tableData).append( `<tr>
+                            <th scope="row">${element.id}</th>
+                            <td>${element.name}</td>
+                            <td>${element.created_at}</td>
+                            <td>
+
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
+                                    <i class="fa-solid fa-edit"></i>
+                                </button>
+                                <button class="btn btn-danger btn-sm delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>`);
+                        });
+                    }).catch(function(error) {
+                        console.log(error.message);
+                    });
+                }
+                loadTable();
+
                 $(document).ready(function() {
                     // search box 
                     let node = $('#input-search-box');

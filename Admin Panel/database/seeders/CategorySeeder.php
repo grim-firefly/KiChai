@@ -15,8 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create([
-            'name' => fake()->name(),
-        ]);
+       Category::factory(10)->create();
     }
 }
