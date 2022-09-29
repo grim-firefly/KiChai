@@ -63,7 +63,7 @@
                         <div class="modal-body">
                             <form action="">
                                 <div class="input-box">
-                                    <input placeholder="Category Name" type="text" name="search" class="edit-input-box-input" />
+                                    <input placeholder="Category Name" type="text" name="search" id="edit-input-box-input" class="input-box-input" />
                                     <span class="line"></span>
 
 
@@ -74,7 +74,7 @@
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <!-- <button type="button" class="btn btn-success">Save
              changes</button> -->
-                            <button class="animate-button save-edit-info" data-bs-toggle="modal" data-bs-dismiss="modal">
+                            <button class="animate-button " id="save-edit-info" data-bs-toggle="modal" data-bs-dismiss="modal">
                                 <i class="fa-solid fa-floppy-disk"></i>
                                 <span class="btn-animate-top"></span>
                                 <span class="btn-animate-right"></span>
@@ -139,6 +139,7 @@
                             <td>${element.name}</td>
                             <td>${element.created_at}</td>
                             <td>
+                            <input type="text" name="id" value="${element.id}" hidden/>
                                 <button data-id="${element.id}" class="btn btn-primary btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#edit-category">
                                     <i class="fa-solid fa-edit"></i>
                                 </button>
@@ -196,20 +197,38 @@
                         $(this).next('.line').css('left', '-100%');
 
                     });
-                    // edit btn 
+                    // edit btn
+                    let editNode;
                     $(document).on('click', '.edit-btn', function() {
-                        let id = $(this).data('id');
-                        let node = $(this).parent().parent();
+                        let id = $(this).siblings('input[name="id"]').val();
+                        let node = $(this).parent();
+                        editNode=node;
                         axios.get('getCategoryName', {
                             params: {
                                 id
                             }
                         }).then((response) => {
-                            $('.edit-input-box-input').val(response.data.name);
+                            $('#edit-input-box-input').val(response.data.name);
+                            $('#save-edit-info').data('id',id);
+                        }).catch((error) => {
+                            console.log(error.message);
                         });
 
+
                     });
-                   
+                    $(document).on('click', '#save-edit-info', function() {
+
+                        let newName=$('#edit-input-box-input').val();
+                        let id=$('#save-edit-info').data('id');
+                        axios.post('/updateCategoryInfo',{
+                            id,
+                            name:newName
+                        }).then((response) => {
+                            if(response.data.status=='success'){
+                                $(editNode).siblings(':nth-child(2)').text(newName);
+                            }
+                        });
+                    });
                     // delete 
                     $(document).on('click', '.delete-btn', function() {
                         let id = $(this).data('id');
