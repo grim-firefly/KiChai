@@ -63,7 +63,7 @@
                         <div class="modal-body">
                             <form action="">
                                 <div class="input-box">
-                                    <input placeholder="Category Name" type="text" name="search" class="input-box-input" />
+                                    <input placeholder="Category Name" type="text" name="search" class="edit-input-box-input" />
                                     <span class="line"></span>
 
 
@@ -74,7 +74,7 @@
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <!-- <button type="button" class="btn btn-success">Save
              changes</button> -->
-                            <button class="animate-button" data-bs-toggle="modal" data-bs-dismiss="modal">
+                            <button class="animate-button save-edit-info" data-bs-toggle="modal" data-bs-dismiss="modal">
                                 <i class="fa-solid fa-floppy-disk"></i>
                                 <span class="btn-animate-top"></span>
                                 <span class="btn-animate-right"></span>
@@ -139,7 +139,7 @@
                             <td>${element.name}</td>
                             <td>${element.created_at}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
+                                <button data-id="${element.id}" class="btn btn-primary btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#edit-category">
                                     <i class="fa-solid fa-edit"></i>
                                 </button>
                                 <button data-id="${element.id}" class="btn btn-danger btn-sm delete-btn">
@@ -196,6 +196,21 @@
                         $(this).next('.line').css('left', '-100%');
 
                     });
+                    // edit btn 
+                    $(document).on('click', '.edit-btn', function() {
+                        let id = $(this).data('id');
+                        let node = $(this).parent().parent();
+                        axios.get('getCategoryName', {
+                            params: {
+                                id
+                            }
+                        }).then((response) => {
+                            $('.edit-input-box-input').val(response.data.name);
+                        });
+
+                    });
+                   
+                    // delete 
                     $(document).on('click', '.delete-btn', function() {
                         let id = $(this).data('id');
                         let node = $(this);
