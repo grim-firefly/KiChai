@@ -16,4 +16,13 @@ class CategoryController extends Controller
         $categoyList = Category::all();
         return response()->json($categoyList,200);
     }
+    public function deleteCategory(Request $request){
+        $id=$request->id;
+       $flag= Category::where('id',$id)->delete($id);
+       if($flag){
+            return response()->json(['status'=>'success'],200);
+       }
+       return response()->json(['status'=>'failed'],502);
+
+    }
 }

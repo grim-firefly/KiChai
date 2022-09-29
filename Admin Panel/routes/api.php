@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::name('Category.')->group(function () {
     Route::get('getAllCategory', [CategoryController::class, 'getAllCategory'])->name('AllCategory');
+    Route::post('deleteCategory', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
 });

@@ -124,8 +124,8 @@
         <x-slot:scripts>
 
             <script>
-                let tableData=$('#category-table').find('tbody');
-               
+                let tableData = $('#category-table').find('tbody');
+
                 function loadTable() {
                     axios.get('/getAllCategory', {
                         headers: {
@@ -133,17 +133,16 @@
                         }
                     }).then(function(response) {
                         response.data.forEach(element => {
-                           
-                           $(tableData).append( `<tr>
+
+                            $(tableData).append(`<tr>
                             <th scope="row">${element.id}</th>
                             <td>${element.name}</td>
                             <td>${element.created_at}</td>
                             <td>
-
                                 <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-category">
                                     <i class="fa-solid fa-edit"></i>
                                 </button>
-                                <button class="btn btn-danger btn-sm delete-btn">
+                                <button data-id="${element.id}" class="btn btn-danger btn-sm delete-btn">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>
@@ -197,7 +196,9 @@
                         $(this).next('.line').css('left', '-100%');
 
                     });
-                    $('.delete-btn').on('click', function() {
+                    $(document).on('click', '.delete-btn', function() {
+                        let id = $(this).data('id');
+                        let node = $(this);
                         Swal.fire({
                             title: 'Are you sure?',
                             text: "You won't be able to revert this!",
@@ -208,11 +209,27 @@
                             confirmButtonText: 'Yes, delete it!'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                Swal.fire(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
-                                    'success'
-                                )
+                                axios.post('/deleteCategory', {
+                                    id
+                                }).then((response) => {
+                                    if (response.data.status == 'success') {
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                        )
+                                        $(node).parent().parent().remove();
+                                    } else {
+                                        Swal.fire(
+                                            'Failed!',
+                                            'Your Category failed to delete.',
+                                            'Failed'
+                                        )
+                                    }
+                                }).catch((error) => {
+                                    console.log(error.message);
+                                });
+
                             }
                         });
                     });
