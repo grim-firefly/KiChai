@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function show(Request $request)
     {
         $id = $request->id;
-        $category = $id;
+        $category = Category::where('id', $id)->get('name')->first()->name;
         return view('category.show', compact('category'));
     }
     public function create()
