@@ -23,7 +23,7 @@
 
                 <div class="admin-menu dropdown">
                     <a href="#" class="btn admin btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="admin-img" src="asset/images/navbar/user.jpg" alt="user" srcset="" />
+                        <img class="admin-img" src="{{asset('asset/images/navbar/user.jpg')}}" alt="user" srcset="" />
                     </a>
 
                     <ul class="dropdown-menu nav-dropdown-menu " aria-labelledby="dropdownMenuLink">

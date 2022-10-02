@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="sidebar-only-button">
-				<a href="{{url('category')}}" class="sidebar-button {{Request::path()=='category' ? 'active':''}}"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+				<a href="{{route('Category.Index')}}" class="sidebar-button {{Request::path()=='category' ? 'active':''}}"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 					Category</a>
 			</div>
 			<!-- sidebar button containing list  -->
@@ -22,20 +22,20 @@
 
 
 					<li class="sidebar-list-item">
-						<a href="{{route('user.index')}}" class="{{Request::path()=='user' ? 'active':''}}">
+						<a href="{{route('User.Index')}}" class="{{Request::path()=='user' ? 'active':''}}">
 							<i class="list-item-icon fa-solid fa-user-edit"></i>
 							<span> User</span>
 						</a>
 					</li>
 					<li class="sidebar-list-item">
-						<a href="{{route('user.banned')}}" class="">
+						<a href="{{route('User.Banned')}}" class="">
 							<i class=" list-item-icon fa-solid fa-user-times"></i>
 							<span>Banned User</span>
 						</a>
 					</li>
 			</div>
 			<div class="sidebar-only-button">
-				<a href="{{route('product.index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+				<a href="{{route('Product.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 					Products</a>
 			</div>
 			<!-- sidebar button containing list  -->

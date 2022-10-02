@@ -19,9 +19,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::name('Category.')->group(function () {
-    Route::get('getAllCategory', [CategoryController::class, 'getAllCategory'])->name('AllCategory');
-    Route::post('deleteCategory', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
-    Route::get('getCategoryName', [CategoryController::class, 'getCategoryName'])->name('getCategory');
-    Route::post('updateCategoryInfo', [CategoryController::class, 'updateCategoryInfo'])->name('updateCategoryInfo');
-});
