@@ -84,8 +84,10 @@
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
 
-                                    <form action="" class="mx-1">
-                                        <button class="btn btn-danger btn-sm delete-btn">
+                                    <form action="{{route('Category.Delete',[$category->id])}}"  method="POST" class="mx-1">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm delete-btn">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>

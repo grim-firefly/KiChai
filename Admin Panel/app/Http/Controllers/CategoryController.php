@@ -44,14 +44,10 @@ class CategoryController extends Controller
         return redirect()->route('Category.Index')->withMessage('Category Updated SuccessFully');
 
     }
-    public function deleteCategory(Request $request)
+    public function delete($id)
     {
-        $id = $request->id;
-        $flag = Category::where('id', $id)->delete($id);
-        if ($flag) {
-            return response()->json(['status' => 'success'], 200);
-        }
-        return response()->json(['status' => 'failed'], 502);
+        $flag = Category::where('id', $id)->delete();
+        return redirect()->route('Category.Index')->withMessage('Category Deleted SuccessFully');
     }
     public function getCategoryName(Request $request)
     {
