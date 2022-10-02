@@ -18,11 +18,9 @@ class ProductFactory extends Factory
     {
         return [
             'title'=>fake()->name(),
-            'category_id'=> 12,
-            'price'=> fake()->randomFloat(1,200,3000),
-            'quantity'=> fake()->randomDigit(),
+            'category_id'=> fake()->randomDigit(),
             'description'=> fake()->text(200),
-            'product_img' => fake()->image(),
+            'is_active' => true,
             
         ];
     }

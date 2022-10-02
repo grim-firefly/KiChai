@@ -5,15 +5,18 @@
 
             </div>
             <div class="page-title col-3">
-                <h1>Category</h1>
+                <h1>Product</h1>
             </div>
             <div class="col-5">
 
             </div>
         </div>
 
+
+
+
         <div class="add-new-category mb-1  " style="display:flex;">
-            <a class="animate-button" href="{{route('Category.Create')}}" style="margin-right:20px;" >
+            <a class="animate-button" href="{{route('Product.Create')}}" style="margin-right:20px;" >
                 <i class="fa-solid fa-plus"></i>
                 <span class="btn-animate-top"></span>
                 <span class="btn-animate-right"></span>
@@ -25,36 +28,39 @@
 
 
 
+
         <div class="row">
             <table class="table border table-hover" id="category-table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Product</th>
                         <th scope="col">Category</th>
-                        <th scope="col">Created at</th>
-                        <th scope="col">Options</th>
+                        <th scope="col">is_active</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($categoryList as $category)
+                    @forelse ($productList as $product)
                         <tr>
-                            <th scope="row">{{ $category->id }}</th>
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->created_at }}</td>
+                            <th scope="row">{{ $product->id }}</th>
+                            <td>{{ $product->title }}</td>
+                            <td>{{ $product->category }}</td>
+                            <td>{{ $product->is_active ? 'Yes' : 'No' }}</td>
                             <td>
                                 <div style="display: flex;">
 
                                     <a class="btn btn-primary btn-sm edit-btn mx-1"
-                                        href="{{ route('Category.Show', ['id' => $category->id]) }}">
+                                        href="{{ route('Product.Show', ['id' => $product->id]) }}">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
 
                                     <a class="btn btn-primary btn-sm edit-btn"
-                                        href="{{ route('Category.Edit', [$category->id]) }}">
+                                        href="{{ route('Product.Edit', [$product->id]) }}">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('Category.Delete', [$category->id]) }}" method="POST"
+                                    <form action="{{ route('Product.Delete', [$product->id]) }}" method="POST"
                                         class="mx-1">
                                         @csrf
                                         @method('DELETE')

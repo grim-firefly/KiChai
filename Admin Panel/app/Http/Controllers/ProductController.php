@@ -2,12 +2,80 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    //
-    public function index(){
-        return view('product');
+    public function index()
+    {
+        $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'categories.name as category', 'products.is_active']);
+        return view('product.index', compact('productList'));
+    }
+    public function show(Request $request)
+    {
+        $id = $request->id;
+        $product = Product::where('id', $id)->get()->first();
+        return view('product.show', compact('product'));
+    }
+    public function create()
+    {
+        $categoryList = Category::all(['id', 'name']);
+        return view('product.create', compact('categoryList'));
+    }
+    public function store(Request $request)
+    {
+        //    $name=$request->category;
+        Product::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'category_id' => $request->category,
+            'is_active' => $request->is_active ? true : false,
+        ]);
+        return redirect()->route('Product.Index')->withMessage('Product Added SuccessFully');
+    }
+    public function edit(Request $request)
+    {
+        $id = $request->id;
+        $product = Product::where('id', $id)->get()->first();
+        $categoryList = Category::all(['id', 'name']);
+
+        return view('product.edit', compact('id', 'product','categoryList'));
+    }
+    public function update(Request $request)
+    {
+        $id = $request->id;       
+        Product::where('id', $id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'category_id' => $request->category,
+            'is_active' => $request->is_active ? true : false,
+        ]);
+        return redirect()->route('Product.Index')->withMessage('Product Updated SuccessFully');
+    }
+    public function delete($id)
+    {
+        $flag = Product::where('id', $id)->delete();
+        return redirect()->route('Product.Index')->withMessage('Product Deleted SuccessFully');
+    }
+    public function getCategoryName(Request $request)
+    {
+        $id = $request->id;
+        // return response()->json($request);
+        // return response()->json($id);
+        $name = Product::where('id', $id)->get('name')->first();
+        return response()->json($name, 200);
+    }
+
+    public function updateCategoryInfo(Request $request)
+    {
+        $id = $request->id;
+        $newName = $request->name;
+        $ctg = Product::where('id', $id)->update(['name' => $newName]);
+        if ($ctg) {
+            return response()->json(['status' => 'success'], 200);
+        }
+        return response()->json(['status' => 'failed'], 200);
     }
 }

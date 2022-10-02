@@ -11,12 +11,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PublicController::class, 'index']);
 
 Route::get('/login', [LogInController::class, 'index']);
-Route::prefix('products')->name('Product.')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('Index');
-});
+
 // Route::get('/user', [UserController::class, 'index']);
 // Route::get('/user-banned', [UserController::class, 'bannedUsers']);
-Route::prefix('Categories')->name('Category.')->group(function () {
+Route::prefix('categories')->name('Category.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('Index');
     Route::get('create', [CategoryController::class, 'create'])->name('Create');
     Route::post('/',[CategoryController::class,'store'])->name('Store');
@@ -24,6 +22,16 @@ Route::prefix('Categories')->name('Category.')->group(function () {
     Route::put('/',[CategoryController::class,'update'])->name('Update');
     Route::delete('/{id}/delete', [CategoryController::class, 'delete'])->name('Delete');
     Route::get('/{id?}', [CategoryController::class, 'show'])->name('Show');
+});
+
+Route::prefix('products')->name('Product.')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])->name('Index');
+    Route::get('create', [ProductController::class, 'create'])->name('Create');
+    Route::post('/',[ProductController::class,'store'])->name('Store');
+    Route::get('/{id}/edit',[ProductController::class,'edit'])->name('Edit');
+    Route::put('/',[ProductController::class,'update'])->name('Update');
+    Route::delete('/{id}/delete', [ProductController::class, 'delete'])->name('Delete');
+    Route::get('/{id?}', [ProductController::class, 'show'])->name('Show');
 });
 
 Route::prefix('users')->name('User.')->group(function () {

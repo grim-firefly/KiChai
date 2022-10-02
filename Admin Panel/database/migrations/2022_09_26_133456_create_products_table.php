@@ -17,11 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('category_id');
-            $table->integer('price');
-            $table->integer('quantity');
+            $table->string('is_active');
             $table->mediumText('description');
-            $table->string('product_img');
-            $table->timestamps();
         });
     }
 
