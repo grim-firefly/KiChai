@@ -5,7 +5,7 @@
 
             </div>
             <div class="page-title col-3">
-                <h1>Create Category</h1>
+                <h1>Edit Category</h1>
             </div>
             <div class="col-5">
 
@@ -14,10 +14,12 @@
 
 
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="{{route('Category.Store')}}" method="POST">
+            <form action="{{route('Category.Update')}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="input-box">
-                    <input placeholder="Category Name" type="text" name="category" class="input-box-input my-2 " style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
+                    <input type="hidden" name='id' value="{{$id}}" />
+                    <input placeholder="Category Name" value="{{$category->name}}" type="text" name="category" class="input-box-input my-2 " style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>

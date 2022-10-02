@@ -30,6 +30,20 @@ class CategoryController extends Controller
 
        return redirect()->route('Category.Index')->withMessage('Category Added SuccessFully');
     }
+    public function edit(Request $request){
+        $id=$request->id;
+        $category= Category::where('id', $id)->get('name')->first();
+        return view('category.edit',compact('id','category'));
+    }
+    public function update(Request $request){
+        $id=$request->id;
+        $name=$request->category;
+        Category::where('id',$id)->update([
+            'name'=>$name
+        ]);
+        return redirect()->route('Category.Index')->withMessage('Category Updated SuccessFully');
+
+    }
     public function deleteCategory(Request $request)
     {
         $id = $request->id;

@@ -20,6 +20,8 @@ Route::prefix('Categories')->name('Category.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('Index');
     Route::get('create', [CategoryController::class, 'create'])->name('Create');
     Route::post('/',[CategoryController::class,'store'])->name('Store');
+    Route::get('/{id}/edit',[CategoryController::class,'edit'])->name('Edit');
+    Route::put('/',[CategoryController::class,'update'])->name('Update');
     Route::get('/{id?}', [CategoryController::class, 'show'])->name('Show');
 });
 
