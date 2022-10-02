@@ -14,9 +14,10 @@
 
 
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="">
+            <form action="{{route('Category.Store')}}" method="POST">
+                @csrf
                 <div class="input-box">
-                    <input placeholder="Category Name" type="text" name="search" class="input-box-input my-2 " style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
+                    <input placeholder="Category Name" type="text" name="category" class="input-box-input my-2 " style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>

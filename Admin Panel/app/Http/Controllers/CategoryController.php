@@ -25,7 +25,10 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request);
+       $name=$request->category;
+       Category::create(['name'=>$name]);
+
+       return redirect()->route('Category.Index')->withMessage('Category Added SuccessFully');
     }
     public function deleteCategory(Request $request)
     {
