@@ -16,14 +16,8 @@
 
 
         <div class="add-new-category mb-1  " style="display:flex;">
-            <a class="animate-button" href="{{route('Lab.Create')}}" style="margin-right:20px;" >
-                <i class="fa-solid fa-plus"></i>
-                <span class="btn-animate-top"></span>
-                <span class="btn-animate-right"></span>
-                <span class="btn-animate-bottom"></span>
-                <span class="btn-animate-left"></span>
-                <div class="btn-text"> Add</div>
-            </a>
+            <x-common.button icon="fa-solid fa-plus"  name="Add">
+            </x-common.button>
         </div>
 
 

@@ -48,15 +48,8 @@
                 </div>
               
                 <div class="d-flex" style="justify-content: center;">
-                    <button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category"
-                        data-bs-dismiss="modal">
-                        <i class="fa-solid fa-floppy-disk"></i>
-                        <span class="btn-animate-top"></span>
-                        <span class="btn-animate-right"></span>
-                        <span class="btn-animate-bottom"></span>
-                        <span class="btn-animate-left"></span>
-                        <div class="btn-text"> Save</div>
-                    </button>
+                    <x-common.button icon="fa-solid fa-floppy-disk" tag="button" name="Save">
+                    </x-common.button>
                 </div>
             </form>
 
