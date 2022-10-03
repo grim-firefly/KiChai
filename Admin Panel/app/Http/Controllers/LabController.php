@@ -38,16 +38,16 @@ class LabController extends Controller
         $id = $request->id;
         $lab = Lab::where('id', $id)->get()->first();
 
-        return view('lab.edit', compact('id', 'lab','categoryList'));
+        return view('lab.edit', compact('lab'));
     }
     public function update(Request $request)
     {
         $id = $request->id;       
         Lab::where('id', $id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'category_id' => $request->category,
-            'is_active' => $request->is_active ? true : false,
+            'lab_no' => $request->lab_no,
+            'no_of_pc' => $request->no_of_pc,
+            'capacity' => $request->capacity,
+            'type' => $request->type,
         ]);
         return redirect()->route('Lab.Index')->withMessage('Lab Updated SuccessFully');
     }
