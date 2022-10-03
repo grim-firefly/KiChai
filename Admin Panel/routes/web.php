@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LabController;
 use App\Http\Controllers\LogInController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublicController;
@@ -32,6 +33,15 @@ Route::prefix('products')->name('Product.')->group(function () {
     Route::put('/',[ProductController::class,'update'])->name('Update');
     Route::delete('/{id}/delete', [ProductController::class, 'delete'])->name('Delete');
     Route::get('/{id?}', [ProductController::class, 'show'])->name('Show');
+});
+Route::prefix('labs')->name('Lab.')->group(function () {
+    Route::get('/', [LabController::class, 'index'])->name('Index');
+    Route::get('create', [LabController::class, 'create'])->name('Create');
+    Route::post('/',[LabController::class,'store'])->name('Store');
+    Route::get('/{id}/edit',[LabController::class,'edit'])->name('Edit');
+    Route::put('/',[LabController::class,'update'])->name('Update');
+    Route::delete('/{id}/delete', [LabController::class, 'delete'])->name('Delete');
+    Route::get('/{id?}', [LabController::class, 'show'])->name('Show');
 });
 
 Route::prefix('users')->name('User.')->group(function () {

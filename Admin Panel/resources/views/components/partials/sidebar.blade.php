@@ -38,6 +38,10 @@
 				<a href="{{route('Product.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 					Products</a>
 			</div>
+			<div class="sidebar-only-button">
+				<a href="{{route('Lab.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+					Labs</a>
+			</div>
 			<!-- sidebar button containing list  -->
 
 		</div>
