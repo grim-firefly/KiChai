@@ -1,9 +1,22 @@
 <x-master>
+<div class="col-md-11" id="sidebar-right-section">
+        <div class="row mt-3">
+            <div class="col-4">
 
-	{{$product->title}}
-    <br>
-	{{$product->description}}
+            </div>
+            <div class="page-title col-3">
+                <h1>View Products</h1>
+            </div>
+            <div class="col-5">
 
+            </div>
+        </div>
+        <h1>Lab : {{$lab->lab_no}}</h1>
+        <h1>number of pc: {{$lab->no_of_pc}}</h1>
+        <h1>number of pc: {{$lab->no_of_pc}}</h1>
+        <h1>Lab Type: {{$lab->type}}</h1>
+</div>
+	
     <x-slot:title>
         Admin | view Product
         </x-slot>
