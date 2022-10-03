@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Catch_;
@@ -23,7 +24,7 @@ class CategoryController extends Controller
     {
         return view('category.create');
     }
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
        $name=$request->category;
        Category::create(['name'=>$name]);

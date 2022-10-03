@@ -13,26 +13,32 @@
         </div>
 
 
+        @error('category')
+            <div class="alert alert-danger">
+                {{$message}}
+            </div>
+            @enderror
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
+
+
             <form action="{{route('Category.Store')}}" method="POST">
                 @csrf
                 <div class="input-box">
-                    <input placeholder="Category Name" type="text" name="category" class="input-box-input my-2 " style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
+                    <input value="{{old('category')}}" placeholder="Category Name" type="text" name="category" class="input-box-input my-2 " style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>
                 <div class="d-flex" style="justify-content: center;">
-                    <button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category"
-                    data-bs-dismiss="modal">
-                    <i class="fa-solid fa-floppy-disk"></i>
-                    <span class="btn-animate-top"></span>
-                    <span class="btn-animate-right"></span>
-                    <span class="btn-animate-bottom"></span>
-                    <span class="btn-animate-left"></span>
-                    <div class="btn-text"> Save</div>
-                </button>
+                    <button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span class="btn-animate-top"></span>
+                        <span class="btn-animate-right"></span>
+                        <span class="btn-animate-bottom"></span>
+                        <span class="btn-animate-left"></span>
+                        <div class="btn-text"> Save</div>
+                    </button>
                 </div>
-                
+
             </form>
         </div>
     </div>
