@@ -16,7 +16,7 @@
 
 
         <div class="add-new-category mb-1  " style="display:flex;">
-            <a class="animate-button" href="{{route('Product.Create')}}" style="margin-right:20px;" >
+            <a class="animate-button" href="{{route('Lab.Create')}}" style="margin-right:20px;" >
                 <i class="fa-solid fa-plus"></i>
                 <span class="btn-animate-top"></span>
                 <span class="btn-animate-right"></span>
@@ -53,16 +53,16 @@
                                 <div style="display: flex;">
 
                                     <a class="btn btn-primary btn-sm edit-btn mx-1"
-                                        href="{{ route('Product.Show', ['id' => $lab->id]) }}">
+                                        href="{{ route('Lab.Show', ['id' => $lab->id]) }}">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
 
                                     <a class="btn btn-primary btn-sm edit-btn"
-                                        href="{{ route('Product.Edit', [$lab->id]) }}">
+                                        href="{{ route('Lab.Edit', [$lab->id]) }}">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('Product.Delete', [$lab->id]) }}" method="POST"
+                                    <form action="{{ route('Lab.Delete', [$lab->id]) }}" method="POST"
                                         class="mx-1">
                                         @csrf
                                         @method('DELETE')

@@ -20,7 +20,7 @@ class LabController extends Controller
     }
     public function create()
     {
-        return view('lab.create', compact('categoryList'));
+        return view('lab.create');
     }
     public function store(Request $request)
     {

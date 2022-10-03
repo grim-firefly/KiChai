@@ -5,7 +5,7 @@
 
             </div>
             <div class="page-title col-3">
-                <h1>Create Product</h1>
+                <h1>Create Lab</h1>
             </div>
             <div class="col-5">
 
@@ -17,30 +17,34 @@
             <form action="{{ route('Product.Store') }}" method="POST">
                 @csrf
                 <div class="input-box">
-                    <input placeholder="Product Title" type="text" name="title" class="input-box-input my-2 "
+                    <input placeholder="Lab no" type="text" name="lab_no" class="input-box-input my-2 "
                         style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>
                 <div class="input-box">
-                    <input placeholder="Product Description" type="text" name="description"
+                    <input placeholder="no of pc" type="text" name="no_of_pc"
                         class="input-box-input my-2 "
                         style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>
-                
                 <div class="input-box">
-                    <select name="category" style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
-                        @foreach ($categoryList as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
+                    <input placeholder="capacity" type="text" name="capacity"
+                        class="input-box-input my-2 "
+                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
+                    <span class="line"></span>
+
+                </div>
+                <div class="input-box">
+                    <select name="type" style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                            <option value="Laravel">Laravel</option>
+                            <option value="React">React</option>
+                            <option value="Vue">Vue</option>
+                            <option value="Node">Node</option>
                     </select>
                 </div>
-                <div class="input-box">
-                    <input type="checkbox" id="vehicle3" name="is_active" value="1">
-                    <label for="vehicle3">Active</label><br>
-                </div>
+              
                 <div class="d-flex" style="justify-content: center;">
                     <button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category"
                         data-bs-dismiss="modal">
