@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $category= Category::where('id', $id)->get('name')->first();
         return view('category.edit',compact('id','category'));
     }
-    public function update(Request $request){
+    public function update(CategoryRequest $request){
         $id=$request->id;
         $name=$request->category;
         Category::where('id',$id)->update([
