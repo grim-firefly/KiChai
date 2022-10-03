@@ -23,13 +23,8 @@
 
             <form action="{{ route('Category.Store') }}" method="POST">
                 @csrf
-                <div class="input-box">
-                    <input value="{{ old('category') }}" placeholder="Category Name" type="text" name="category"
-                        class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
-                    <span class="line"></span>
-
-                </div>
+                <x-form.inputbox name='category' value="{{ old('category') }}" placeholder='category name'>
+                </x-form.inputbox>
                 <div class="d-flex" style="justify-content: center;">
                    <x-common.button icon="fa-solid fa-floppy-disk" tag="button" name="Save">
                    </x-common.button>

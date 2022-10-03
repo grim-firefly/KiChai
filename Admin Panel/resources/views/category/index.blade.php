@@ -13,8 +13,8 @@
         </div>
 
         <div class="add-new-category mb-1  " style="display:flex;">
-          
-            <x-common.button icon="fa-solid fa-plus"  name="Add">
+
+            <x-common.button tag='a' url="{{ route('Category.Create') }}" icon="fa-solid fa-plus" name="Add">
             </x-common.button>
         </div>
 

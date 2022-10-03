@@ -21,14 +21,10 @@
             <form action="{{ route('Category.Update') }}" method="POST">
                 @csrf
                 @method('PUT')
-                <div class="input-box">
-                    <input type="hidden" name='id' value="{{ $id }}" />
-                    <input placeholder="Category Name" value="{{ $category->name }}" type="text" name="category"
-                        class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
-                    <span class="line"></span>
-
-                </div>
+               
+                <input type="hidden" name='id' value="{{ $id }}" />
+                <x-form.inputbox name='category' value="{{ old('category',$category->name ) }}" placeholder='category name'>
+                </x-form.inputbox>
                 <div class="d-flex" style="justify-content: center;">
                     <x-common.button icon="fa-solid fa-floppy-disk" tag="button" name="Save">
                     </x-common.button>

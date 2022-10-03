@@ -16,26 +16,14 @@
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
             <form action="{{ route('Lab.Store') }}" method="POST">
                 @csrf
-                <div class="input-box">
-                    <input placeholder="Lab no" type="text" name="lab_no" class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
-                    <span class="line"></span>
-
-                </div>
-                <div class="input-box">
-                    <input placeholder="no of pc" type="text" name="no_of_pc"
-                        class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
-                    <span class="line"></span>
-
-                </div>
-                <div class="input-box">
-                    <input placeholder="capacity" type="text" name="capacity"
-                        class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
-                    <span class="line"></span>
-
-                </div>
+              
+                <x-form.inputbox name='lab_no'  placeholder='Lab No'>
+                </x-form.inputbox>
+                <x-form.inputbox name='no_of_pc'  placeholder='No Of PC'>
+                </x-form.inputbox>
+                <x-form.inputbox name='capacity'  placeholder='Capacity'>
+                </x-form.inputbox>
+               
                 <div class="input-box">
                     <select name="type" style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
                             <option value="Laravel">Laravel</option>
