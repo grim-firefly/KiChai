@@ -26,10 +26,10 @@ class LabController extends Controller
     {
         //    $name=$request->category;
         Lab::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'category_id' => $request->category,
-            'is_active' => $request->is_active ? true : false,
+            'lab_no' => $request->lab_no,
+            'no_of_pc' => $request->no_of_pc,
+            'capacity' => $request->capacity,
+            'type' => $request->type,
         ]);
         return redirect()->route('Lab.Index')->withMessage('Lab Added SuccessFully');
     }

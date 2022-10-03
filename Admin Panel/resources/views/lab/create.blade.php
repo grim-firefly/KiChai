@@ -14,7 +14,7 @@
 
 
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="{{ route('Product.Store') }}" method="POST">
+            <form action="{{ route('Lab.Store') }}" method="POST">
                 @csrf
                 <div class="input-box">
                     <input placeholder="Lab no" type="text" name="lab_no" class="input-box-input my-2 "
