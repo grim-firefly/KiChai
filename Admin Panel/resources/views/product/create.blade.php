@@ -14,7 +14,7 @@
 
 
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="{{ route('Product.Store') }}" method="POST">
+            <form action="{{ route('Product.Store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="input-box">
                     <input placeholder="Product Title" type="text" name="title" class="input-box-input my-2 "
@@ -23,20 +23,26 @@
 
                 </div>
                 <div class="input-box">
-                    <input placeholder="Product Description" type="text" name="description"
-                        class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
+                    <textarea placeholder="Product Description" type="text" name="description" class="input-box-input my-2 "
+                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;"></textarea>
                     <span class="line"></span>
 
                 </div>
-                
                 <div class="input-box">
-                    <select name="category" style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                    <input placeholder="Product Description" type="file" name="product_img"
+                        class="input-box-input my-2 "
+                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border:1px solid #f16343;" />
+                    <span class="line"></span>
+                </div>
+                <div class="input-box">
+                    <select name="category"
+                        style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
                         @foreach ($categoryList as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
+
                 <div class="input-box">
                     <input type="checkbox" id="vehicle3" name="is_active" value="1">
                     <label for="vehicle3">Active</label><br>

@@ -34,6 +34,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">images</th>
                         <th scope="col">Product</th>
                         <th scope="col">Category</th>
                         <th scope="col">is_active</th>
@@ -44,6 +45,7 @@
                     @forelse ($productList as $product)
                         <tr>
                             <th scope="row">{{ $product->id }}</th>
+                            <th scope="row"><img style="height: 50px;width:80px;" src="{{asset('product_storage/'.$product->image)}}" alt="wow" srcset=""></th>
                             <td>{{ $product->title }}</td>
                             <td>{{ $product->category }}</td>
                             <td>{{ $product->is_active ? 'Yes' : 'No' }}</td>

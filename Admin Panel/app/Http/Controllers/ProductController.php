@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'categories.name as category', 'products.is_active']);
+        $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
         return view('product.index', compact('productList'));
     }
     public function show(Request $request)
@@ -27,11 +28,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //    $name=$request->category;
+        $path = $request->file('product_img')->store('public/products');
         Product::create([
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category,
             'is_active' => $request->is_active ? true : false,
+            'image' => basename($path)
         ]);
         return redirect()->route('Product.Index')->withMessage('Product Added SuccessFully');
     }
@@ -41,22 +44,33 @@ class ProductController extends Controller
         $product = Product::where('id', $id)->get()->first();
         $categoryList = Category::all(['id', 'name']);
 
-        return view('product.edit', compact('id', 'product','categoryList'));
+        return view('product.edit', compact('id', 'product', 'categoryList'));
     }
     public function update(Request $request)
     {
-        $id = $request->id;       
+        $id = $request->id;
+        $product = Product::where('id', $id)->get()->first();
+        $image=$product->image;
+        if ($request->file('product_img')) {
+            $deleted = Storage::delete('public/products/' . $image);
+            $path=$request->file('product_img')->store('public/products');
+            $image=basename($path);
+        }
         Product::where('id', $id)->update([
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category,
             'is_active' => $request->is_active ? true : false,
+            'image'=>$image
         ]);
         return redirect()->route('Product.Index')->withMessage('Product Updated SuccessFully');
     }
     public function delete($id)
     {
-        $flag = Product::where('id', $id)->delete();
+        // dd('wow'.$deleted);
+        $flag = Product::where('id', $id)->get()->first();
+        $deleted = Storage::delete('public/products/' . $flag->image);
+        $flag->delete();
         return redirect()->route('Product.Index')->withMessage('Product Deleted SuccessFully');
     }
     public function getCategoryName(Request $request)

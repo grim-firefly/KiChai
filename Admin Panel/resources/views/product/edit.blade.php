@@ -14,7 +14,7 @@
 
 
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="{{route('Product.Update')}}" method="POST">
+            <form action="{{route('Product.Update')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="id" value="{{$id}}">
@@ -31,7 +31,16 @@
                     <span class="line"></span>
 
                 </div>
-                
+                <div class="input-box" style="display: flex;justify-content:center;">
+                    <img style="height: 50px;width:80px;" src="{{asset('product_storage/'.$product->image)}}" alt="wow" srcset="">
+
+                </div>
+                <div class="input-box">
+                    <input placeholder="Product Description" type="file" name="product_img"
+                        class="input-box-input my-2 "
+                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border:1px solid #f16343;" />
+                    <span class="line"></span>
+                </div>
                 <div class="input-box">
                     <select name="category" style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
                         @foreach ($categoryList as $category)
