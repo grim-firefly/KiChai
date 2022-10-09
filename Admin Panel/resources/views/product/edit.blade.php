@@ -12,27 +12,37 @@
             </div>
         </div>
 
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="{{route('Product.Update')}}" enctype="multipart/form-data" method="POST">
+
+            <form action="{{ route('Product.Update') }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="id" value="{{$id}}">
+                <input type="hidden" name="id" value="{{ $id }}">
                 <div class="input-box">
-                    <input value="{{$product->title}}"  placeholder="Product Title" type="text" name="title" class="input-box-input my-2 "
+                    <input value="{{ old('title',$product->title) }}" placeholder="Product Title" type="text" name="title"
+                        class="input-box-input my-2 "
                         style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>
                 <div class="input-box">
-                    <textarea  placeholder="Product Description" type="text" name="description"
-                        class="input-box-input my-2 "
-                        style="width: 300px; height:150px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" >{{$product->description}}</textarea>
+                    <textarea placeholder="Product Description" type="text" name="description" class="input-box-input my-2 "
+                        style="width: 300px; height:150px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;">{{ old('description',$product->description) }}</textarea>
                     <span class="line"></span>
 
                 </div>
                 <div class="input-box" style="display: flex;justify-content:center;">
-                    <img style="height: 50px;width:80px;" src="{{asset('product_storage/'.$product->image)}}" alt="wow" srcset="">
+                    <img style="height: 50px;width:80px;" src="{{ asset('product_storage/' . $product->image) }}"
+                        alt="wow" srcset="">
 
                 </div>
                 <div class="input-box">
@@ -42,14 +52,18 @@
                     <span class="line"></span>
                 </div>
                 <div class="input-box">
-                    <select name="category" style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                    <select name="category"
+                        style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
                         @foreach ($categoryList as $category)
-                            <option value="{{$category->id}}" {{$category->id==$product->category_id ? 'selected':''}}>{{$category->name}}</option>
+                            <option value="{{ $category->id }}"
+                                {{ $category->id == old('category',$product->category_id) ? 'selected' : '' }}>{{ $category->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
                 <div class="input-box">
-                    <input type="checkbox" id="vehicle3" name="is_active" value="1" {{$product->is_active ? 'checked':''}}>
+                    <input type="checkbox" id="vehicle3" name="is_active" value="1"
+                        {{ $product->is_active ? 'checked' : '' }}>
                     <label for="vehicle3">Active</label><br>
                 </div>
                 <div class="d-flex" style="justify-content: center;">
@@ -63,7 +77,7 @@
                         <div class="btn-text"> Save</div>
                     </button>
                 </div>
-                
+
             </form>
 
         </div>

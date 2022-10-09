@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class ProductController extends Controller
         $categoryList = Category::all(['id', 'name']);
         return view('product.create', compact('categoryList'));
     }
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         //    $name=$request->category;
         $path = $request->file('product_img')->store('public/products');
@@ -46,7 +47,7 @@ class ProductController extends Controller
 
         return view('product.edit', compact('id', 'product', 'categoryList'));
     }
-    public function update(Request $request)
+    public function update(ProductRequest $request)
     {
         $id = $request->id;
         $product = Product::where('id', $id)->get()->first();

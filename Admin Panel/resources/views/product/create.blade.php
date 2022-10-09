@@ -12,54 +12,69 @@
             </div>
         </div>
 
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="container-fluid mt-1 d-flex" style="justify-content: center;">
-            <form action="{{ route('Product.Store') }}" enctype="multipart/form-data" method="POST">
-                @csrf
-                <div class="input-box">
-                    <input placeholder="Product Title" type="text" name="title" class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
-                    <span class="line"></span>
 
-                </div>
-                <div class="input-box">
-                    <textarea placeholder="Product Description" type="text" name="description" class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;"></textarea>
-                    <span class="line"></span>
+            <div>
 
-                </div>
-                <div class="input-box">
-                    <input placeholder="Product Description" type="file" name="product_img"
-                        class="input-box-input my-2 "
-                        style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border:1px solid #f16343;" />
-                    <span class="line"></span>
-                </div>
-                <div class="input-box">
-                    <select name="category"
-                        style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
-                        @foreach ($categoryList as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
 
-                <div class="input-box">
-                    <input type="checkbox" id="vehicle3" name="is_active" value="1">
-                    <label for="vehicle3">Active</label><br>
-                </div>
-                <div class="d-flex" style="justify-content: center;">
-                    <button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category"
-                        data-bs-dismiss="modal">
-                        <i class="fa-solid fa-floppy-disk"></i>
-                        <span class="btn-animate-top"></span>
-                        <span class="btn-animate-right"></span>
-                        <span class="btn-animate-bottom"></span>
-                        <span class="btn-animate-left"></span>
-                        <div class="btn-text"> Save</div>
-                    </button>
-                </div>
+                <form action="{{ route('Product.Store') }}" enctype="multipart/form-data" method="POST">
+                    @csrf
+                    <div class="input-box">
+                        <input placeholder="Product Title" value="{{ old('title') }}" type="text" name="title"
+                            class="input-box-input my-2 "
+                            style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
+                        <span class="line"></span>
 
-            </form>
+                    </div>
+                    <div class="input-box">
+                        <textarea placeholder="Product Description" type="text" name="description"
+                            class="input-box-input my-2 "
+                            style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;">{{ old('description') }}</textarea>
+                        <span class="line"></span>
+
+                    </div>
+                    <div class="input-box">
+                        <input placeholder="Product Description" type="file" name="product_img"
+                            class="input-box-input my-2 "
+                            style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border:1px solid #f16343;" />
+                        <span class="line"></span>
+                    </div>
+                    <div class="input-box">
+                        <select name="category"
+                            style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                            @foreach ($categoryList as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="checkbox" id="vehicle3" name="is_active" value="1" {{old('is_active') ? 'checked':''}}>
+                        <label for="vehicle3">Active</label><br>
+                    </div>
+                    <div class="d-flex" style="justify-content: center;">
+                        <button class="animate-button" data-bs-toggle="modal" data-bs-target="#add-category"
+                            data-bs-dismiss="modal">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span class="btn-animate-top"></span>
+                            <span class="btn-animate-right"></span>
+                            <span class="btn-animate-bottom"></span>
+                            <span class="btn-animate-left"></span>
+                            <div class="btn-text"> Save</div>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
     <x-slot:title>
