@@ -18,6 +18,7 @@ class ProductFactory extends Factory
     {
         return [
             'title'=>fake()->name(),
+            'image'=>fake()->name().'.jpg',
             'category_id'=> fake()->randomDigit(),
             'description'=> fake()->text(200),
             'is_active' => true,
