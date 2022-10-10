@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class ProductController extends Controller
 {
@@ -20,6 +21,14 @@ class ProductController extends Controller
         $id = $request->id;
         $product = Product::where('id', $id)->get()->first();
         return view('product.show', compact('product'));
+    }
+    public function generatePDF($id)
+    {
+        $product = Product::where('id', $id)->get()->first();
+
+        $pdf = PDF::loadView('product.pdf', compact('product'));
+
+        return $pdf->download('info.pdf');
     }
     public function create()
     {
@@ -51,18 +60,18 @@ class ProductController extends Controller
     {
         $id = $request->id;
         $product = Product::where('id', $id)->get()->first();
-        $image=$product->image;
+        $image = $product->image;
         if ($request->file('product_img')) {
             $deleted = Storage::delete('public/products/' . $image);
-            $path=$request->file('product_img')->store('public/products');
-            $image=basename($path);
+            $path = $request->file('product_img')->store('public/products');
+            $image = basename($path);
         }
         Product::where('id', $id)->update([
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category,
             'is_active' => $request->is_active ? true : false,
-            'image'=>$image
+            'image' => $image
         ]);
         return redirect()->route('Product.Index')->withMessage('Product Updated SuccessFully');
     }

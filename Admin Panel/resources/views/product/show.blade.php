@@ -3,6 +3,9 @@
         <div class="row mt-3">
 
             <div class="col-md-10" style="overflow-x:hidden;">
+                <div> 
+                    <a href="{{Route('Product.pdfdownload',$product->id)}}">Download pdf</a>
+                </div>
                 <h1> {{ $product->title }}</h1>
                 <h1>{{ $product->description }}</h1>
                 <div class="" style="display: flex;justify-content:center;">

@@ -47,6 +47,7 @@ Route::group(['middleware'=>['auth', 'verified']],function(){
         Route::put('/',[ProductController::class,'update'])->name('Update');
         Route::delete('/{id}/delete', [ProductController::class, 'delete'])->name('Delete');
         Route::get('/{id?}', [ProductController::class, 'show'])->name('Show');
+        Route::get('/generatepdf/{id?}',[ProductController::class, 'generatePDF'])->name('pdfdownload');
     });
     Route::prefix('labs')->name('Lab.')->group(function () {
         Route::get('/', [LabController::class, 'index'])->name('Index');
