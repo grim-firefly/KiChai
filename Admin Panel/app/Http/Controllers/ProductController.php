@@ -14,7 +14,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
+        // $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
+       
+        $productList=Product::with('category')->get();
         return view('product.index', compact('productList'));
     }
     public function show(Request $request)
