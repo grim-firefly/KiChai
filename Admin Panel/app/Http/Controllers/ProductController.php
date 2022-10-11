@@ -8,7 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use PDF;
-
+use Image;
 class ProductController extends Controller
 {
     public function index()
@@ -38,13 +38,17 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         //    $name=$request->category;
-        $path = $request->file('product_img')->store('public/products');
+        $image=$request->file('product_img');
+        $newName=date('y-m-d').'_'.time().'.'.$image->getClientOriginalExtension();
+        $destination=public_path('product_storage');
+        $img=Image::make($image->getRealPath())->resize(200,200)->save($destination.'/'.$newName);
+       
         Product::create([
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category,
             'is_active' => $request->is_active ? true : false,
-            'image' => basename($path)
+            'image' => $newName
         ]);
         return redirect()->route('Product.Index')->withMessage('Product Added SuccessFully');
     }
@@ -63,8 +67,11 @@ class ProductController extends Controller
         $image = $product->image;
         if ($request->file('product_img')) {
             $deleted = Storage::delete('public/products/' . $image);
-            $path = $request->file('product_img')->store('public/products');
-            $image = basename($path);
+            $image=$request->file('product_img');
+            $newName=date('y-m-d').'_'.time().'.'.$image->getClientOriginalExtension();
+            $destination=public_path('product_storage');
+            $img=Image::make($image->getRealPath())->resize(200,200)->save($destination.'/'.$newName);
+            $image = $newName;
         }
         Product::where('id', $id)->update([
             'title' => $request->title,
