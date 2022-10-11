@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use PDF;
 use Image;
+
 class ProductController extends Controller
 {
     public function index()
@@ -38,11 +39,11 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         //    $name=$request->category;
-        $image=$request->file('product_img');
-        $newName=date('y-m-d').'_'.time().'.'.$image->getClientOriginalExtension();
-        $destination=public_path('product_storage');
-        $img=Image::make($image->getRealPath())->resize(200,200)->save($destination.'/'.$newName);
-       
+        $image = $request->file('product_img');
+        $newName = date('y-m-d') . '_' . time() . '.' . $image->getClientOriginalExtension();
+        $destination = public_path('product_storage');
+        $img = Image::make($image->getRealPath())->resize(200, 200)->save($destination . '/' . $newName);
+
         Product::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -67,10 +68,10 @@ class ProductController extends Controller
         $image = $product->image;
         if ($request->file('product_img')) {
             $deleted = Storage::delete('public/products/' . $image);
-            $image=$request->file('product_img');
-            $newName=date('y-m-d').'_'.time().'.'.$image->getClientOriginalExtension();
-            $destination=public_path('product_storage');
-            $img=Image::make($image->getRealPath())->resize(200,200)->save($destination.'/'.$newName);
+            $image = $request->file('product_img');
+            $newName = date('y-m-d') . '_' . time() . '.' . $image->getClientOriginalExtension();
+            $destination = public_path('product_storage');
+            $img = Image::make($image->getRealPath())->resize(200, 200)->save($destination . '/' . $newName);
             $image = $newName;
         }
         Product::where('id', $id)->update([
@@ -86,7 +87,6 @@ class ProductController extends Controller
     {
         // dd('wow'.$deleted);
         $flag = Product::where('id', $id)->get()->first();
-        $deleted = Storage::delete('public/products/' . $flag->image);
         $flag->delete();
         return redirect()->route('Product.Index')->withMessage('Product Deleted SuccessFully');
     }
@@ -108,5 +108,24 @@ class ProductController extends Controller
             return response()->json(['status' => 'success'], 200);
         }
         return response()->json(['status' => 'failed'], 200);
+    }
+    public function trashproduct()
+    {
+        $productList = Product::onlyTrashed()->leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
+        return view('product.trash', compact('productList'));
+    }
+    public function deleteForce($id)
+    {
+        $flag = Product::onlyTrashed()->where('id', $id)->get()->first();
+        $deleted = Storage::delete('public/products/' . $flag->image);
+        $flag->forceDelete();
+        return redirect()->route('Product.Trash')->withMessage('Product Deleted permanently');
+    }
+    public function restoreProduct($id)
+    {
+        $flag = Product::onlyTrashed()->where('id', $id)->get()->first();
+        $flag->restore();
+        return redirect()->route('Product.Trash')->withMessage('Product Restored Successfully');
+
     }
 }

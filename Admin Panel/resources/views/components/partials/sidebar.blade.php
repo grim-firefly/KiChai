@@ -5,7 +5,7 @@
 		<div class="sidebar-main" id="sidebar">
 			<!-- single sidebar button  -->
 			<div class="sidebar-only-button">
-				<a href="{{url('/')}}" class="sidebar-button {{Request::path()=='/' ? 'active':''}}"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
+				<a href="{{route('dashboard')}}" class="sidebar-button {{Request::path()=='/' ? 'active':''}}"><i class="fa-solid fa-house-chimney sidebar-button-left-icon "></i>
 					DashBoard</a>
 			</div>
 
@@ -38,6 +38,12 @@
 				<a href="{{route('Product.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 					Products</a>
 			</div>
+			<div class="sidebar-only-button">
+				<a href="{{route('Product.Trash')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+					Trash Products</a>
+			</div>
+
+			
 			<div class="sidebar-only-button">
 				<a href="{{route('Lab.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 					Labs</a>

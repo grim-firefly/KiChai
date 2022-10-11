@@ -58,11 +58,11 @@
                                     </a>
 
                                     <a class="btn btn-primary btn-sm edit-btn"
-                                        href="{{ route('Product.Edit', [$product->id]) }}">
-                                        <i class="fa-solid fa-edit"></i>
+                                        href="{{ route('Product.Restore', [$product->id]) }}">
+                                        <i class="fa-solid fa-edit"></i>r
                                     </a>
 
-                                    <form action="{{ route('Product.Delete', [$product->id]) }}" method="POST"
+                                    <form action="{{ route('Product.DeleteForce', [$product->id]) }}" method="POST"
                                         class="mx-1">
                                         @csrf
                                         @method('DELETE')
@@ -78,7 +78,6 @@
                         </tr>
                     @empty
                         <tr ><td colspan="5" style="text-align:center;">No Product Found</td></tr>
-
                     @endforelse
 
                 </tbody>
