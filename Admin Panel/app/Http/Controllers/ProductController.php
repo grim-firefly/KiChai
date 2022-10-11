@@ -17,6 +17,7 @@ class ProductController extends Controller
         // $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
        
         $productList=Product::with('category')->get();
+        // $productList=Product::all();
         return view('product.index', compact('productList'));
     }
     public function show(Request $request)
@@ -113,7 +114,7 @@ class ProductController extends Controller
     }
     public function trashproduct()
     {
-        $productList = Product::onlyTrashed()->leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
+        $productList=Product::onlyTrashed()->with('category')->get();
         return view('product.trash', compact('productList'));
     }
     public function deleteForce($id)
