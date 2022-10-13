@@ -3,54 +3,25 @@
         <div class="row mt-3">
 
             <div class="page-title">
-                <h1>Product of {{ $category->name }}</h1>
+                <h1>Product of {{ $Brand->name }}</h1>
             </div>
             
             <table class="table border table-hover" id="category-table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">images</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">is_active</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">name</th>
+                        <th scope="col">color</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($category->product as $product)
+                    @forelse ($Brand->color as $color)
                         <tr>
-                            <th scope="row">{{ $product->id }}</th>
-                            <th scope="row"><img style="height: 50px;width:80px;"
-                                    src="{{ asset('product_storage/' . $product->image) }}" alt="wow" srcset="">
-                            </th>
-                            <td>{{ $product->title }}</td>
-                             <td>{{ $product->is_active ? 'Yes' : 'No' }}</td>
-                            <td>
-                                <div style="display: flex;">
-
-                                    <a class="btn btn-primary btn-sm edit-btn mx-1"
-                                        href="{{ route('Product.Show', ['id' => $product->id]) }}">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a class="btn btn-primary btn-sm edit-btn"
-                                        href="{{ route('Product.Edit', [$product->id]) }}">
-                                        <i class="fa-solid fa-edit"></i>
-                                    </a>
-
-                                    <form action="{{ route('Product.Delete', [$product->id]) }}" method="POST"
-                                        class="mx-1">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm delete-btn">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
-
-
-
-                            </td>
+                            <th scope="row">{{ $color->id }}</th>
+                            
+                            <td>{{ $color->name }}</td>
+                             <td>{{ $color->color}}</td>
+                            
                         </tr>
                     @empty
                         <tr>

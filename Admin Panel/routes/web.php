@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\UserController;
@@ -39,6 +41,25 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::delete('/{id}/delete', [CategoryController::class, 'delete'])->name('Delete');
         Route::get('/{id?}', [CategoryController::class, 'show'])->name('Show');
     });
+    Route::prefix('brands')->name('Brand.')->group(function () {
+        Route::get('/', [BrandController::class, 'index'])->name('Index');
+        Route::get('create', [BrandController::class, 'create'])->name('Create');
+        Route::post('/', [BrandController::class, 'store'])->name('Store');
+        Route::get('/{id}/edit', [BrandController::class, 'edit'])->name('Edit');
+        Route::put('/', [BrandController::class, 'update'])->name('Update');
+        Route::delete('/{id}/delete', [BrandController::class, 'delete'])->name('Delete');
+        Route::get('/{id?}', [BrandController::class, 'show'])->name('Show');
+    });
+    Route::prefix('colors')->name('Color.')->group(function () {
+        Route::get('/', [ColorController::class, 'index'])->name('Index');
+        Route::get('create', [ColorController::class, 'create'])->name('Create');
+        Route::post('/', [ColorController::class, 'store'])->name('Store');
+        Route::get('/{id}/edit', [ColorController::class, 'edit'])->name('Edit');
+        Route::put('/', [ColorController::class, 'update'])->name('Update');
+        Route::delete('/{id}/delete', [ColorController::class, 'delete'])->name('Delete');
+        Route::get('/{id?}', [ColorController::class, 'show'])->name('Show');
+    });
+
 
     Route::prefix('productslist')->name('Product.')->group(function () {
         Route::get('/trashproduct', [ProductController::class, 'trashproduct'])->name('Trash');

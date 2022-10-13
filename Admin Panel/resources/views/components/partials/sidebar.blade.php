@@ -48,6 +48,14 @@
 				<a href="{{route('Lab.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
 					Labs</a>
 			</div>
+			<div class="sidebar-only-button">
+				<a href="{{route('Brand.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+					Brands</a>
+			</div>
+			<div class="sidebar-only-button">
+				<a href="{{route('Color.Index')}}" class="sidebar-button {{Request::path()=='product' ? 'active':''}} "><i class="fa-solid fa-cart-flatbed-suitcase sidebar-button-left-icon"></i>
+					Colors</a>
+			</div>
 			<!-- sidebar button containing list  -->
 
 		</div>

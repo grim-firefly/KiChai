@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Color extends Model
+class Brand extends Model
 {
     use HasFactory;
-    protected $fillable=['name','color','brand_id'];
-    public function brand(){
-        return $this->belongsTo(Brand::class);
+    protected $fillable=['name'];
+    public function color(){
+       return  $this->hasMany(Color::class);
     }
 }

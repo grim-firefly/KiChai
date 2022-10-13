@@ -3,7 +3,7 @@
         <div class="row mt-3">
 
             <div class="page-title">
-                <h1>Product of {{ $category->name }}</h1>
+                <h1>Product of {{ $Brand->name }}</h1>
             </div>
             
             <table class="table border table-hover" id="category-table">

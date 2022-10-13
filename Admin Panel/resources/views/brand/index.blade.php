@@ -1,44 +1,55 @@
 <x-master>
     <div class="col-md-11" id="sidebar-right-section">
         <div class="row mt-3">
+            <div class="col-4">
 
-            <div class="page-title">
-                <h1>Product of {{ $category->name }}</h1>
             </div>
-            
+            <div class="page-title col-3">
+                <h1>Brands</h1>
+            </div>
+            <div class="col-5">
+
+            </div>
+        </div>
+
+        <div class="add-new-category mb-1  " style="display:flex;">
+
+            <x-common.button tag='a' url="{{ route('Brand.Create') }}" icon="fa-solid fa-plus" name="Add">
+            </x-common.button>
+        </div>
+
+
+
+        <div class="row">
             <table class="table border table-hover" id="category-table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">images</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">is_active</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Created at</th>
+                        <th scope="col">Options</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($category->product as $product)
+                    @forelse ($brandList as $brand)
                         <tr>
-                            <th scope="row">{{ $product->id }}</th>
-                            <th scope="row"><img style="height: 50px;width:80px;"
-                                    src="{{ asset('product_storage/' . $product->image) }}" alt="wow" srcset="">
-                            </th>
-                            <td>{{ $product->title }}</td>
-                             <td>{{ $product->is_active ? 'Yes' : 'No' }}</td>
+                            <th scope="row">{{ $brand->id }}</th>
+                            <td>{{ $brand->name }}</td>
+                            <td>{{ $brand->created_at }}</td>
                             <td>
                                 <div style="display: flex;">
 
                                     <a class="btn btn-primary btn-sm edit-btn mx-1"
-                                        href="{{ route('Product.Show', ['id' => $product->id]) }}">
+                                        href="{{ route('Brand.Show', ['id' => $brand->id]) }}">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
 
                                     <a class="btn btn-primary btn-sm edit-btn"
-                                        href="{{ route('Product.Edit', [$product->id]) }}">
+                                        href="{{ route('Brand.Edit', [$brand->id]) }}">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('Product.Delete', [$product->id]) }}" method="POST"
+                                    <form action="{{ route('Brand.Delete', [$brand->id]) }}" method="POST"
                                         class="mx-1">
                                         @csrf
                                         @method('DELETE')
@@ -53,21 +64,19 @@
                             </td>
                         </tr>
                     @empty
-                        <tr>
-                            <td colspan="5" style="text-align:center;">No Product Found</td>
-                        </tr>
+                        <h1>No Brands Found</h1>
                     @endforelse
 
                 </tbody>
             </table>
-
         </div>
+
     </div>
 
+    </div>
     <x-slot:title>
-        Admin | view Category
+        Admin | Category
         </x-slot>
-
         <x-slot:scripts>
             <script>
                 $(document).ready(function() {
