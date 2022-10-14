@@ -12,4 +12,7 @@ class Brand extends Model
     public function color(){
        return  $this->hasMany(Color::class);
     }
+    public function product(){
+        return $this->hasOne(Product::class);
+    }
 }

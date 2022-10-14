@@ -36,8 +36,7 @@
 
                     </div>
                     <div class="input-box">
-                        <textarea placeholder="Product Description" type="text" name="description"
-                            class="input-box-input my-2 "
+                        <textarea placeholder="Product Description" type="text" name="description" class="input-box-input my-2 "
                             style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;">{{ old('description') }}</textarea>
                         <span class="line"></span>
 
@@ -51,14 +50,36 @@
                     <div class="input-box">
                         <select name="category"
                             style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                            <option disabled selected>Select Category</option>
+
                             @foreach ($categoryList as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
+                    <div class="input-box">
+                        <select required name="brand"
+                            style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                            <option disabled selected>Select Brand</option>
+                            @foreach ($brandList as $brand)
+                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <select name="color"
+                            style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                            <option disabled selected>Select Color</option>
+
+                            @foreach ($colorList as $color)
+                                <option value="{{ $color->id }}">{{ $color->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <div class="input-box">
-                        <input type="checkbox" id="vehicle3" name="is_active" value="1" {{old('is_active') ? 'checked':''}}>
+                        <input type="checkbox" id="vehicle3" name="is_active" value="1"
+                            {{ old('is_active') ? 'checked' : '' }}>
                         <label for="vehicle3">Active</label><br>
                     </div>
                     <div class="d-flex" style="justify-content: center;">

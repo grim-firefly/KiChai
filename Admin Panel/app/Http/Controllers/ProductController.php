@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,8 +17,8 @@ class ProductController extends Controller
     public function index()
     {
         // $productList = Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')->get(['products.id', 'products.title', 'products.image', 'categories.name as category', 'products.is_active']);
-       
-        $productList=Product::with('category')->get();
+
+        $productList = Product::with('category', 'brand', 'color')->get();
         // $productList=Product::all();
         return view('product.index', compact('productList'));
     }
@@ -37,7 +39,9 @@ class ProductController extends Controller
     public function create()
     {
         $categoryList = Category::all(['id', 'name']);
-        return view('product.create', compact('categoryList'));
+        $brandList = Brand::get(['id', 'name']);
+        $colorList = Color::get(['id', 'name']);
+        return view('product.create', compact('categoryList', 'brandList', 'colorList'));
     }
     public function store(ProductRequest $request)
     {
@@ -52,7 +56,9 @@ class ProductController extends Controller
             'description' => $request->description,
             'category_id' => $request->category,
             'is_active' => $request->is_active ? true : false,
-            'image' => $newName
+            'image' => $newName,
+            'color_id' => $request->color,
+            'brand_id' => $request->brand
         ]);
         return redirect()->route('Product.Index')->withMessage('Product Added SuccessFully');
     }
@@ -61,8 +67,9 @@ class ProductController extends Controller
         $id = $request->id;
         $product = Product::where('id', $id)->get()->first();
         $categoryList = Category::all(['id', 'name']);
-
-        return view('product.edit', compact('id', 'product', 'categoryList'));
+        $brandList = Brand::get(['id', 'name']);
+        $colorList = Color::get(['id', 'name']);
+        return view('product.edit', compact('id', 'product', 'categoryList', 'brandList', 'colorList'));
     }
     public function update(ProductRequest $request)
     {
@@ -82,7 +89,9 @@ class ProductController extends Controller
             'description' => $request->description,
             'category_id' => $request->category,
             'is_active' => $request->is_active ? true : false,
-            'image' => $image
+            'image' => $image,
+            'color_id' => $request->color,
+            'brand_id' => $request->brand
         ]);
         return redirect()->route('Product.Index')->withMessage('Product Updated SuccessFully');
     }
@@ -114,7 +123,7 @@ class ProductController extends Controller
     }
     public function trashproduct()
     {
-        $productList=Product::onlyTrashed()->with('category')->get();
+        $productList = Product::onlyTrashed()->with('category')->get();
         return view('product.trash', compact('productList'));
     }
     public function deleteForce($id)
@@ -129,6 +138,5 @@ class ProductController extends Controller
         $flag = Product::onlyTrashed()->where('id', $id)->get()->first();
         $flag->restore();
         return redirect()->route('Product.Trash')->withMessage('Product Restored Successfully');
-
     }
 }

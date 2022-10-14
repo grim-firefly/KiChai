@@ -593,6 +593,7 @@ class ComposerStaticInitd806a681ed5c668b77320b55264096bf
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/BrandController.php',
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
+        'App\\Http\\Controllers\\ColorController' => __DIR__ . '/../..' . '/app/Http/Controllers/ColorController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\LabController' => __DIR__ . '/../..' . '/app/Http/Controllers/LabController.php',
         'App\\Http\\Controllers\\LogInController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogInController.php',

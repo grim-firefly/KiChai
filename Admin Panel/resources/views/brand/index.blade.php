@@ -25,7 +25,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Category</th>
+                        <th scope="col">Brand</th>
                         <th scope="col">Created at</th>
                         <th scope="col">Options</th>
                     </tr>

@@ -37,6 +37,8 @@
                         <th scope="col">images</th>
                         <th scope="col">Product</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Colors</th>
                         <th scope="col">is_active</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -48,6 +50,8 @@
                             <th scope="row"><img style="height: 50px;width:80px;" src="{{asset('product_storage/'.$product->image)}}" alt="wow" srcset=""></th>
                             <td>{{ $product->title }}</td>
                             <td>{{ $product->category->name }}</td>
+                            <td>{{ $product->brand->name }}</td>
+                            <td>{{ $product->color->name }}</td>
                             <td>{{ $product->is_active ? 'Yes' : 'No' }}</td>
                             <td>
                                 <div style="display: flex;">

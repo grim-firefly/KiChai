@@ -62,6 +62,29 @@
                     </select>
                 </div>
                 <div class="input-box">
+                    <select required name="brand"
+                        style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+                        @foreach ($brandList as $brand)
+                            <option value="{{ $brand->id }}"
+                                {{ $brand->id == old('brand',$product->brand_id) ? 'selected' : '' }}>{{ $brand->name }}
+
+                            
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="input-box">
+                    <select name="color"
+                        style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
+
+                        @foreach ($colorList as $color)
+                            <option value="{{ $color->id }}"
+                                {{ $color->id == old('color',$product->color_id) ? 'selected' : '' }}>{{ $color->name }}
+                                </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="input-box">
                     <input type="checkbox" id="vehicle3" name="is_active" value="1"
                         {{ $product->is_active ? 'checked' : '' }}>
                     <label for="vehicle3">Active</label><br>

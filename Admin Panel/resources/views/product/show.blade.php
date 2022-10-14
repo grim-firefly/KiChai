@@ -7,6 +7,9 @@
                     <a href="{{Route('Product.pdfdownload',$product->id)}}">Download pdf</a>
                 </div>
                 <h1> {{ $product->title }}</h1>
+                <h4>Category:{{$product->category->name}}</h4>
+                <h4>Brand:{{$product->brand->name}}</h4>
+                <h4>Color:{{$product->color->name}}</h4>
                 <h1>{{ $product->description }}</h1>
                 <div class="" style="display: flex;justify-content:center;">
                     <img style="width:100%;" src="{{ asset('product_storage/' . $product->image) }}"

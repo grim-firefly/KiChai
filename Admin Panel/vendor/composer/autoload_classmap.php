@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\BrandController' => $baseDir . '/app/Http/Controllers/BrandController.php',
     'App\\Http\\Controllers\\CategoryController' => $baseDir . '/app/Http/Controllers/CategoryController.php',
+    'App\\Http\\Controllers\\ColorController' => $baseDir . '/app/Http/Controllers/ColorController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\LabController' => $baseDir . '/app/Http/Controllers/LabController.php',
     'App\\Http\\Controllers\\LogInController' => $baseDir . '/app/Http/Controllers/LogInController.php',
