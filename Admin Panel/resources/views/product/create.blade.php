@@ -76,7 +76,12 @@
                             @endforeach
                         </select>
                     </div>
-
+                    @foreach ($sizeList as $key => $size)
+                        <div class="input-box">
+                            <input type="checkbox" id="vehicle3" name="size[]" value="{{$key}}">
+                            <label for="vehicle3">{{ $size }}</label><br>
+                        </div>
+                    @endforeach
                     <div class="input-box">
                         <input type="checkbox" id="vehicle3" name="is_active" value="1"
                             {{ old('is_active') ? 'checked' : '' }}>

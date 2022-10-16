@@ -28,15 +28,15 @@
                 @method('PUT')
                 <input type="hidden" name="id" value="{{ $id }}">
                 <div class="input-box">
-                    <input value="{{ old('title',$product->title) }}" placeholder="Product Title" type="text" name="title"
-                        class="input-box-input my-2 "
+                    <input value="{{ old('title', $product->title) }}" placeholder="Product Title" type="text"
+                        name="title" class="input-box-input my-2 "
                         style="width: 300px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;" />
                     <span class="line"></span>
 
                 </div>
                 <div class="input-box">
                     <textarea placeholder="Product Description" type="text" name="description" class="input-box-input my-2 "
-                        style="width: 300px; height:150px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;">{{ old('description',$product->description) }}</textarea>
+                        style="width: 300px; height:150px;outline:none;border-radius:10px;padding:5px 15px; border-color:#f16343;">{{ old('description', $product->description) }}</textarea>
                     <span class="line"></span>
 
                 </div>
@@ -56,7 +56,8 @@
                         style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
                         @foreach ($categoryList as $category)
                             <option value="{{ $category->id }}"
-                                {{ $category->id == old('category',$product->category_id) ? 'selected' : '' }}>{{ $category->name }}
+                                {{ $category->id == old('category', $product->category_id) ? 'selected' : '' }}>
+                                {{ $category->name }}
                             </option>
                         @endforeach
                     </select>
@@ -66,9 +67,10 @@
                         style="display: flex; width:100%; justify-content:center;text-align:center;margin:15px 0px;">
                         @foreach ($brandList as $brand)
                             <option value="{{ $brand->id }}"
-                                {{ $brand->id == old('brand',$product->brand_id) ? 'selected' : '' }}>{{ $brand->name }}
+                                {{ $brand->id == old('brand', $product->brand_id) ? 'selected' : '' }}>
+                                {{ $brand->name }}
 
-                            
+
                             </option>
                         @endforeach
                     </select>
@@ -79,11 +81,22 @@
 
                         @foreach ($colorList as $color)
                             <option value="{{ $color->id }}"
-                                {{ $color->id == old('color',$product->color_id) ? 'selected' : '' }}>{{ $color->name }}
-                                </option>
+                                {{ $color->id == old('color', $product->color_id) ? 'selected' : '' }}>
+                                {{ $color->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
+                @foreach ($sizeList as $key => $size)
+                    <div class="input-box">
+                        <input type="checkbox" id="vehicle3" name="size[]" value="{{ $key }}"
+                        @if(in_array($key,$checkedList))
+                        checked
+                        @endif
+                        >
+                        <label for="vehicle3">{{ $size }}</label><br>
+                    </div>
+                @endforeach
                 <div class="input-box">
                     <input type="checkbox" id="vehicle3" name="is_active" value="1"
                         {{ $product->is_active ? 'checked' : '' }}>

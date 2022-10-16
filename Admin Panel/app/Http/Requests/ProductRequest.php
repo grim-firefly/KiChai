@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
                     return [
                         // 'category'=>'required|unique:categories,name|max:50|min:4',
                         'title' => 'required|max:100|min:5',
-                        'description'=>'required|max:5000|min:100',
+                        'description'=>'required|max:5000|min:10',
                         'product_img'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                         'category'=>'required|exists:categories,id',
                     ];
@@ -38,7 +38,7 @@ class ProductRequest extends FormRequest
                         // 'category'=>'required|unique:categories,name|max:50|min:4',
                         'id'=>'required|exists:products',
                         'title' => 'required|max:100|min:5',
-                        'description'=>'required|max:5000|min:100',
+                        'description'=>'required|max:5000|min:10',
                         'category'=>'required|exists:categories,id',
                         'product_img'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 

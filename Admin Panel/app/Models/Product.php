@@ -26,4 +26,7 @@ class Product extends Model
   {
     return $this->hasOne(Color::class,'id','color_id');
   }
+  public function size(){
+    return $this->belongsToMany(Size::class);
+  }
 }

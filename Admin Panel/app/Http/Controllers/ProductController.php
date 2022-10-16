@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use PDF;
@@ -41,7 +42,8 @@ class ProductController extends Controller
         $categoryList = Category::all(['id', 'name']);
         $brandList = Brand::get(['id', 'name']);
         $colorList = Color::get(['id', 'name']);
-        return view('product.create', compact('categoryList', 'brandList', 'colorList'));
+        $sizeList = Size::pluck('size', 'id');
+        return view('product.create', compact('categoryList', 'brandList', 'colorList', 'sizeList'));
     }
     public function store(ProductRequest $request)
     {
@@ -51,7 +53,7 @@ class ProductController extends Controller
         $destination = public_path('product_storage');
         $img = Image::make($image->getRealPath())->resize(200, 200)->save($destination . '/' . $newName);
 
-        Product::create([
+        $product = Product::create([
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category,
@@ -60,6 +62,7 @@ class ProductController extends Controller
             'color_id' => $request->color,
             'brand_id' => $request->brand
         ]);
+        $product->size()->attach($request->size);
         return redirect()->route('Product.Index')->withMessage('Product Added SuccessFully');
     }
     public function edit(Request $request)
@@ -69,7 +72,11 @@ class ProductController extends Controller
         $categoryList = Category::all(['id', 'name']);
         $brandList = Brand::get(['id', 'name']);
         $colorList = Color::get(['id', 'name']);
-        return view('product.edit', compact('id', 'product', 'categoryList', 'brandList', 'colorList'));
+        $sizeList = Size::pluck('size', 'id');
+        $checkedList = $product->size()->pluck('id')->toArray();
+        // dd($checked);
+
+        return view('product.edit', compact('id', 'product', 'categoryList', 'brandList', 'colorList', 'sizeList', 'checkedList'));
     }
     public function update(ProductRequest $request)
     {
@@ -93,12 +100,14 @@ class ProductController extends Controller
             'color_id' => $request->color,
             'brand_id' => $request->brand
         ]);
+        $product->size()->sync($request->size);
         return redirect()->route('Product.Index')->withMessage('Product Updated SuccessFully');
     }
     public function delete($id)
     {
         // dd('wow'.$deleted);
         $flag = Product::where('id', $id)->get()->first();
+        $flag->size()->detach();
         $flag->delete();
         return redirect()->route('Product.Index')->withMessage('Product Deleted SuccessFully');
     }
